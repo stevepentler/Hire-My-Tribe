@@ -1,0 +1,6 @@
+
+<%= @developer.profile_picture %>
+<%= @developer.name %>
+<%= @developer.specialty %>
+<%= @developer.rate %>
+<%= button_to "Add to tribe", tribe_path(developer_id: @developer.id) %>
