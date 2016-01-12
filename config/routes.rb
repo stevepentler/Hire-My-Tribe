@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-
   root to: "welcome#index"
-
-  resources :developers, only: [:index]
 
   namespace :developers do
     get 'database_specialty', to: "specialty#database"
@@ -10,4 +7,7 @@ Rails.application.routes.draw do
     get 'back_end_specialty', to: "specialty#back_end"
   end
 
+  resources :developers, only: [:index, :show]
+
+  resource :tribe, only: [:create, :show]
 end
