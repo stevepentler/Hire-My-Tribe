@@ -1,5 +1,4 @@
 class Developers::SpecialtyController < ApplicationController
-
   def database
     @developers = Developer.where(specialty: "database")
   end
@@ -11,5 +10,4 @@ class Developers::SpecialtyController < ApplicationController
   def back_end
     @developers = Developer.where(specialty: "back_end")
   end
-
 end

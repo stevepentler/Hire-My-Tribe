@@ -13,7 +13,9 @@
 </head>
 <body>
   <%= render partial: "welcome/root_navbar" %>
-
+  <% flash.each do |type, msg| %>
+    <%= msg %>
+  <% end %>
   <%= yield %>
 
 </body>
