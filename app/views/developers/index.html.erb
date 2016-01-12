@@ -1,5 +1,14 @@
-<%= link_to "Database", developers_database_specialty_path %>
-<%= link_to "Front End", developers_front_end_specialty_path %>
-<%= link_to "Back End", developers_back_end_specialty_path %>
-
-<%= render @developers %>
+<div class="row center" >
+  <div style="display: inline-block;">
+    <%= button_to "Database Developers", developers_database_specialty_path, method: :get, class: "btn", style: "display: inline;" %>
+  </div>
+  <div style="display:inline-block;">
+    <%= button_to "Front End Developers", developers_front_end_specialty_path, method: :get, class: "btn", style: "display: inline;" %>
+  </div>
+  <div style="display:inline-block;">
+    <%= button_to "Back End Developers", developers_back_end_specialty_path, method: :get, class: "btn", style: "display: inline;" %>
+  </div>
+</div>
+<div class="row">
+  <%= render @developers %>
+</div>

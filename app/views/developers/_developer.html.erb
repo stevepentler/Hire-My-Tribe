@@ -1,5 +1,15 @@
-<%= developer.profile_picture %>
-<%= developer.name %>
-<%= developer.specialty %>
-<%= developer.rate %>
-<br>
+<div class="col s12 m4">
+  <div class="card">
+    <div class="card-image">
+      <img src="https://robohash.org/<%= developer.id %>" style="width: 100%;">
+      <span class="card-title black"><%= developer.name %></span>
+    </div>
+    <div class="card-content">
+      <h3>Specialty: <%= developer.specialty %></h2>
+      <h3>Rate: <%= developer.rate %>$/h</h2>
+    </div>
+    <div class="card-action">
+      <a href="#">This is a link</a>
+    </div>
+  </div>
+</div>

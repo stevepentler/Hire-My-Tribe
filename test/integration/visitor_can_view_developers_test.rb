@@ -11,3 +11,4 @@ class VisitorCanViewDevelopersTest < ActionDispatch::IntegrationTest
     assert page.has_content?("Dev2")
   end
 end
+
