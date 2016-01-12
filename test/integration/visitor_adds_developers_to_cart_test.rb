@@ -22,6 +22,21 @@ class VisitorAddsDevelopersToCartTest < ActionDispatch::IntegrationTest
     assert page.has_content?("10")
     assert page.has_content?("Total: 10")
   end
+
+  test "a visitor cannot add the same developer to the cart" do
+    developers = create_list(:developer, 4)
+
+    visit developer_path(developers[0])
+
+    assert_equal current_path, developer_path(developers[0])
+
+    click_on "Add to tribe"
+
+    visit developer_path(developers[0])
+
+    refute page.has_content?("Add to tribe")
+    assert page.has_content?("Dev1 is unavailable")
+  end
 end
 
 # Background: Developers, and a user that is not logged in

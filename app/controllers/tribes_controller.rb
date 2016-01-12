@@ -4,6 +4,7 @@ class TribesController < ApplicationController
     developer = Developer.find(params[:developer_id])
     flash[:notice] = "#{developer.name} has joined your tribe!"
 
+    developer.update_attribute(:status, "unavailable")
     session[:tribe] ||= []
     session[:tribe] << developer.id
 
