@@ -14,7 +14,7 @@ FactoryGirl.define do
     "pic#{n}"
   end
 
-  sequence :specialty, ["back end", "front end", "database"].cycle do |n|
+  sequence :specialty, ["back_end", "front_end", "database"].cycle do |n|
     "#{n}"
   end
 
