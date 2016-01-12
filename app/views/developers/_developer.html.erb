@@ -9,13 +9,7 @@
       <h3>Rate: <%= developer.rate %>$/h</h2>
     </div>
     <div class="card-action">
-      <a href="#">This is a link</a>
+      <%= link_to "#{developer.name} Bio", developer_path(developer) %>
     </div>
   </div>
 </div>
-<%= developer.profile_picture %>
-<%= developer.name %>
-<%= developer.specialty %>
-<%= developer.rate %>
-<%= link_to "#{developer.name} Bio", developer_path(developer) %>
-<br>
