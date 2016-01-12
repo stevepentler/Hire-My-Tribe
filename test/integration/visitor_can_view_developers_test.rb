@@ -5,10 +5,9 @@ class VisitorCanViewDevelopersTest < ActionDispatch::IntegrationTest
     create_list(:developer, 2)
 
     visit root_path
-    click_on "Browse Developers"
+    click_on "All Developers"
 
     assert page.has_content?("Dev1")
     assert page.has_content?("Dev2")
   end
 end
-

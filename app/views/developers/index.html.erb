@@ -1,4 +1,4 @@
-<div class="row center" >
+<div class="row center" id="buttons-row" >
   <div style="display: inline-block;">
     <%= button_to "Database Developers", developers_database_specialty_path, method: :get, class: "btn", style: "display: inline;" %>
   </div>
@@ -12,8 +12,3 @@
 <div class="row">
   <%= render @developers %>
 </div>
-<%= link_to "See current tribe", tribe_path %>
-
-<%= link_to "Database", developers_database_specialty_path %>
-<%= link_to "Front End", developers_front_end_specialty_path %>
-<%= link_to "Back End", developers_back_end_specialty_path %>

@@ -14,7 +14,7 @@ class TribesController < ApplicationController
     @developers = session[:tribe].map do |developer_id|
       Developer.find(developer_id)
     end
-    
+
     @total = @developers.reduce(0) do |acc, developer|
       acc + developer.rate.to_i
     end

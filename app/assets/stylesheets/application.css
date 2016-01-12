@@ -5,3 +5,7 @@
  .brand-logo {
    margin-left: 5%;
  }
+
+.tribe-row {
+  display: inline-block;
+}

@@ -1,10 +1,5 @@
-<% @developers.each do |developer| %>
-  <%= developer.profile_picture %>
-  <%= developer.name %>
-  <%= developer.specialty %>
-  <%= developer.rate %>
-  <%= link_to "#{developer.name} Bio", developer_path(developer) %>
-  <br>
-<% end %>
+<div class="container">
+<%= render "/tribes/project"  %>
 
 <%= "Total: #{@total}" %>
+</div>

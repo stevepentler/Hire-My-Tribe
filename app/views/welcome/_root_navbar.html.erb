@@ -2,10 +2,20 @@
     <div class="nav-wrapper deep-orange darken-4 coming-soon-font">
       <a href="/" class="brand-logo">Hire My Tribe</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><%=link_to "Browse Developers", developers_path %></li>
+        <li><a class="dropdown-button" data-activates="dropdown1">Browse Developers</a></li>
         <li>Browse Companies<%#=link_to "", developers_path %></li>
         <li>Create Account<%#= link_to "Browse Developers", developers_path %></li>
         <li><%= link_to "Current Tribe", tribe_path %></li>
+        <!-- <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li> -->
+
       </ul>
     </div>
   </nav>
+
+  <ul id="dropdown1" class="dropdown-content">
+    <li><%= link_to "All Developers", developers_path %></li>
+    <li class="divider"></li>
+    <li><%= link_to "Front End Developers", developers_front_end_specialty_path%></li>
+    <li><%= link_to "Back End Developers", developers_back_end_specialty_path %></li>
+    <li><%= link_to "Database Developers", developers_database_specialty_path %></li>
+  </ul>

@@ -5,7 +5,6 @@ class VisitorAddsDevelopersToCartTest < ActionDispatch::IntegrationTest
     developers = create_list(:developer, 4)
 
     visit developers_path #visit developer_path(@developer)
-    save_and_open_page
     click_on "Dev1 Bio"
 
     assert_equal current_path, developer_path(developers[0])
@@ -16,7 +15,7 @@ class VisitorAddsDevelopersToCartTest < ActionDispatch::IntegrationTest
 
     assert page.has_content?("Dev1 has joined your tribe!")
 
-    click_on "See current tribe"
+    click_on "Current Tribe"
     assert_equal current_path, tribe_path
 
     assert page.has_content?("Dev1")
