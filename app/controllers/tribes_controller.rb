@@ -4,6 +4,7 @@ class TribesController < ApplicationController
     developer = Developer.find(params[:developer_id])
     flash[:notice] = "#{developer.name} has joined your tribe!"
 
+    developer.update_attribute(:status, "unavailable")
     session[:tribe] ||= []
     session[:tribe] << developer.id
 
@@ -14,7 +15,7 @@ class TribesController < ApplicationController
     @developers = session[:tribe].map do |developer_id|
       Developer.find(developer_id)
     end
-    
+
     @total = @developers.reduce(0) do |acc, developer|
       acc + developer.rate.to_i
     end
