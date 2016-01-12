@@ -3,4 +3,5 @@
 <%= @developer.name %>
 <%= @developer.specialty %>
 <%= @developer.rate %>
-<%= button_to "Add to tribe", tribe_path(developer_id: @developer.id) %>
+<%= button_to("Add to tribe", tribe_path(developer_id: @developer.id)) if @developer.status == "available" %>
+<%= "#{@developer.name} is unavailable" if @developer.status == "unavailable" %>
