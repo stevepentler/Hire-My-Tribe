@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+.coming-soon-font { 
+font-family: 'Coming Soon', cursive;
+}
+
+.brand-logo { 
+  margin-left: 5%;
+}
+
