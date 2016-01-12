@@ -9,3 +9,10 @@
 .tribe-row {
   display: inline-block;
 }
+
+.background-image { 
+  background-image: url('HireMyTribeLogoNoText.png');
+  height: 1200px;
+  width: 10000px;
+  background-repeat: no-repeat;
+}
