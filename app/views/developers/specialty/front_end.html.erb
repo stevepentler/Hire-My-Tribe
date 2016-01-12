@@ -1,7 +1,1 @@
-<% @developers.each do |developer| %>
-  <%= developer.profile_picture %>
-  <%= developer.name %>
-  <%= developer.specialty %>
-  <%= developer.rate %>
-  <br>
-<% end %>
+<%= render partial: "/developers/developer", collection: @developers %>

@@ -1,10 +1,11 @@
 <nav>
-  <div class="nav-wrapper">
-    <a href="#" class="brand-logo right">Logo</a>
-    <ul id="nav-mobile" class="left hide-on-med-and-down">
-      <li><%=link_to "Browse Developers", developers_path %></li>
-      <li><a href="badges.html">Components</a></li>
-      <li><a href="collapsible.html">JavaScript</a></li>
-    </ul>
-  </div>
-</nav>
+    <div class="nav-wrapper deep-orange darken-4 coming-soon-font">
+      <a href="/" class="brand-logo">Hire My Tribe</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><%=link_to "Browse Developers", developers_path %></li>
+        <li>Browse Companies<%#=link_to "", developers_path %></li>
+        <li>Create Account<%#= link_to "Browse Developers", developers_path %></li>
+        <li><%= link_to "Current Tribe", tribe_path %></li>
+      </ul>
+    </div>
+  </nav>

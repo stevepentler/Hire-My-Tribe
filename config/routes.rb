@@ -10,4 +10,11 @@ Rails.application.routes.draw do
   resources :developers, only: [:index, :show]
 
   resource :tribe, only: [:create, :show]
+
+  #/developers/database_specialty
+
+  #/specialty/database/developers
+  # resources :specialty, only: [:show] do
+  #   resources :developers
+  # end
 end
