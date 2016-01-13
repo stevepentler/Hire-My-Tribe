@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :initialize_tribes_session, :all_specialties
 
+  helper_method :current_user?
+
   def initialize_tribes_session
     session[:tribe] ||= []
   end
@@ -16,4 +18,15 @@ class ApplicationController < ActionController::Base
     @disable_navbar = true
   end
 
+  def current_user?
+    current_developer || current_contractor
+  end
+
+  def current_developer
+    @current_developer ||= Contractor.find(session[:developer_id]) if session[:developer_id]
+  end
+
+  def current_contractor
+    @current_contractor ||= Contractor.find(session[:contractor_id]) if session[:contractor_id]
+  end
 end
