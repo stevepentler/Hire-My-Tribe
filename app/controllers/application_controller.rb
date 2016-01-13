@@ -2,12 +2,13 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  before_action :initialize_tribes_session, :all_specialties
+  before_action :current_pending_tribe, :all_specialties
 
   helper_method :current_user?
 
-  def initialize_tribes_session
+  def current_pending_tribe
     session[:tribe] ||= []
+    @ptribe = PendingTribe.new(session[:tribe])
   end
 
   def all_specialties

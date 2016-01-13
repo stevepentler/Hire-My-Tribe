@@ -7,5 +7,4 @@ class WelcomeController < ApplicationController
   def new
     @contractor = Contractor.new
   end
-
 end

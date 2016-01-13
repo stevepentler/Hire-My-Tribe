@@ -56,7 +56,9 @@ class ContractorCanLoginTest < ActionDispatch::IntegrationTest
     assert page.has_content?(contractor.bio)
   end
 
-
+  test  "contractor see their tribes" do
+    
+  end
 
 
 # And when I visit "/cart"
