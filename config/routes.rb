@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resource :contractor, only: [:create, :show]
 
   # resources :contractors, only: [:create, :show]
-
+  get '/login', to: "sessions#new"
+  post '/login', to: "sessions#create"
   get '/sign_up', to: "welcome#new"
 end

@@ -37,6 +37,24 @@ class ContractorCanLoginTest < ActionDispatch::IntegrationTest
     refute page.has_content?("Login")
   end
 
+  test "contractor can login to an existing account" do
+    contractor = create(:contractor)
+    visit root_path
+    click_on "Login"
+
+    assert_equal current_path, login_path
+
+    within '#contractor-login-form' do
+      fill_in "Email", with: contractor.email
+      fill_in "Password", with: contractor.password
+      click_on "Contractor Login"
+    end
+
+    assert_equal current_path, contractor_path
+    assert page.has_content?(contractor.first_name)
+    assert page.has_content?(contractor.last_name)
+    assert page.has_content?(contractor.bio)
+  end
 
 
 
@@ -48,7 +66,4 @@ class ContractorCanLoginTest < ActionDispatch::IntegrationTest
 # And I should not see "Logout"
 
 
-  test "contractor can login to an existing account" do
-
-  end
 end

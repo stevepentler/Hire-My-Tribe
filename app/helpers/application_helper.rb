@@ -3,7 +3,7 @@ module ApplicationHelper
     if current_user?
       "Logout"
     else
-      "Login"
+      link_to "Login", login_path
     end
   end
 end
