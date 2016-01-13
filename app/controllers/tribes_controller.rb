@@ -4,7 +4,7 @@ class TribesController < ApplicationController
     developer = Developer.find(params[:developer_id])
     flash[:notice] = "#{developer.name} has joined your tribe!"
 
-    developer.update_attribute(:status, "unavailable")
+    # developer.update_attribute(:status, "unavailable")
     session[:tribe] ||= []
     session[:tribe] << developer.id
 
@@ -19,6 +19,11 @@ class TribesController < ApplicationController
     @total = @developers.reduce(0) do |acc, developer|
       acc + developer.rate.to_i
     end
+  end
+
+  def destroy
+    session[:tribe].delete_if {|id| id == params[:developer_id].to_i }
+    redirect_to tribe_path
   end
 
 end

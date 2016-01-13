@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :developers, only: [:index, :show]
 
-  resource :tribe, only: [:create, :show]
+  resource :tribe, only: [:create, :show, :destroy]
 
   resources :specialties, only:[:show]
 

@@ -22,14 +22,13 @@ class VisitorAddsDevelopersToCartTest < ActionDispatch::IntegrationTest
   end
 
   test "a visitor cannot add the same developer to the cart" do
-    skip
-    visit developer_path(developers[0])
+    visit developer_path(developers.first)
 
-    assert_equal current_path, developer_path(developers[0])
+    assert_equal current_path, developer_path(developers.first)
 
     click_on "Add to tribe"
 
-    visit developer_path(developers[0])
+    visit developer_path(developers.first)
 
     refute page.has_content?("Add to tribe")
     assert page.has_content?("Dev1 is unavailable")

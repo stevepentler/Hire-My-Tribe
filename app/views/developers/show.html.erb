@@ -7,6 +7,6 @@
     <li><%= @developer.specialty.name %></li>
     <li><%= @developer.rate %></li>
   </ul>
-  <%= button_to("Add to tribe", tribe_path(developer_id: @developer.id)) if @developer.status == "available" %>
-  <%= "#{@developer.name} is unavailable" if @developer.status == "unavailable" %>
+  <%= button_to("Add to tribe", tribe_path(developer_id: @developer.id)) unless session[:tribe].include?(@developer.id) %>
+  <%= "#{@developer.name} is unavailable" if session[:tribe].include?(@developer.id) %>
 </div>
