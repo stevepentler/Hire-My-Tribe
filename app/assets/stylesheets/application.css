@@ -89,9 +89,8 @@ font-family: 'Cantarell', sans-serif;
 }
 
 .card-action {
-  background-color: #669884;
-  margin-right: auto;
-  margin-left: auto;
+  background-color: black;
+  left: 0;
 }
 
 #developer-bio {
@@ -106,7 +105,9 @@ font-family: 'Cantarell', sans-serif;
   font-size: 80px;
 }
 
-
+.single-totem{
+  max-height: 20px;
+}
 
 
 
