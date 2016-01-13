@@ -7,7 +7,7 @@
       </span>
       <span class="card-content right">
         <h3><%= developer.name %></h3>
-        <h3>Specialty: <%= developer.specialty %></h3>
+        <h3>Specialty: <%= developer.specialty.name %></h3>
         <h3>Rate: <%= developer.rate %>$/h</h3>
         <%= link_to "#{developer.name} Bio", developer_path(developer) %>
       </span>

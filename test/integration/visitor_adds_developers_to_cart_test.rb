@@ -2,12 +2,10 @@ require 'test_helper'
 
 class VisitorAddsDevelopersToCartTest < ActionDispatch::IntegrationTest
   test "a visitor can add developers to cart from index pages" do
-    developers = create_list(:developer, 4)
-
     visit developers_path #visit developer_path(@developer)
     click_on "Dev1 Bio"
 
-    assert_equal current_path, developer_path(developers[0])
+    assert_equal current_path, developer_path(developers.first)
 
     click_on "Add to tribe"
 
@@ -24,8 +22,7 @@ class VisitorAddsDevelopersToCartTest < ActionDispatch::IntegrationTest
   end
 
   test "a visitor cannot add the same developer to the cart" do
-    developers = create_list(:developer, 4)
-
+    skip
     visit developer_path(developers[0])
 
     assert_equal current_path, developer_path(developers[0])
