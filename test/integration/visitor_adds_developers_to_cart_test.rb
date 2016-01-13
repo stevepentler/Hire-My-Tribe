@@ -2,6 +2,8 @@ require 'test_helper'
 
 class VisitorAddsDevelopersToCartTest < ActionDispatch::IntegrationTest
   test "a visitor can add developers to cart from index pages" do
+    FactoryGirl.create_list(:developer, 1)
+
     visit developers_path #visit developer_path(@developer)
     click_on "Dev1 Bio"
 
