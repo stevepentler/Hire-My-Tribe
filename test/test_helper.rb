@@ -11,22 +11,28 @@ end
 class ActionDispatch::IntegrationTest
   include Capybara::DSL
 
-  def setup
-    devs = create_list(:developer, 6)
+  # def setup
+  #   # devs = create_list(:developer, 6)
+  #   #
+  #   # db = Specialty.create(name: "Database", url_name: "database")
+  #   # fe = Specialty.create(name: "Front End", url_name: "front_end")
+  #   # be = Specialty.create(name: "Back End", url_name: "back_end")
+  #   #
+  #   # be.developers << devs[0]
+  #   # be.developers << devs[3]
+  #   #
+  #   # fe.developers << devs[1]
+  #   # fe.developers << devs[4]
+  #   #
+  #   # db.developers << devs[2]
+  #   # db.developers << devs[5]
+  # end
 
-    db = Specialty.create(name: "Database", url_name: "database")
-    fe = Specialty.create(name: "Front End", url_name: "front_end")
-    be = Specialty.create(name: "Back End", url_name: "back_end")
-
-    be.developers << devs[0]
-    be.developers << devs[3]
-
-    fe.developers << devs[1]
-    fe.developers << devs[4]
-
-    db.developers << devs[2]
-    db.developers << devs[5]
-  end
+  # def setup
+  #   DatabaseCleaner.start
+  #   FactoryGirl.lint
+  #   DatabaseCleaner.clean
+  # end
 
   def developers
     Developer.all
@@ -34,7 +40,9 @@ class ActionDispatch::IntegrationTest
 
   def teardown
     DatabaseCleaner.clean
+
     reset_session!
+
     FactoryGirl.reload
   end
 

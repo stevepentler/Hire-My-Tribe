@@ -1,0 +1,26 @@
+FactoryGirl.create(:user) do |user|
+  user.posts.create(attributes_for(:post))
+end ### returns the return value
+
+### can override defaults by passing in hash
+
+factory :user do
+    first_name 'John'
+    last_name  'Doe'
+    admin false
+  end
+
+User.create({first_name "steve", last_name "p"})
+
+### pass blocks to params that need dynamic shit
+
+factory :user do
+  activation_code { User.generate_activation_code }
+  date_of_birth   { 21.years.ago }
+end
+
+### sequence (:email) can be called and passed to invitee...
+
+factory :invite do
+  invitee { FactoryGirl.generate(:email) }
+end
