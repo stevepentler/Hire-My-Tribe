@@ -11,4 +11,9 @@ class ApplicationController < ActionController::Base
   def all_specialties
     @specialties = Specialty.all
   end
+
+  def disable_navbar
+    @disable_navbar = true
+  end
+
 end
