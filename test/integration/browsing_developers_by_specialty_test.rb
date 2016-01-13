@@ -3,24 +3,9 @@ require 'test_helper'
 class BrowsingDevelopersBySpecialtyTest < ActionDispatch::IntegrationTest
 
   test "visitor can see all developers for a specific specialty" do
-    # devs = create_list(:developer, 6)
-    #
-    # db = Specialty.create(name: "Database", url_name: "database")
-    # fe = Specialty.create(name: "Front End", url_name: "front_end")
-    # be = Specialty.create(name: "Back End", url_name: "back_end")
-    # 
-    # db.developers << devs[2]
-    #
-    # db.developers << devs[5]
-    #
-    # fe.developers << devs[1]
-    # fe.developers << devs[4]
-    #
-    # be.developers << devs[0]
-    # be.developers << devs[3]
+    FactoryGirl.create_list(:developer, 6)
 
     visit developers_path
-    # save_and_open_page
     within '#buttons-row' do
       click_on "Database Developers"
     end
