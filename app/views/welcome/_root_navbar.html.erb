@@ -15,7 +15,7 @@
   <ul id="dropdown1" class="dropdown-content">
     <li><%= link_to "All Developers", developers_path %></li>
     <li class="divider"></li>
-    <li><%= link_to "Front End Developers", developers_front_end_specialty_path%></li>
-    <li><%= link_to "Back End Developers", developers_back_end_specialty_path %></li>
-    <li><%= link_to "Database Developers", developers_database_specialty_path %></li>
+    <% @specialties.each do |specialty| %>
+      <li> <%= link_to "#{specialty.name} Developers", specialty_path(specialty) %> </li>
+    <% end %>
   </ul>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160112210633) do
+ActiveRecord::Schema.define(version: 20160113002622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,11 +19,22 @@ ActiveRecord::Schema.define(version: 20160112210633) do
   create_table "developers", force: :cascade do |t|
     t.string   "name"
     t.string   "profile_picture"
-    t.string   "specialty"
     t.float    "rate"
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
     t.string   "status",          default: "available"
+    t.integer  "specialty_id"
   end
 
+  add_index "developers", ["specialty_id"], name: "index_developers_on_specialty_id", using: :btree
+
+  create_table "specialties", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "url_name"
+  end
+
+  add_foreign_key "developers", "specialties"
 end

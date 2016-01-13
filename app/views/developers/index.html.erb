@@ -1,14 +1,9 @@
-<div class="row center" id="buttons-row" >
-  <div style="display: inline-block;">
-    <%= button_to "Database Developers", developers_database_specialty_path, method: :get, class: "btn", style: "display: inline;" %>
-  </div>
-  <div style="display:inline-block;">
-    <%= button_to "Front End Developers", developers_front_end_specialty_path, method: :get, class: "btn", style: "display: inline;" %>
-  </div>
-  <div style="display:inline-block;">
-    <%= button_to "Back End Developers", developers_back_end_specialty_path, method: :get, class: "btn", style: "display: inline;" %>
-  </div>
+<div class="row center" id="buttons-row" style="display: inline-block;">
+  <% @specialties.each do |specialty| %>
+    <%= link_to "#{specialty.name} Developers", specialty_path(specialty) %>
+  <% end %>
 </div>
+
 <div class="row">
   <%= render @developers %>
 </div>
