@@ -1,13 +1,21 @@
- .amatic-font {
-font-family: 'Amatic SC', cursive;
+.amatic-font {
+  font-family: 'Amatic SC', cursive;
  }
 
+.cantarell-font {
+font-family: 'Cantarell', sans-serif;
+}
+
 .mint {
-  color: 669884;
+  color: #669884;
+}
+
+.grey-purple {
+  color: #757D95;
 }
 
 .brown {
-  color: 540018;
+  color: #540018;
 }
 
 .navbar-font {
@@ -48,6 +56,7 @@ font-family: 'Amatic SC', cursive;
 
 #normal-brand-logo{
   text-decoration: underline;
+  font-size: 50px;
 }
 
 #primary-text {
@@ -58,10 +67,57 @@ font-family: 'Amatic SC', cursive;
 #specialty-button {
     display: inline-block;
     text-align: center;
-    float: center;
+    background-color: #669884;
+    margin-top: 10px;
+    font-size: 30px;
+    color: white;
 }
 
-#specialty-button a {
-    color: white;
-    background-color: mint;
+#developer-card {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
 }
+
+#developer-image {
+  height: 250px;
+  border-radius: 150px;
+}
+
+.card-content {
+  font-size: 2.0rem;
+}
+
+.card-action {
+  background-color: #669884;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#developer-bio {
+  color: #540018;
+  font-size: 50px;
+  text-align: center;
+  background-color: #669884;
+  width: 100%;
+}
+
+#developer-basics {
+  font-size: 80px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
