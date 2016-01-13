@@ -6,7 +6,7 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <!-- Fonts -->
-  <link href='https://fonts.googleapis.com/css?family=Akronim|Amatic+SC:700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Amatic+SC:700' rel='stylesheet' type='text/css'>
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
   <!-- Compiled and minified JavaScript -->
@@ -14,7 +14,7 @@
 </head>
 <body>
   <div class='amatic-font'>
-  <%#= render partial: "navbars/navbar" unless @disable_navbar %> 
+  <%= render partial: "navbars/navbar" unless @disable_navbar %> 
 
     <% flash.each do |type, msg| %>
       <h4><%= msg %></h4>

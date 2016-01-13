@@ -1,10 +1,8 @@
-<%= render partial: "navbars/navbar" %>
-
-  <% @specialties.each do |specialty| %>
+<% @specialties.each do |specialty| %>
   <div class="row waves-effect waves-light btn" id="specialty-button">
     <%= link_to "#{specialty.name} Developers", specialty_path(specialty) %>
-</div>
-  <% end %>
+  </div>
+<% end %>
 
 <div class="row">
   <%= render @developers %>
