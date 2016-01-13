@@ -17,7 +17,6 @@ class ContractorCanLoginTest < ActionDispatch::IntegrationTest
       fill_in "Password", with: "password"
       click_on "Create Contractor Account"
     end
-    # contractor = Contractor.last
 
     assert_equal '/contractor', current_path
     assert page.has_content?("Mac")
@@ -57,7 +56,7 @@ class ContractorCanLoginTest < ActionDispatch::IntegrationTest
   end
 
   test  "contractor see their tribes" do
-    
+
   end
 
 
