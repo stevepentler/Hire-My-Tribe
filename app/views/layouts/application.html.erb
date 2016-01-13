@@ -5,19 +5,22 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
-  <!-- Coming Soon Font -->
- <link href='https://fonts.googleapis.com/css?family=Coming+Soon' rel='stylesheet' type='text/css'>
+  <!-- Fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Akronim|Amatic+SC:700' rel='stylesheet' type='text/css'>
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
 </head>
 <body>
-  <%= render partial: "welcome/root_navbar" %>
-  <% flash.each do |type, msg| %>
-    <%= msg %>
-  <% end %>
-  <%= yield %>
+  <div class='amatic-font'>
+  <%#= render partial: "navbars/navbar" unless @disable_navbar %> 
+
+    <% flash.each do |type, msg| %>
+      <h4><%= msg %></h4>
+    <% end %>
+    <%= yield %>
+  </div>
 
 </body>
 </html>

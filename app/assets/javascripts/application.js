@@ -13,6 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+// dropdown button
 $(document).ready(function(){
   $(".dropdown-button").dropdown();
+});
+
+// parralax
+$(document).ready(function(){
+  $('.parallax').parallax();
 });

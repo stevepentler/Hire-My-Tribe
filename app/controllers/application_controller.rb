@@ -11,4 +11,5 @@ class ApplicationController < ActionController::Base
   def all_specialties
     @specialties = Specialty.all
   end
+
 end

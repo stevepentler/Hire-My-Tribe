@@ -1,18 +1,71 @@
- .coming-soon-font {
- font-family: 'Coming Soon', cursive;
+ .amatic-font {
+font-family: 'Amatic SC', cursive;
  }
  ​
- .brand-logo {
-   margin-left: 5%;
+.akronim-font{ 
+  font-family: 'Akronim', cursive;
+}
+
+.mint {
+  color: 669884;
+}
+
+.brown {
+  color: 540018;
+}
+
+.navbar-font {
+  font-size: 20px;
+}
+
+ #brand-logo {
+   text-decoration: underline;
+   font-weight: 600;
+   font-size: 150px;
+   margin: 35px 0;
+   color: black;
+   margin-bottom: 200px;
  }
+
+ .parallax-container {
+  margin-top: 80px;
+   }
 
 .tribe-row {
   display: inline-block;
 }
 
 .background-image { 
-  background-image: url('HireMyTribeLogoNoText.png');
-  height: 1200px;
-  width: 10000px;
+  background-image: url('HireMyTribeLogoSmall.png');
+  background-size: contain; 
+  max-width: 100%;
   background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#primary-logo {
+  height: auto;
+  width: auto;
+  max-width: 1200px;
+  max-height: 500px;
+}
+
+#normal-brand-logo{
+  text-decoration: underline;
+}
+
+#primary-text {
+  font-weight: 600;
+  border-bottom-color: yellow;
+}
+
+#specialty-button {
+    display: inline-block;
+    text-align: center;
+    float: center;
+}
+
+#specialty-button a {
+    color: white;
+    background-color: mint;
 }
