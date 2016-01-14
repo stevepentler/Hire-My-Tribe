@@ -34,6 +34,7 @@ class ContractorCanLoginTest < ActionDispatch::IntegrationTest
 
     assert page.has_content?("Logout")
     refute page.has_content?("Login")
+    refute page.has_content?("Sign Up")
   end
 
   test "contractor can login to an existing account" do
@@ -62,9 +63,6 @@ class ContractorCanLoginTest < ActionDispatch::IntegrationTest
     visit developer_path(developer)
     click_on "Add to tribe"
 
-    # ptribe = PendingTribe.new([1,2,3])
-    # ApplicationController.any_instance.stubs(:current_pending_tribe).returns(ptribe)
-
     visit login_path
 
     within '#contractor-login-form' do
@@ -80,12 +78,17 @@ class ContractorCanLoginTest < ActionDispatch::IntegrationTest
     assert page.has_content?("Total")
   end
 
+  test "contractor cannot create account or login when already logged in" do
+    contractor = create(:contractor)
+    ApplicationController.any_instance.stubs(:current_contractor).returns(contractor)
 
-# And when I visit "/cart"
-# Then I should see all of the data that was there when I was not logged in
-# When I click "Logout"
-# Then I should see see "Login"
-# And I should not see "Logout"
+    visit login_path
+    assert_equal root_path, current_path
+    assert page.has_content?("Already logged in!")
 
+    visit sign_up_path
+    assert_equal root_path, current_path
+    assert page.has_content?("Already logged in!")
+  end
 
 end

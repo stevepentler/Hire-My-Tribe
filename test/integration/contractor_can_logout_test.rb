@@ -20,7 +20,6 @@ class ContractorCanLogoutTest < ActionDispatch::IntegrationTest
     refute page.has_content?("Logged in: Contractor #{contractor.first_name}")
 
     visit contractor_path
-    save_and_open_page
     assert page.has_content?("404")
   end
 end

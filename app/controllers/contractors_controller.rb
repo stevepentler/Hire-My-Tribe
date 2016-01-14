@@ -13,7 +13,6 @@ class ContractorsController < ApplicationController
 
   def show
     render file: 'public/404.html' unless current_contractor
-    
     @contractor = current_contractor
   end
 
