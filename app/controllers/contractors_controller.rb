@@ -12,7 +12,9 @@ class ContractorsController < ApplicationController
   end
 
   def show
-    @contractor = Contractor.find(session[:contractor_id])
+    render file: 'public/404.html' unless current_contractor
+    
+    @contractor = current_contractor
   end
 
 private
