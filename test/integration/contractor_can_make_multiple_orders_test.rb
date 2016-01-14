@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ContractorCanStartOrdersTest < ActionDispatch::IntegrationTest
+class ContractorCanMakeMultipleOrders < ActionDispatch::IntegrationTest
   test "Contractor can start project" do
     dev1, dev2 = create_list(:developer, 2)
     
@@ -16,19 +16,24 @@ class ContractorCanStartOrdersTest < ActionDispatch::IntegrationTest
     fill_in "Project Description", with: "Do Things"
     click_on "Start Project"
 
-    assert_equal payment_path, current_path
-
-    click_on "Submit Payment"
-
-
     project = Project.last 
-    assert_equal project_path(project), current_path
+    assert_equal contractor_project_path(project), current_path
 
     assert page.has_content?("New Project")
     assert page.has_content?("Do Things")
     assert page.has_content?(dev1.name)
     assert page.has_content?(dev2.name)
     assert_equal 1, Project.all.count 
+
+    
+    click_on "Submit Payment"
+
+    assert_equal contractor_project_payment_path(project), current_path
+
+    click_on "Make Payment"
+
+    assert_equal contractor_project_path(project), current_path
+
   end
 end
 
