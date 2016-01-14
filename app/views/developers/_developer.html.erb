@@ -1,15 +1,23 @@
 <div class="col s12 m4">
-  <div class="card">
-    <div class="card-image">
-      <img src="https://robohash.org/<%= developer.id %>" style="width: 100%;">
-      <span class="card-title black"><%= developer.name %></span>
+  <div class="card brown lighten-5 center">
+    <div class="card-image" id="developer-card">
+      <span>
+      <img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAZvAAAAJDFiY2JjNTc4LTQ0NDktNDcyYy05YzMxLTcyZmVmZDU3OTU5OA.jpg" style="width: 100%;" id="developer-image">
+<!--       <img src="https://robohash.org/<%= developer.id %>" style="width: 
+100%;" id="developer-image"> -->
+    
+    <%= image_tag("database/horse_animal_totem.png") if (developer.specialty.name == "Database")%>
+    <%= image_tag("front_end/hawk_animal_totem.png") if (developer.specialty.name == "Front End")%>
+    <%= image_tag("back_end/fox_animal_totem.png") if (developer.specialty.name == "Back End")%>
+    </span>
     </div>
-    <div class="card-content">
+    
+    <div class="card-content brown lighten-5">
+      <div class=" mint brown-text" >
+        <%= link_to "#{developer.name} Bio", developer_path(developer), id: "developer-bio", class: "row waves-effect waves-light btn-lg" %>
+      </div id="developer-basics">
       <h3>Specialty: <%= developer.specialty.name %></h2>
       <h3>Rate: <%= developer.rate %>$/h</h2>
-    </div>
-    <div class="card-action">
-      <%= link_to "#{developer.name} Bio", developer_path(developer) %>
     </div>
   </div>
 </div>
