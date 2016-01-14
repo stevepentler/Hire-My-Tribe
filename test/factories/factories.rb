@@ -1,5 +1,15 @@
 FactoryGirl.define do
 
+  factory :contractor do
+    first_name {FactoryGirl.generate(:contractor_first_name)}
+    last_name {FactoryGirl.generate(:contractor_last_name)}
+    email {FactoryGirl.generate(:email)}
+    password "password"
+    company_name "Mac"
+    bio "Nothing interesting"
+  end
+
+
   factory :developer do
     name
     profile_picture
@@ -14,6 +24,18 @@ FactoryGirl.define do
       description: "sample description"
       )
     }
+  end
+
+  sequence :email do |n|
+    "email#{n}@hotmail.com"
+  end
+
+  sequence :contractor_first_name do |n|
+    "Con#{n}"
+  end
+
+  sequence :contractor_last_name do |n|
+    "#{n}"
   end
 
   sequence :specialty_name, ["Back End", "Front End", "Database"].cycle do |n|

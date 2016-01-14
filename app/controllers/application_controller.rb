@@ -2,10 +2,17 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  before_action :initialize_tribes_session, :all_specialties
+  before_action :current_pending_tribe, :all_specialties
 
-  def initialize_tribes_session
+  helper_method :current_user?, :current_contractor
+
+  def current_pending_tribe
+    @ptribe = current_pending_tribe_prep
+  end
+
+  def current_pending_tribe_prep
     session[:tribe] ||= []
+    PendingTribe.new(session[:tribe])
   end
 
   def all_specialties
@@ -16,4 +23,15 @@ class ApplicationController < ActionController::Base
     @disable_navbar = true
   end
 
+  def current_user?
+    current_developer || current_contractor
+  end
+
+  def current_developer
+    @current_developer ||= Contractor.find(session[:developer_id]) if session[:developer_id]
+  end
+
+  def current_contractor
+    @current_contractor ||= Contractor.find(session[:contractor_id]) if session[:contractor_id]
+  end
 end

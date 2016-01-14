@@ -1,8 +1,11 @@
-<div class="container">
-  
-  <%= render "/tribes/project"  %>
-  
-  <div class="right">
-    <h1><%= "Total: #{@total}" %></h1>
-  </div>
-</div>
+<%= form_for([current_contractor, @project], url: contractor_projects_path) do |f| %>
+    <%= f.label :title, "Project Title" %> 
+    <%= f.text_field :title %> 
+
+    <%= f.label :description, "Project Description" %>
+    <%= f.text_field :description %>
+
+    <%= render "/tribes/project"  %>
+
+    <%= f.submit "Start Project" %> <%= "Total: #{@ptribe.total}" %>
+<%end%>
