@@ -1,0 +1,25 @@
+<%#= form_for(@developer) do |f|%>
+<%# end %>
+
+<span id='contractor-form'>
+  <%= form_for(@contractor, url: contractor_path) do |f| %>
+
+    <%= f.label :company_name, "Company Name" %>
+    <%= f.text_field :company_name, value: "Independent Contractor" %>
+
+    <%= f.label :first_name, "First Name" %>
+    <%= f.text_field :first_name %>
+
+    <%= f.label :last_name, "Last Name" %>
+    <%= f.text_field :last_name %>
+
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+
+    <%= f.submit "Create Contractor Account" %>
+
+  <% end %>
+</span>
