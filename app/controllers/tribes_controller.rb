@@ -8,6 +8,7 @@ class TribesController < ApplicationController
   end
 
   def show
+    @project = Project.new
   end
 
   def destroy

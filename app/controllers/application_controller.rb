@@ -4,11 +4,15 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :current_pending_tribe, :all_specialties
 
-  helper_method :current_user?
+  helper_method :current_user?, :current_contractor
 
   def current_pending_tribe
+    @ptribe = current_pending_tribe_prep
+  end
+
+  def current_pending_tribe_prep
     session[:tribe] ||= []
-    @ptribe = PendingTribe.new(session[:tribe])
+    PendingTribe.new(session[:tribe])
   end
 
   def all_specialties
