@@ -1,4 +1,7 @@
-<% @ptribe.developers.each do |developer| %>
+<h1><%= @project.title %></h1>
+<p><%= @project.description %></p>
+
+<% @project.developers.each do |developer| %>
   <div class="col l8 s12 m6">
     <div class="card-small tribe-row">
       <span class="card-image left">
@@ -15,3 +18,5 @@
     </div>
   </div>
 <% end %>
+
+<%= link_to "Submit Payment", contractor_project_payment_path(@project) %> 

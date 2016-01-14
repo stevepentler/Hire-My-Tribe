@@ -9,6 +9,11 @@ class ProjectsController < ApplicationController
   end 
 
   def show
+    @project = Project.find(params[:id])
+  end
+
+  def submit_payment
+    @project = Project.find(params[:project_id])
   end
 
   private
