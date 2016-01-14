@@ -12,6 +12,10 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
   end
 
+  def index
+    @projects = Project.all  
+  end
+
   def submit_payment
     @project = Project.find(params[:project_id])
   end

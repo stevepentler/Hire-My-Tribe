@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resource :tribe, only: [:create, :show, :destroy]
   resources :specialties, only:[:show]
   resource :contractor, only: [:create, :show] do 
-    resources :projects, only: [:create, :show] do
+    resources :projects, only: [:create, :show, :index] do
       get 'payment', to: "projects#submit_payment"
     end
   end

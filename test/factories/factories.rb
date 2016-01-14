@@ -9,6 +9,12 @@ FactoryGirl.define do
     bio "Nothing interesting"
   end
 
+  factory :project do 
+    title {FactoryGirl.generate(:project_title)}
+    description " "
+    total 40
+  end
+
 
   factory :developer do
     name
@@ -24,6 +30,10 @@ FactoryGirl.define do
       description: "sample description"
       )
     }
+  end
+
+  sequence :project_title do |n|
+    "Project#{n}"
   end
 
   sequence :email do |n|
