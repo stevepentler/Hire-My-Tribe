@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resources :developers, only: [:index, :show]
   resource :tribe, only: [:create, :show, :destroy]
   resources :specialties, only:[:show]
-  resource :contractor, only: [:create, :show]
+  resource :contractor, only: [:create, :show] do 
+    resources :projects, only: [:create, :show]
+  end
 
   # resources :contractors, only: [:create, :show]
   get '/login', to: "sessions#new"
