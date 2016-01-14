@@ -23,11 +23,12 @@ font-family: 'Cantarell', sans-serif;
 }
 
  #brand-logo {
-   text-decoration: underline;
+   text-decoration: underline #669884;
    font-weight: 600;
    font-size: 150px;
-   margin: 35px 0;
+   margin-top: 50px ;
    color: black;
+   text-shadow: 2px 2px #669884;
    margin-bottom: 200px;
  }
 
@@ -99,14 +100,6 @@ font-family: 'Cantarell', sans-serif;
   text-align: center;
   background-color: #669884;
   width: 100%;
-}
-
-#developer-basics {
-  font-size: 80px;
-}
-
-.single-totem{
-  max-height: 20px;
 }
 
 
