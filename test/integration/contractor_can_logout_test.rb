@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class ContractorCanLogoutTest < ActionDispatch::IntegrationTest
-  test "the truth" do
+  test "contractor can logout" do
     contractor = create(:contractor)
     visit login_path
 
