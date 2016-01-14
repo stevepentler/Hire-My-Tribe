@@ -1,11 +1,18 @@
 class ProjectsController < ApplicationController
   def create
-    @developers = @ptribe.developers
-    total = @ptribe.total 
-    session[:tribe] = []
-    @project = current_contractor.projects.create(project_params.merge({total: total}))
-    @project.developers += @developers 
-    redirect_to contractor_project_path(@project)
+
+    if current_contractor
+      @developers = @ptribe.developers
+      total = @ptribe.total 
+      session[:tribe] = []
+      @project = current_contractor.projects.create(project_params.merge({total: total}))
+      @project.developers += @developers
+      flash[:project_added] = "New project created!"
+      redirect_to contractor_project_path(@project)
+    else 
+      redirect_to login_path
+      flash[:error] = "Please login before submitting a project"
+    end
   end 
 
   def show

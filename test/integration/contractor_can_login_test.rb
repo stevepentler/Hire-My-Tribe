@@ -80,12 +80,12 @@ class ContractorCanLoginTest < ActionDispatch::IntegrationTest
     assert page.has_content?("Total")
   end
 
+  test "unregistered visit can not start project and redirected to sign_up_path" do 
+    
+    visit tribe_path 
+    click_on "Start Project"
 
-# And when I visit "/cart"
-# Then I should see all of the data that was there when I was not logged in
-# When I click "Logout"
-# Then I should see see "Login"
-# And I should not see "Logout"
-
+    assert_equal login_path, current_path
+  end 
 
 end
