@@ -78,6 +78,14 @@ class ContractorCanLoginTest < ActionDispatch::IntegrationTest
     assert page.has_content?("Total")
   end
 
+  test "unregistered visit can not start project and redirected to sign_up_path" do 
+    
+    visit tribe_path 
+    click_on "Start Project"
+
+    assert_equal login_path, current_path
+  end 
+
   test "contractor cannot create account or login when already logged in" do
     contractor = create(:contractor)
     ApplicationController.any_instance.stubs(:current_contractor).returns(contractor)

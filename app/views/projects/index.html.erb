@@ -1,0 +1,11 @@
+<h1>All Projects</h1>
+
+<ol>
+  <% @projects.each do |project| %>
+    <li id="project-<%= project.id %>">
+      <h5><%= link_to project.title, contractor_project_path(project) %></h3>
+      <p>Status: <%= project.status %></p>
+      <p>Description: <%= project.description %></p>
+      <p>Total: <%= project.total %></p></li>
+  <% end %> 
+</ol>
