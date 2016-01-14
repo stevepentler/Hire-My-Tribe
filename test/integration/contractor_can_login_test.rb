@@ -56,7 +56,28 @@ class ContractorCanLoginTest < ActionDispatch::IntegrationTest
   end
 
   test  "contractor see their tribes" do
+    developer = create(:developer)
+    contractor = create(:contractor)
 
+    visit developer_path(developer)
+    click_on "Add to tribe"
+
+    # ptribe = PendingTribe.new([1,2,3])
+    # ApplicationController.any_instance.stubs(:current_pending_tribe).returns(ptribe)
+
+    visit login_path
+
+    within '#contractor-login-form' do
+      fill_in "Email", with: contractor.email
+      fill_in "Password", with: contractor.password
+      click_on "Contractor Login"
+    end
+
+    visit tribe_path
+
+    assert page.has_content?(developer.name)
+    assert page.has_content?(developer.rate)
+    assert page.has_content?("Total")
   end
 
 
