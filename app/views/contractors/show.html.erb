@@ -16,5 +16,5 @@
 <%= link_to "Edit Account Information", edit_contractor_path %>
 <br>
 
-<%= "Delete Account" %>
+<%= link_to "Delete Account", contractor_path, method: :delete, data: {confirm: "Are you sure?"} %>
 <br>

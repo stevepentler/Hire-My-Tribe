@@ -29,6 +29,9 @@ class ContractorsController < ApplicationController
     end
   end
 
+  def destroy
+  end
+
 private
 
   def contractor_params
