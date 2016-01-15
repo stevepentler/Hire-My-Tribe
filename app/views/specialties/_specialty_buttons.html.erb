@@ -1,0 +1,5 @@
+<div class='center'>
+  <% @specialties.each do |specialty| %>
+    <%= link_to "#{specialty.name} Developers", specialty_path(specialty), class: "row waves-effect waves-light btn", id: "specialty-button" %>
+  <% end %>
+</div>

@@ -42,8 +42,8 @@ class ContractorCanLoginTest < ActionDispatch::IntegrationTest
     assert_equal current_path, login_path
 
     within '#contractor-login-form' do
-      fill_in "Email", with: contractor.email
-      fill_in "Password", with: contractor.password
+      fill_in "session[email]", with: contractor.email
+      fill_in "session[password]", with: contractor.password
       click_on "Contractor Login"
     end
 
@@ -63,8 +63,8 @@ class ContractorCanLoginTest < ActionDispatch::IntegrationTest
     visit login_path
 
     within '#contractor-login-form' do
-      fill_in "Email", with: contractor.email
-      fill_in "Password", with: contractor.password
+      fill_in "session[email]", with: contractor.email
+      fill_in "session[password]", with: contractor.password
       click_on "Contractor Login"
     end
 

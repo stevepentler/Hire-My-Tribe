@@ -9,7 +9,7 @@ module ApplicationHelper
 
   def add_or_already_in_tribe
     if @developer.in_pending_tribe?(current_pending_tribe)
-      "#{@developer.name} is already in tribe"
+      "#{@developer.name} is already in a tribe"
     else
       button_to "Add to tribe", tribe_path(developer_id: @developer.id)
     end
