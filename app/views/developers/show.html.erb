@@ -1,13 +1,21 @@
+<%= render partial: "specialties/specialty_buttons" %> 
+
 <div class="center">
-  <h1><%= @developer.name %></h1>
-  <ul>
-    <div class="card-image">
-      <img src="https://robohash.org/<%= @developer.id %>" style="width: 25%;">
-    </div>
-    <li><%= @developer.specialty.name %></li>
-    <li><%= @developer.rate %></li>
-  </ul>
-  <%= add_or_already_in_tribe  %>
-  <%#= button_to("Add to tribe", tribe_path(developer_id: @developer.id)) unless current_pending_tribe.developer_ids.include?(@developer.id) %>
-  <%#= "#{@developer.name} is unavailable" if current_pending_tribe.developer_ids.include?(@developer.id) %>
+  <h1 class="mint-shadow"><%= @developer.name %></h1>
+  <h1><%= add_or_already_in_tribe %></h1>
+
+  <div class="card-image">
+    <img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAZvAAAAJDFiY2JjNTc4LTQ0NDktNDcyYy05YzMxLTcyZmVmZDU3OTU5OA.jpg" id="developer-image">
+  </div>
+
+  <h3><%= @developer.specialty.name %></h3>
+  <h3>Rate $<%= @developer.rate %>/hr</h3>
+
+  <span class="card-totem">
+    <%= image_tag("database/horse_animal_totem.png") if (@developer.specialty.name == "Database")%>
+    <%= image_tag("front_end/hawk_animal_totem.png") if (@developer.specialty.name == "Front End")%>
+    <%= image_tag("back_end/fox_animal_totem.png") if (@developer.specialty.name == "Back End")%>
+  </span>
 </div>
+
+  

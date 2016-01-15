@@ -21,9 +21,12 @@
   <div class="right-align" style='margin-right: 15px;'> <%= "Logged in: Contractor " + current_contractor.first_name if current_contractor %></div>
   <div class="right-align"> <%#= "Logged in: Developer " + current_developer.name if current_developer %> </div>
 
+  <div class="center">
     <% flash.each do |type, msg| %>
-      <h4><%= msg %></h4>
+      <h3><%= msg %></h3>
     <% end %>
+  </div>
+
     <%= yield %>
   </div>
 

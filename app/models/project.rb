@@ -5,4 +5,7 @@ class Project < ActiveRecord::Base
 
   enum status: ["Pending", "Paid & Active", "Completed", "Cancelled"]
 
+  def remove(developer_id)
+    self.developers -= [developers.find_by(id: developer_id)]
+  end
 end
