@@ -2,7 +2,7 @@ class PendingTribe
   attr_reader :developer_ids
 
   def initialize(developer_ids)
-    @developer_ids = developer_ids
+    @developer_ids = developer_ids || []
   end
 
   def add(developer_id)

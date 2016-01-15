@@ -1,9 +1,8 @@
 class ProjectsController < ApplicationController
   def create
-
     if current_contractor
-      @developers = @ptribe.developers
-      total = @ptribe.total
+      @developers = current_pending_tribe.developers
+      total = current_pending_tribe.total
       session[:tribe] = []
       @project = current_contractor.projects.create(project_params.merge({total: total}))
       @project.developers += @developers
