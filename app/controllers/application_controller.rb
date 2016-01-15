@@ -6,7 +6,15 @@ class ApplicationController < ActionController::Base
 
   after_action :stash_pending_tribe
 
-  helper_method :current_user?, :current_contractor, :current_pending_tribe
+  helper_method :current_user?,
+                :current_contractor,
+                :current_pending_tribe,
+                :current_specialty
+
+  def current_specialty
+    @current_specialty ||=
+            Specialty.find(session[:specialty]) if session[:specialty]
+  end
 
   def current_pending_tribe
     @pending_tribe ||= PendingTribe.new(session[:tribe])
@@ -29,10 +37,12 @@ class ApplicationController < ActionController::Base
   end
 
   def current_developer
-    @current_developer ||= Contractor.find(session[:developer_id]) if session[:developer_id]
+    @current_developer ||=
+          Contractor.find(session[:developer_id]) if session[:developer_id]
   end
 
   def current_contractor
-    @current_contractor ||= Contractor.find(session[:contractor_id]) if session[:contractor_id]
+    @current_contractor ||=
+          Contractor.find(session[:contractor_id]) if session[:contractor_id]
   end
 end

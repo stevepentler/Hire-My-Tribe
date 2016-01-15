@@ -25,8 +25,7 @@ class ProjectsController < ApplicationController
   end
 
   def remove_dev
-    developer = Developer.find(params[:dev])
-    Project.find(params[:project_id]).developers -= [developer]
+    Project.find(params[:project_id]).remove(params[:dev])
     redirect_to contractor_project_path(params[:project_id])
   end
 

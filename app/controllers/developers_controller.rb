@@ -1,5 +1,6 @@
 class DevelopersController < ApplicationController
   def index
+    session[:specialty] = nil
     @developers = Developer.all
   end
 
