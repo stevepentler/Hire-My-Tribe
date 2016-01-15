@@ -1,8 +1,20 @@
 <%= "Company Name: " + @contractor.company_name unless @contractor.company_name.empty? %>
-<%= "First Name: " + @contractor.first_name %>
-<%= "Last Name: " + @contractor.last_name %>
-<%= "Email: " + @contractor.email %>
-<%= "Description: " + @contractor.bio %>
+<br>
 
-<%= "Edit Account Information" %>
+<%= "First Name: " + @contractor.first_name %>
+<br>
+
+<%= "Last Name: " + @contractor.last_name %>
+<br>
+
+<%= "Email: " + @contractor.email %>
+<br>
+
+<%= "Description: " + @contractor.bio %>
+<br>
+
+<%= link_to "Edit Account Information", edit_contractor_path %>
+<br>
+
 <%= "Delete Account" %>
+<br>
