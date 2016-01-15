@@ -2,9 +2,10 @@
 <br>
 
 <%= "First Name: " + @contractor.first_name %>
+<%= "Last Name: " + @contractor.last_name %>
 <br>
 
-<%= "Last Name: " + @contractor.last_name %>
+<%= link_to "View Current & Past Projects", contractor_projects_path(@contractor) %>
 <br>
 
 <%= "Email: " + @contractor.email %>
@@ -13,8 +14,10 @@
 <%= "Description: " + @contractor.bio %>
 <br>
 
+
 <%= link_to "Edit Account Information", edit_contractor_path %>
 <br>
+
 
 <%= "Delete Account" %>
 <br>
