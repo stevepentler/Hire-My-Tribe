@@ -18,13 +18,11 @@ class ContractorCanMakeMultipleOrders < ActionDispatch::IntegrationTest
 
     project = Project.last
     assert_equal contractor_project_path(project), current_path
-    # save_and_open_page
     assert page.has_content?("New Project")
     assert page.has_content?("Do Things")
     assert page.has_content?(dev1.name)
     assert page.has_content?(dev2.name)
     assert_equal 1, Project.all.count
-
 
     click_on "Submit Payment"
 
@@ -34,6 +32,22 @@ class ContractorCanMakeMultipleOrders < ActionDispatch::IntegrationTest
 
     assert_equal contractor_project_path(project), current_path
 
+  end
+
+  test "when contractor starts project, current tribe resets to empty" do
+    dev = create(:developer)
+
+    contractor = create(:contractor)
+    ApplicationController.any_instance.stubs(:current_contractor).returns(contractor)
+
+    visit developer_path(dev)
+    click_on "Add to tribe"
+
+    visit tribe_path
+    click_on "Start Project"
+
+    visit tribe_path
+    refute page.has_content?(dev.name)
   end
 end
 

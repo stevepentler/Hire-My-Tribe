@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
     if current_contractor
       @project = Project.create(project_constructor_params)
 
-      session[:tribe] = []
+      @pending_tribe = PendingTribe.new
       flash[:project_added] = "New project created!"
       redirect_to contractor_project_path(@project)
     else
