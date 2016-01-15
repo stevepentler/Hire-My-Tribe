@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
     session[:developer_id] = nil
     contractor = Contractor.find_by(email: params[:session][:email])
     if contractor.inactive?
-      flash[:error] = "Inactive account. Contact admin to reactive account."
+      flash[:error] = "Inactive account. Contact admin to reactivate account."
       redirect_to login_path
     elsif contractor && contractor.authenticate(params[:session][:password])
       flash[:notice] = "Logged in as #{contractor.first_name}"
