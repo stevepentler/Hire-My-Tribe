@@ -1,11 +1,11 @@
 <%= form_for([current_contractor, @project], url: contractor_projects_path) do |f| %>
-    <%= f.label :title, "Project Title" %> 
-    <%= f.text_field :title %> 
+    <%= f.label :title, "Project Title" %>
+    <%= f.text_field :title %>
 
     <%= f.label :description, "Project Description" %>
     <%= f.text_field :description %>
 
     <%= render "/tribes/project"  %>
 
-    <%= f.submit "Start Project" %> <%= "Total: #{@ptribe.total}" %>
+    <%= f.submit "Start Project" %> <%= "Total: #{current_pending_tribe.total}" %>
 <%end%>
