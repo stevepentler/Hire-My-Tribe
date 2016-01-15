@@ -17,7 +17,6 @@ class VisitorAddsDevelopersToCartTest < ActionDispatch::IntegrationTest
 
     click_on "Current Tribe"
     assert_equal current_path, tribe_path
-    # save_and_open_page
     assert page.has_content?("#{dev.name}")
     assert page.has_content?("#{dev.rate.to_i}")
     assert page.has_content?("Total: #{dev.rate.to_i}")
@@ -33,7 +32,6 @@ class VisitorAddsDevelopersToCartTest < ActionDispatch::IntegrationTest
     click_on "Add to tribe"
 
     visit developer_path(dev)
-    # save_and_open_page
     refute page.has_content?("Add to tribe")
     assert page.has_content?("#{dev.name} is already in tribe")
   end

@@ -29,7 +29,19 @@ class ContractorsController < ApplicationController
     end
   end
 
-  def destroy
+  def deactivate_account
+  end
+
+  def deactivate
+    if current_contractor && current_contractor.authenticate(params[:contractor][:password])
+      current_contractor.update_attribute(:status, "inactive")
+      session[:contractor_id] = nil
+      flash[:notice] = "Account successfully deactivated."
+      redirect_to root_path
+    else
+      flash.now[:error] = 'Invalid login data'
+      redirect_to deactivate_account_path
+    end
   end
 
 private
