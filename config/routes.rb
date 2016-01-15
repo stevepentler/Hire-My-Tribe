@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resource :contractor, only: [:create, :show, :edit, :update] do 
     resources :projects, only: [:create, :show, :index] do
+      delete 'remove_dev', to: "projects#remove_dev"
       get 'payment', to: "projects#submit_payment"
     end
   end
