@@ -1,3 +1,4 @@
+/*fonts and colors*/
 .amatic-font {
   font-family: 'Amatic SC', cursive;
  }
@@ -18,14 +19,27 @@ font-family: 'Cantarell', sans-serif;
   color: #540018;
 }
 
+.mint-shadow {
+  text-shadow: 2px 2px #669884;
+}
+
+/*.brown-shadow {
+  text-shadow: 2px 2px #540018;
+}*/
+
 #navbar-font {
   font-size: 1.5em;
+  text-shadow: 2px 2px #540018;
+
 }
 
 #dropdown-font {
   font-size: 2.5em;
+  text-shadow: 2px 2px #540018;
+
 }
 
+/*navbars*/
  #brand-logo {
    text-decoration: underline #669884;
    font-weight: 600;
@@ -36,21 +50,16 @@ font-family: 'Cantarell', sans-serif;
    margin-bottom: 200px;
  }
 
+#normal-brand-logo{
+  text-decoration: underline;
+  font-size: 60px;
+  text-shadow: 3px 3px #540018;
+}
+
+/*welcome page*/
 .parallax-container {
   margin-top: 80px;
    }
-
-.tribe-row {
-  display: inline-block;
-}
-
-.background-image { 
-  background-image: url('HireMyTribeLogoSmall.png');
-  background-size: contain; 
-  max-width: 100%;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
 
 #primary-logo {
   height: auto;
@@ -59,14 +68,12 @@ font-family: 'Cantarell', sans-serif;
   max-height: 500px;
 }
 
-#normal-brand-logo{
-  text-decoration: underline;
-  font-size: 50px;
-}
-
-#primary-text {
-  font-weight: 600;
-  border-bottom-color: yellow;
+.background-image { 
+  background-image: url('HireMyTribeLogoSmall.png');
+  background-size: contain; 
+  max-width: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 #signup-button {
@@ -80,6 +87,8 @@ font-family: 'Cantarell', sans-serif;
 #signup-button a {
   color: white;
 }
+
+/*index page*/
 #specialty-button {
   display: inline-block;
   text-align: center;
@@ -87,6 +96,11 @@ font-family: 'Cantarell', sans-serif;
   margin-top: 10px;
   font-size: 30px;
   color: white;
+}
+
+/*developer cards*/
+.tribe-row {
+  display: inline-block;
 }
 
 .card {
@@ -101,7 +115,7 @@ font-family: 'Cantarell', sans-serif;
 }
 
 #developer-card {
-  width: 60%;
+  width: 80%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -121,11 +135,6 @@ font-family: 'Cantarell', sans-serif;
   font-size: 2.0rem;
 }
 
-.card-action {
-  background-color: black;
-  left: 0;
-}
-
 #developer-bio {
   color: #540018;
   font-size: 50px;
@@ -134,6 +143,7 @@ font-family: 'Cantarell', sans-serif;
   width: 100%;
 }
 
+/*new contractor form*/
 .form-label {
   font-size: 40px;
   color: #540018;
@@ -148,7 +158,6 @@ font-family: 'Cantarell', sans-serif;
 #form-button {
   border-radius: 10px;
 }
-
 
 
 

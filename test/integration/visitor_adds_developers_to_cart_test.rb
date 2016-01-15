@@ -34,7 +34,7 @@ class VisitorAddsDevelopersToCartTest < ActionDispatch::IntegrationTest
     visit developer_path(dev)
 
     refute page.has_content?("Add to tribe")
-    assert page.has_content?("#{dev.name} is already in tribe")
+    assert page.has_content?("#{dev.name} is already in a tribe")
   end
 
   test "a visitor is redirected to their path of origin when adding to cart" do

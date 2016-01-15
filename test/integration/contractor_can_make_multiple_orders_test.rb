@@ -12,8 +12,8 @@ class ContractorCanMakeMultipleOrders < ActionDispatch::IntegrationTest
 
     visit tribe_path
 
-    fill_in "Project Title", with: "New Project"
-    fill_in "Project Description", with: "Do Things"
+    fill_in "project[title]", with: "New Project"
+    fill_in "project[description]", with: "Do Things"
     click_on "Start Project"
 
     project = Project.last
