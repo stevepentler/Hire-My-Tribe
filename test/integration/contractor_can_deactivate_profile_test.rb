@@ -25,7 +25,7 @@ class ContractorCanDeactivateProfileTest < ActionDispatch::IntegrationTest
     click_on "Contractor Login"
 
     assert_equal login_path, current_path
-    assert page.has_content?("Inactive account. Contact admin to reactive account.")
+    assert page.has_content?("Inactive account. Contact admin to reactivate account.")
   end
 
 end
