@@ -22,13 +22,11 @@ class ContractorCanLoginTest < ActionDispatch::IntegrationTest
     assert page.has_content?("hotdogs@hotmail.com")
 
     assert page.has_content?("Edit Account Information")
-    assert page.has_content?("Delete Account")
-
+    assert page.has_content?("Deactivate Account")
     assert page.has_content?("Logout")
     refute page.has_content?("Login")
 
     visit root_path
-
     assert page.has_content?("Logout")
     refute page.has_content?("Login")
     refute page.has_content?("Sign Up")
@@ -40,7 +38,6 @@ class ContractorCanLoginTest < ActionDispatch::IntegrationTest
     click_on "Login"
 
     assert_equal current_path, login_path
-
     within '#contractor-login-form' do
       fill_in "session[email]", with: contractor.email
       fill_in "session[password]", with: contractor.password
