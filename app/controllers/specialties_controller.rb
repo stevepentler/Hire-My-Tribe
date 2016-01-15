@@ -1,5 +1,6 @@
 class SpecialtiesController < ApplicationController
   def show
-    @developers = Specialty.find_by(url_name: params[:id]).developers
+    session[:specialty] = Specialty.find_by(url_name: params[:id]).id
+    @developers = current_specialty.developers
   end
 end

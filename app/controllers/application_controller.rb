@@ -6,7 +6,11 @@ class ApplicationController < ActionController::Base
 
   after_action :stash_pending_tribe
 
-  helper_method :current_user?, :current_contractor, :current_pending_tribe
+  helper_method :current_user?, :current_contractor, :current_pending_tribe, :current_specialty
+
+  def current_specialty
+    @current_session ||= Specialty.find(session[:specialty]) if session[:specialty]
+  end
 
   def current_pending_tribe
     @pending_tribe ||= PendingTribe.new(session[:tribe])
