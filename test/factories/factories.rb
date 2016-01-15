@@ -9,7 +9,7 @@ FactoryGirl.define do
     bio "Nothing interesting"
   end
 
-  factory :project do 
+  factory :project do
     title {FactoryGirl.generate(:project_title)}
     description " "
     total 40
@@ -20,6 +20,7 @@ FactoryGirl.define do
     name
     profile_picture
     rate
+    password "password"
     specialty
   end
 

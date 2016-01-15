@@ -2,6 +2,8 @@ require 'test_helper'
 
 class ContractorCanLoginTest < ActionDispatch::IntegrationTest
   test "contractor can make an account" do
+    create_list(:specialty, 3)
+
     visit root_path
     click_on "Sign Up"
 
@@ -75,13 +77,13 @@ class ContractorCanLoginTest < ActionDispatch::IntegrationTest
     assert page.has_content?("Total")
   end
 
-  test "unregistered visit can not start project and redirected to sign_up_path" do 
-    
-    visit tribe_path 
+  test "unregistered visit can not start project and redirected to sign_up_path" do
+
+    visit tribe_path
     click_on "Start Project"
 
     assert_equal login_path, current_path
-  end 
+  end
 
   test "contractor cannot create account or login when already logged in" do
     contractor = create(:contractor)

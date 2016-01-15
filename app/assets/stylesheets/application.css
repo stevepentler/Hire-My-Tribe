@@ -68,9 +68,9 @@ font-family: 'Cantarell', sans-serif;
   max-height: 500px;
 }
 
-.background-image { 
+.background-image {
   background-image: url('HireMyTribeLogoSmall.png');
-  background-size: contain; 
+  background-size: contain;
   max-width: 100%;
   background-repeat: no-repeat;
   background-position: center center;
@@ -158,13 +158,3 @@ font-family: 'Cantarell', sans-serif;
 #form-button {
   border-radius: 10px;
 }
-
-
-
-
-
-
-
-
-
-
