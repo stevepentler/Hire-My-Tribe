@@ -3,7 +3,7 @@ class TribesController < ApplicationController
   def create
     developer = Developer.find(params[:developer_id])
     flash[:notice] = "#{developer.name} has joined your tribe!"
-    @ptribe.add(developer.id)
+    current_pending_tribe.add(developer.id)
     redirect_to developers_path
   end
 
@@ -12,7 +12,7 @@ class TribesController < ApplicationController
   end
 
   def destroy
-    @ptribe.remove(params[:developer_id].to_i)
+    current_pending_tribe.remove(params[:developer_id].to_i)
     redirect_to tribe_path
   end
 

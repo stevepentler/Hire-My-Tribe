@@ -16,10 +16,23 @@ class ContractorsController < ApplicationController
     @contractor = current_contractor
   end
 
+  def edit
+  end
+
+  def update
+    if current_contractor.save
+      flash[:notice] = "Account information edited!"
+      current_contractor.update(contractor_params)
+      redirect_to contractor_path
+    else
+      flash[:error] = current_contractor.errors.full_messages.join(", ")
+    end
+  end
+
 private
 
   def contractor_params
-    params.require(:contractor).permit(:company_name, :first_name, :last_name, :email, :password)
+    params.require(:contractor).permit(:company_name, :first_name, :last_name, :email, :password, :bio)
   end
 
 end

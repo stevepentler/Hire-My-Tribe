@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   resource :tribe, only: [:create, :show, :destroy]
   resources :specialties, only:[:show]
 
-  resource :contractor, only: [:create, :show] do 
+  resource :contractor, only: [:create, :show, :edit, :update] do 
     resources :projects, only: [:create, :show, :index] do
+      delete 'remove_dev', to: "projects#remove_dev"
       get 'payment', to: "projects#submit_payment"
     end
   end
