@@ -4,7 +4,12 @@ class TribesController < ApplicationController
     developer = Developer.find(params[:developer_id])
     flash[:notice] = "#{developer.name} has joined your tribe!"
     current_pending_tribe.add(developer.id)
-    redirect_to developers_path
+
+    if current_specialty
+      redirect_to specialty_path(current_specialty)
+    else
+      redirect_to developers_path
+    end
   end
 
   def show
