@@ -102,8 +102,20 @@ font-family: 'Cantarell', sans-serif;
   width: 100%;
 }
 
+.form-label {
+  font-size: 40px;
+  color: #540018;
+  text-shadow: .5px .5px grey;
+}
 
+#form-value {
+  font-size: 2.5em;
+  font-family: monospace;
+}
 
+#form-button {
+  border-radius: 10px;
+}
 
 
 
