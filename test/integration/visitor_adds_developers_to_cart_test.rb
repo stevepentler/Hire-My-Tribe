@@ -46,5 +46,19 @@ class VisitorAddsDevelopersToCartTest < ActionDispatch::IntegrationTest
 
       assert_equal specialty_path(dev.specialty), current_path
     end
+
+    dev = create(:developer)
+    visit developers_path
+    click_on "#{dev.name} Bio"
+    click_on "Add to tribe"
+
+    assert_equal developers_path, current_path
+
+    dev = create(:developer)
+    visit specialty_path(dev.specialty)
+    click_on "#{dev.name} Bio"
+    click_on "Add to tribe"
+
+    assert_equal specialty_path(dev.specialty), current_path
   end
 end
