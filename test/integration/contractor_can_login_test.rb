@@ -8,15 +8,12 @@ class ContractorCanLoginTest < ActionDispatch::IntegrationTest
     assert page.has_content?("Login")
     refute page.has_content?("Logout")
 
-    within "#contractor-form" do
-
-      fill_in "Company Name", with: "Mac"
-      fill_in "First Name", with: "Aaron"
-      fill_in "Last Name", with: "Greenspan"
-      fill_in "Email", with: "hotdogs@hotmail.com"
-      fill_in "Password", with: "password"
+      fill_in "contractor[company_name]", with: "Mac"
+      fill_in "contractor[first_name]", with: "Aaron"
+      fill_in "contractor[last_name]", with: "Greenspan"
+      fill_in "contractor[email]", with: "hotdogs@hotmail.com"
+      fill_in "contractor[password]", with: "password"
       click_on "Create Contractor Account"
-    end
 
     assert_equal '/contractor', current_path
     assert page.has_content?("Mac")

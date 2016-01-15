@@ -1,14 +1,16 @@
-<span id='contractor-login-form'>
-  <%= form_for(:session, url: login_path) do |f| %>
+<div class="container">
+  <span id='contractor-login-form'>
+    <%= form_for(:session, url: login_path) do |f| %>
 
-    <%= f.label :email %>
-    <%= f.text_field :email %>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
 
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
 
-    <%= f.submit "Contractor Login" %>
-    <%= link_to "Create New Account", sign_up_path, class: "btn" %> 
-  <% end %>
+      <%= f.submit "Contractor Login" %>
+      <%= link_to "Create New Account", sign_up_path, class: "btn" %> 
+    <% end %>
 
-</span>
+  </span>
+</div>

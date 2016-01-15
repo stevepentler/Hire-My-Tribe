@@ -1,22 +1,20 @@
-<span id='contractor-form'>
+<div class='container form-font new-contractor'>
   <%= form_for(@contractor, url: contractor_path) do |f| %>
-
-    <%= f.label :company_name, "Company Name" %>
-    <%= f.text_field :company_name, value: "Independent Contractor" %>
-
-    <%= f.label :first_name, "First Name" %>
-    <%= f.text_field :first_name %>
-
-    <%= f.label :last_name, "Last Name" %>
-    <%= f.text_field :last_name %>
-
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-
-    <%= f.submit "Create Contractor Account" %>
-
+    <%= f.label :company_name, "Company Name", class: "form-label" %>
+    <%= f.text_field :company_name, id: "form-value" %>
+    <br>
+    <%= f.label :first_name, "First Name", class: "form-label" %>
+    <%= f.text_field :first_name, id: "form-value"  %>
+    <br>
+    <%= f.label :last_name, "Last Name", class: "form-label" %>
+    <%= f.text_field :last_name, id: "form-value"  %>
+    <br>
+    <%= f.label :email, class: "form-label" %>
+    <%= f.text_field :email, id: "form-value"  %>
+    <br>
+    <%= f.label :password, class: "form-label" %>
+    <%= f.password_field :password, id: "form-value"  %>
+    <br>
+    <%= f.submit "Create Contractor Account", class: "form-label", id: "form-button" %>
   <% end %>
-</span>
+</div>
