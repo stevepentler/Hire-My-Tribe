@@ -12,7 +12,7 @@ class TribesController < ApplicationController
   end
 
   def destroy
-    @ptribe.remove(params[:developer_id].to_i)
+    current_pending_tribe.remove(params[:developer_id].to_i)
     redirect_to tribe_path
   end
 

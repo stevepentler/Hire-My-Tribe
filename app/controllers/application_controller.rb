@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user?, :current_contractor, :current_pending_tribe
 
   def current_pending_tribe
-    @ptribe ||= PendingTribe.new(session[:tribe])
+    @pending_tribe ||= PendingTribe.new(session[:tribe])
   end
 
   def stash_pending_tribe

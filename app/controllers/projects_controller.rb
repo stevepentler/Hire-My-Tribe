@@ -1,11 +1,9 @@
 class ProjectsController < ApplicationController
   def create
     if current_contractor
-      @developers = current_pending_tribe.developers
-      total = current_pending_tribe.total
+      @project = Project.create(project_constructor_params)
+
       session[:tribe] = []
-      @project = current_contractor.projects.create(project_params.merge({total: total}))
-      @project.developers += @developers
       flash[:project_added] = "New project created!"
       redirect_to contractor_project_path(@project)
     else
@@ -36,5 +34,13 @@ class ProjectsController < ApplicationController
 
   def project_params
     params.require(:project).permit(:title, :description)
+  end
+
+  def project_constructor_params
+    project_params.merge(
+      total: current_pending_tribe.total,
+      contractor: current_contractor,
+      developers: current_pending_tribe.developers
+      )
   end
 end
