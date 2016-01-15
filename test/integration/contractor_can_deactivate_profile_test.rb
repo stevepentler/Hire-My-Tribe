@@ -5,8 +5,8 @@ class ContractorCanDeactivateProfileTest < ActionDispatch::IntegrationTest
     contractor = create(:contractor)
     visit login_path
 
-    fill_in "Email", with: contractor.email
-    fill_in "Password", with: contractor.password
+    fill_in "session[email]", with: contractor.email
+    fill_in "session[password]", with: contractor.password
     click_on "Contractor Login"
 
     click_on "Deactivate Account"
@@ -20,8 +20,8 @@ class ContractorCanDeactivateProfileTest < ActionDispatch::IntegrationTest
     refute page.has_content?("Logout")
 
     visit login_path
-    fill_in "Email", with: contractor.email
-    fill_in "Password", with: contractor.password
+    fill_in "session[email]", with: contractor.email
+    fill_in "session[password]", with: contractor.password
     click_on "Contractor Login"
 
     assert_equal login_path, current_path
