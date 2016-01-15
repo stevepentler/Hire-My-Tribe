@@ -9,9 +9,26 @@
       <%= f.password_field :password, id: "form-value" %>
       <br>
       <%= f.submit "Contractor Login", class: "form-label", id: "form-button" %>
-      
+
     <% end %>
   </span>
   <br>
-  <%= link_to "Create New Account", sign_up_path, class: "form-label", id: "form-button", style: "background-color: #C0C0C0; margin-top: 200px;" %> 
+  <%= link_to "Create New Account", sign_up_path, class: "form-label", id: "form-button", style: "background-color: #C0C0C0; margin-top: 200px;" %>
+</div>
+
+
+<div class="container">
+  <span id='developer-login-form'>
+    <%= form_for(:session, url: login_path) do |f| %>
+      <br>
+      <%= f.label :email, class: "form-label"  %>
+      <%= f.text_field :email, id: "form-value" %>
+      <br>
+      <%= f.label :password, class: "form-label"  %>
+      <%= f.password_field :password, id: "form-value" %>
+      <br>
+      <%= f.submit "Developer Login", class: "form-label", id: "form-button" %>
+
+    <% end %>
+  </span>
 </div>

@@ -22,6 +22,7 @@ FactoryGirl.define do
     rate
     password "password"
     specialty
+    email {FactoryGirl.generate(:email)}
   end
 
   factory :specialty do

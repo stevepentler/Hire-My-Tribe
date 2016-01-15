@@ -31,4 +31,25 @@ class DeveloperCanLoginToAccountTest < ActionDispatch::IntegrationTest
     refute page.has_content?("Login")
     refute page.has_content?("Sign Up")
   end
+
+
+  test "developer can login to account" do
+    create_list(:specialty, 3)
+
+    dev = create(:developer)
+    visit root_path
+    click_on "Login"
+
+    assert_equal current_path, login_path
+    within '#developer-login-form' do
+      fill_in "session[email]", with: dev.email
+      fill_in "session[password]", with: dev.password
+      click_on "Developer Login"
+    end
+
+    assert_equal '/developer', current_path
+    assert page.has_content?(dev.name)
+    assert page.has_content?(dev.last_name)
+    assert page.has_content?(dev.bio)
+  end
 end
