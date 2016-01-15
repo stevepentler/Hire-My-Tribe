@@ -18,8 +18,12 @@ font-family: 'Cantarell', sans-serif;
   color: #540018;
 }
 
-.navbar-font {
-  font-size: 20px;
+#navbar-font {
+  font-size: 1.5em;
+}
+
+#dropdown-font {
+  font-size: 2.5em;
 }
 
  #brand-logo {
@@ -32,7 +36,7 @@ font-family: 'Cantarell', sans-serif;
    margin-bottom: 200px;
  }
 
- .parallax-container {
+.parallax-container {
   margin-top: 80px;
    }
 
@@ -65,17 +69,39 @@ font-family: 'Cantarell', sans-serif;
   border-bottom-color: yellow;
 }
 
-#specialty-button {
+#signup-button {
     display: inline-block;
     text-align: center;
     background-color: #669884;
     margin-top: 10px;
-    font-size: 30px;
-    color: white;
+    font-size: 50px;
+}
+
+#signup-button a {
+  color: white;
+}
+#specialty-button {
+  display: inline-block;
+  text-align: center;
+  background-color: #669884;
+  margin-top: 10px;
+  font-size: 30px;
+  color: white;
+}
+
+.card {
+  max-width: 80%;
+}
+
+.card-totem img {
+  height: 180px;
+  width: auto;
+  margin-top: 0;
+  margin-bottom: -10%;
 }
 
 #developer-card {
-  width: 70%;
+  width: 60%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -83,6 +109,12 @@ font-family: 'Cantarell', sans-serif;
 #developer-image {
   height: 250px;
   border-radius: 150px;
+}
+
+.brown.lighten-5 {
+    background-color: #efebe9 !important;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .card-content {
