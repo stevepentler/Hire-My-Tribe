@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       delete 'remove_dev', to: "projects#remove_dev"
       get 'payment', to: "projects#submit_payment"
     end
+    patch '/deactivate', to: "contractors#deactivate"
   end
 
   # resources :contractors, only: [:create, :show]
@@ -17,5 +18,5 @@ Rails.application.routes.draw do
   post '/login', to: "sessions#create"
   delete '/logout', to: "sessions#destroy"
   get '/sign_up', to: "welcome#new"
-
+  get '/deactivate_account', to: "contractors#deactivate_account"
 end
