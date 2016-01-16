@@ -55,7 +55,7 @@ class ContractorCanLoginTest < ActionDispatch::IntegrationTest
     contractor = create(:contractor)
 
     visit developer_path(developer)
-    click_on "Add to tribe"
+    click_on "Add #{developer.name} to the tribe"
 
     visit login_path
 
