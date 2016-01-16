@@ -12,12 +12,13 @@ Rails.application.routes.draw do
       delete 'remove_dev', to: "projects#remove_dev"
       get 'payment', to: "projects#submit_payment"
     end
-    patch '/deactivate', to: "contractors#deactivate"
   end
 
   get '/login', to: "sessions#new"
   post '/login', to: "sessions#create"
   delete '/logout', to: "sessions#destroy"
   get '/sign_up', to: "welcome#new"
-  get '/deactivate_account', to: "contractors#deactivate_account"
+  get '/deactivate_account', to: "welcome#deactivate_account"
+  post '/deactivate', to: "welcome#deactivate"
+
 end

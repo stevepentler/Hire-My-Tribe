@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
 
   def create_contractor
     contractor = Contractor.find_by(email: params[:session][:email])
-    if contractor.inactive?
+    if contractor && contractor.inactive?
       inactive_user
     elsif contractor && contractor.authenticate(params[:session][:password])
       flash[:notice] = "Logged in as #{contractor.first_name}"
@@ -33,7 +33,9 @@ class SessionsController < ApplicationController
 
   def create_developer
     developer = Developer.find_by(email: params[:session][:email])
-    if developer && developer.authenticate(params[:session][:password])
+    if developer && developer.inactive?
+      inactive_user
+    elsif developer && developer.authenticate(params[:session][:password])
       flash[:notice] = "Logged in as #{developer.name}"
       session[:developer_id] = developer.id
       redirect_to developer_path

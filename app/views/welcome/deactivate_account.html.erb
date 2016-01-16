@@ -1,0 +1,17 @@
+<h2>Account Deactivation</h2>
+<br>
+
+<h3>Please enter your password to confirm. Your account, <%= current_contractor.email if current_contractor %><%= current_developer.email if current_developer %>, will be deactivated. You will need to contact an administrator to reactivate your account.</h3>
+<br>
+
+<%= form_for(:deactivate, url: deactivate_path) do |f| %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.submit "Deactivate Account" %>
+
+<% end %>
+
+<%= link_to "Cancel", developer_path if current_developer %>
+<%= link_to "Cancel", contractor_path if current_contractor %>
