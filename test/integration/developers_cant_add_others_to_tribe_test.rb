@@ -28,4 +28,13 @@ class DevelopersCantAddOthersToTribeTest < ActionDispatch::IntegrationTest
 
     assert page.has_content?("Current Tribe")
   end
+
+  test "devs see 404 at tribe page" do
+    create_list(:specialty, 3)
+    dev = create(:developer)
+    ApplicationController.any_instance.stubs(:current_developer).returns(dev)
+
+    visit tribe_path
+    assert page.has_content?("404")
+  end
 end
