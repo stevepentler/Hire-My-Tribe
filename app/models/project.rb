@@ -5,12 +5,8 @@ class Project < ActiveRecord::Base
 
   enum status: ["Pending", "Paid & Active", "Completed", "Cancelled"]
 
-  # validates :title, presence: true, uniqueness: true
-  # validates :description, presence: true
-  # validates :status, presence: true
-  # validates :created_at, presence: true
-  # validates :updated_at, presence: true
-
+  validates :title, presence: true, uniqueness: true
+  validates :description, presence: true
 
   def remove(developer_id)
     self.developers -= [developers.find_by(id: developer_id)]

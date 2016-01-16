@@ -7,10 +7,11 @@ class ContractorViewsAllCurrentAndPastProjectsTest < ActionDispatch::Integration
     contractor = create(:contractor)
     ApplicationController.any_instance.stubs(:current_contractor).returns(contractor)
 
-    project1 = create(:project, status: 0)
-    project2 = create(:project, status: 1)
-    project3 = create(:project, status: 2)
-    project4 = create(:project, status: 3)
+    project1 = create(:project, title: "First Project", description: "sample1", status: 0, contractor: contractor, developers: [dev1, dev2])
+    project2 = create(:project, title: "Second Project", description: "sample2", status: 1, contractor: contractor, developers: [dev1, dev2])
+    project3 = create(:project, title: "Third Project", description: "sample3", status: 2, contractor: contractor, developers: [dev1, dev2])
+    project4 = create(:project, title: "Fourth Project", description: "sample4", status: 3, contractor: contractor, developers: [dev1, dev2])
+
 
     contractor.projects += [project1, project2, project3, project4]
 
@@ -51,10 +52,10 @@ class ContractorViewsAllCurrentAndPastProjectsTest < ActionDispatch::Integration
     contractor = create(:contractor)
     ApplicationController.any_instance.stubs(:current_contractor).returns(contractor)
 
-    project1 = create(:project, status: 0, contractor: contractor, developers: [dev1, dev2])
-    project2 = create(:project, status: 1, contractor: contractor, developers: [dev1, dev2])
-    project3 = create(:project, status: 2, contractor: contractor, developers: [dev1, dev2])
-    project4 = create(:project, status: 3, contractor: contractor, developers: [dev1, dev2])
+    project1 = create(:project, title: "First Project", description: "sample1", status: 0, contractor: contractor, developers: [dev1, dev2])
+    project2 = create(:project, title: "Second Project", description: "sample2", status: 1, contractor: contractor, developers: [dev1, dev2])
+    project3 = create(:project, title: "Third Project", description: "sample3", status: 2, contractor: contractor, developers: [dev1, dev2])
+    project4 = create(:project, title: "Fourth Project", description: "sample4", status: 3, contractor: contractor, developers: [dev1, dev2])
 
     contractor.projects += [project1, project2, project3, project4]
 

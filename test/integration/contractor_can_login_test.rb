@@ -75,6 +75,9 @@ class ContractorCanLoginTest < ActionDispatch::IntegrationTest
 
   test "unregistered visit cant start project and redirects to sign_up_path" do
     visit tribe_path
+
+    fill_in "project[title]", with: "Project Name 1"
+    fill_in "project[description]", with: "sample description 1"
     click_on "Start Project"
 
     assert_equal login_path, current_path

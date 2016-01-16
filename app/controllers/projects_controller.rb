@@ -1,14 +1,19 @@
 class ProjectsController < ApplicationController
   def create
-    if current_contractor
-      @project = Project.create(project_constructor_params)
+    @project = Project.new(project_constructor_params)
 
-      @pending_tribe = PendingTribe.new
-      flash[:project_added] = "New project created!"
-      redirect_to contractor_project_path(@project)
+    if current_contractor
+      if @project.save
+        @pending_tribe = PendingTribe.new
+        flash[:project_added] = "New project created!"
+        redirect_to contractor_project_path(@project)
+      else 
+      flash[:error] = @project.errors.full_messages.join(", ")
+      redirect_to tribe_path
+      end 
     else
+      flash[:login_error] = "Please login before submitting a project"
       redirect_to login_path
-      flash[:error] = "Please login before submitting a project"
     end
   end
 
