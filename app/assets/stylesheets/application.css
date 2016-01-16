@@ -69,9 +69,9 @@ font-family: 'Cantarell', sans-serif;
   max-height: 500px;
 }
 
-.background-image { 
+.background-image {
   background-image: url('HireMyTribeLogoSmall.png');
-  background-size: contain; 
+  background-size: contain;
   max-width: 100%;
   background-repeat: no-repeat;
   background-position: center center;
@@ -88,13 +88,13 @@ font-family: 'Cantarell', sans-serif;
   text-decoration: underline;
 }
 
-hr.gradient { 
-  border: 0; 
-  height: 1px; 
+hr.gradient {
+  border: 0;
+  height: 1px;
   background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
   background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
   background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
-  background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0); 
+  background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
 }
 #single-totem img {
   height: 80px;
@@ -190,17 +190,3 @@ form input {
   font-size: 2.5em;
   color: #540018;
 }
-
-/*.form-label {
-  font-size: 40px;
-  color: #540018;
-  text-shadow: .5px .5px grey;
-}*/
-
-
-
-
-
-
-
-

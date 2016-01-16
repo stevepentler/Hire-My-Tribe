@@ -2,7 +2,7 @@
   <div class="center">
     <h3 class="row waves-effect waves-light btn-large" id="signup-button" ><%= link_to "Sign Up", sign_up_path unless current_user? %></h3>
   </div>
-  
+
   <span id='contractor-login-form'>
     <%= form_for(:session, url: login_path) do |f| %>
       <br>
@@ -13,8 +13,25 @@
       <%= f.password_field :password, id: "form-value" %>
       <br>
       <%= f.submit "Contractor Login", class: "form-label", id: "form-button" %>
-      
+
     <% end %>
   </span>
   <br>
+  <%= link_to "Create New Account", sign_up_path, class: "form-label", id: "form-button", style: "background-color: #C0C0C0; margin-top: 200px;" %>
+</div>
+
+<div class="container">
+  <span id='developer-login-form'>
+    <%= form_for(:session, url: login_path) do |f| %>
+      <br>
+      <%= f.label :email %>
+      <%= f.text_field :email, id: "form-value" %>
+      <br>
+      <%= f.label :password %>
+      <%= f.password_field :password, id: "form-value" %>
+      <br>
+      <%= f.submit "Developer Login", class: "form-label", id: "form-button" %>
+
+    <% end %>
+  </span>
 </div>

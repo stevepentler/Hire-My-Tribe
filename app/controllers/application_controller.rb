@@ -9,7 +9,18 @@ class ApplicationController < ActionController::Base
   helper_method :current_user?,
                 :current_contractor,
                 :current_pending_tribe,
-                :current_specialty
+                :current_specialty,
+                :developer_path,
+                :all_specialties,
+                :current_developer
+
+  def developer_path(dev = nil)
+    if dev
+      "/developers/#{dev.id}"
+    else
+      "/developer"
+    end
+  end
 
   def current_specialty
     @current_specialty ||=
@@ -38,7 +49,7 @@ class ApplicationController < ActionController::Base
 
   def current_developer
     @current_developer ||=
-          Contractor.find(session[:developer_id]) if session[:developer_id]
+          Developer.find(session[:developer_id]) if session[:developer_id]
   end
 
   def current_contractor

@@ -2,18 +2,20 @@ require 'test_helper'
 
 class ContractorCanLoginTest < ActionDispatch::IntegrationTest
   test "contractor can make an account" do
+    create_list(:specialty, 3)
+
     visit root_path
     click_on "Sign Up"
 
     assert page.has_content?("Login")
     refute page.has_content?("Logout")
 
-      fill_in "contractor[company_name]", with: "Mac"
-      fill_in "contractor[first_name]", with: "Aaron"
-      fill_in "contractor[last_name]", with: "Greenspan"
-      fill_in "contractor[email]", with: "hotdogs@hotmail.com"
-      fill_in "contractor[password]", with: "password"
-      click_on "Create Contractor Account"
+    fill_in "contractor[company_name]", with: "Mac"
+    fill_in "contractor[first_name]", with: "Aaron"
+    fill_in "contractor[last_name]", with: "Greenspan"
+    fill_in "contractor[email]", with: "hotdogs@hotmail.com"
+    fill_in "contractor[password]", with: "password"
+    click_on "Create Contractor Account"
 
     assert_equal '/contractor', current_path
     assert page.has_content?("Mac")
@@ -72,17 +74,16 @@ class ContractorCanLoginTest < ActionDispatch::IntegrationTest
     assert page.has_content?("Total")
   end
 
-  test "unregistered visit can not start project and redirected to sign_up_path" do 
-    
-    visit tribe_path 
+  test "unregistered visit cant start project and redirects to sign_up_path" do
+    visit tribe_path
     click_on "Start Project"
 
     assert_equal login_path, current_path
-  end 
+  end
 
   test "contractor cannot create account or login when already logged in" do
-    contractor = create(:contractor)
-    ApplicationController.any_instance.stubs(:current_contractor).returns(contractor)
+    con = create(:contractor)
+    ApplicationController.any_instance.stubs(:current_contractor).returns(con)
 
     visit login_path
     assert_equal root_path, current_path
@@ -92,5 +93,4 @@ class ContractorCanLoginTest < ActionDispatch::IntegrationTest
     assert_equal root_path, current_path
     assert page.has_content?("Already logged in!")
   end
-
 end

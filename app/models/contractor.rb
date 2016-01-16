@@ -5,5 +5,4 @@ class Contractor < ActiveRecord::Base
   def inactive?
     status == "inactive"
   end
-
 end

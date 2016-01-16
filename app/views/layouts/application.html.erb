@@ -19,7 +19,8 @@
   <%= render partial: "navbars/root_navbar" if @disable_navbar %>
 
   <div class="right-align login-link">
-    <%= link_to "View Account: #{current_contractor.first_name}", contractor_path(current_contractor) if current_contractor %>
+    <%= link_to "View Account: #{current_contractor.first_name}", contractor_path if current_contractor %>
+    <%= link_to "View Account: #{current_developer.name}", developer_path if current_developer %>
   </div>
 
   <div class="center">

@@ -2,6 +2,8 @@ require 'test_helper'
 
 class ContractorCanEditProfileTest < ActionDispatch::IntegrationTest
   test "contractor can edit account once logged in" do
+    create_list(:specialty, 3)
+
     visit root_path
     click_on "Sign Up"
 
@@ -32,5 +34,4 @@ class ContractorCanEditProfileTest < ActionDispatch::IntegrationTest
     assert page.has_content?("Nothotdogs@hotmail.com")
     assert page.has_content?("NotBio")
   end
-
 end
