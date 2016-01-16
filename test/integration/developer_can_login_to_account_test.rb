@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class DeveloperCanLoginToAccountTest < ActionDispatch::IntegrationTest
   test "developer can make an account" do
@@ -10,14 +10,14 @@ class DeveloperCanLoginToAccountTest < ActionDispatch::IntegrationTest
     assert page.has_content?("Login")
     refute page.has_content?("Logout")
 
-      fill_in "developer[name]", with: "Aaron"
-      fill_in "developer[last_name]", with: "Greenspan"
-      fill_in "developer[email]", with: "hotdogs@hotmail.com"
-      select "Database", :from => "form-value"
-      fill_in "developer[password]", with: "password"
-      click_on "Create Developer Account"
+    fill_in "developer[name]", with: "Aaron"
+    fill_in "developer[last_name]", with: "Greenspan"
+    fill_in "developer[email]", with: "hotdogs@hotmail.com"
+    select "Database", from: "form-value"
+    fill_in "developer[password]", with: "password"
+    click_on "Create Developer Account"
 
-    assert_equal '/developer', current_path
+    assert_equal "/developer", current_path
     assert page.has_content?("Aaron")
     assert page.has_content?("Greenspan")
     assert page.has_content?("hotdogs@hotmail.com")
@@ -46,7 +46,7 @@ class DeveloperCanLoginToAccountTest < ActionDispatch::IntegrationTest
       click_on "Developer Login"
     end
 
-    assert_equal '/developer', current_path
+    assert_equal "/developer", current_path
     assert page.has_content?(dev.name)
     assert page.has_content?(dev.last_name)
     assert page.has_content?(dev.bio)
@@ -57,12 +57,12 @@ class DeveloperCanLoginToAccountTest < ActionDispatch::IntegrationTest
 
     visit sign_up_path
 
-      fill_in "developer[name]", with: "Aaron"
-      fill_in "developer[last_name]", with: "Greenspan"
-      fill_in "developer[email]", with: "hotdogs@hotmail.com"
-      select "#{specialty.name}", :from => "form-value"
-      fill_in "developer[password]", with: "password"
-      click_on "Create Developer Account"
+    fill_in "developer[name]", with: "Aaron"
+    fill_in "developer[last_name]", with: "Greenspan"
+    fill_in "developer[email]", with: "hotdogs@hotmail.com"
+    select "#{specialty.name}", from: "form-value"
+    fill_in "developer[password]", with: "password"
+    click_on "Create Developer Account"
 
     visit specialty_path(specialty)
     assert page.has_content? "Aaron"

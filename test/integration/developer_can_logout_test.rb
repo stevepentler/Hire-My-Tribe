@@ -19,7 +19,7 @@ class DeveloperCanLogoutTest < ActionDispatch::IntegrationTest
     assert page.has_content?("Logged out #{developer.name}")
     refute page.has_content?("Logged in: Developer #{developer.name}")
 
-    visit '/developer'
+    visit "/developer"
     assert page.has_content?("404")
   end
 end

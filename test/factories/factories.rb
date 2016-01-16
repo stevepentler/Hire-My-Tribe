@@ -1,16 +1,16 @@
 FactoryGirl.define do
 
   factory :contractor do
-    first_name {FactoryGirl.generate(:contractor_first_name)}
-    last_name {FactoryGirl.generate(:contractor_last_name)}
-    email {FactoryGirl.generate(:email)}
+    first_name { FactoryGirl.generate(:contractor_first_name) }
+    last_name { FactoryGirl.generate(:contractor_last_name) }
+    email { FactoryGirl.generate(:email) }
     password "password"
     company_name "Mac"
     bio "Nothing interesting"
   end
 
   factory :project do
-    title {FactoryGirl.generate(:project_title)}
+    title { FactoryGirl.generate(:project_title) }
     description " "
     total 40
   end
@@ -22,7 +22,7 @@ FactoryGirl.define do
     rate
     password "password"
     specialty
-    email {FactoryGirl.generate(:email)}
+    email { FactoryGirl.generate(:email) }
   end
 
   factory :specialty do
