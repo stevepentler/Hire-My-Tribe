@@ -31,7 +31,6 @@ class ContractorCanEditProfileTest < ActionDispatch::IntegrationTest
     assert page.has_content?("NotMac")
     assert page.has_content?("NotAaron")
     assert page.has_content?("NotGreenspan")
-    assert page.has_content?("Nothotdogs@hotmail.com")
     assert page.has_content?("NotBio")
   end
 end

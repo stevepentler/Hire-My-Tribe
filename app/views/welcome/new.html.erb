@@ -22,18 +22,21 @@
 
 <div class='container form-font new-developer'>
   <%= form_for(@developer, url: developer_path) do |f| %>
-    <%= f.label :name, "First Name", class: "form-label" %>
+    <%= f.label :name, "First Name" %>
     <%= f.text_field :name, id: "form-value"  %>
     <br>
-    <%= f.label :last_name, "Last Name", class: "form-label" %>
+    <%= f.label :last_name, "Last Name"%>
     <%= f.text_field :last_name, id: "form-value"  %>
     <br>
-    <%= f.label :email, class: "form-label" %>
+    <%= f.label :email%>
     <%= f.text_field :email, id: "form-value"  %>
     <br>
     <%= select_tag "Specialties", options_from_collection_for_select(all_specialties, "id", "name"), id: "form-value"%>
     <br>
-    <%= f.label :password, class: "form-label" %>
+    <%= f.label :rate %>
+    <%= f.number_field :rate %> 
+    <br>
+    <%= f.label :password%>
     <%= f.password_field :password, id: "form-value"  %>
     <br>
     <%= f.submit "Create Developer Account", class: "form-label", id: "form-button" %>
