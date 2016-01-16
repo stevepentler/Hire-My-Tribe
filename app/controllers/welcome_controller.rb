@@ -22,10 +22,12 @@ class WelcomeController < ApplicationController
     elsif current_developer && current_developer.authenticate(params[:deactivate][:password])
       deactivate_user(current_developer, :developer_id)
     else
-      flash.now[:error] = 'Invalid login data'
+      flash.now[:error] = "Invalid login data"
       redirect_to deactivate_account_path
     end
   end
+
+private
 
   def deactivate_user(user, type)
     user.update_attribute(:status, "inactive")
@@ -33,5 +35,4 @@ class WelcomeController < ApplicationController
     flash[:notice] = "Account successfully deactivated."
     redirect_to root_path
   end
-
 end

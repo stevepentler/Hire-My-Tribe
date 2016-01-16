@@ -9,10 +9,10 @@
   </div>
 </nav>
 
-  <ul id="dropdown1" class="dropdown-content navbar-font">
-    <li><%= link_to "All Developers", developers_path %></li>
-    <li class="divider"></li>
-    <% @specialties.each do |specialty| %>
-      <li> <%= link_to "#{specialty.name} Developers", specialty_path(specialty) %> </li>
-    <% end %>
-  </ul>
+<ul id="dropdown1" class="dropdown-content navbar-font">
+  <li><%= link_to "All Developers", developers_path %></li>
+  <li class="divider"></li>
+  <% @specialties.each do |specialty| %>
+    <li> <%= link_to "#{specialty.name} Developers", specialty_path(specialty) %> </li>
+  <% end %>
+</ul>
