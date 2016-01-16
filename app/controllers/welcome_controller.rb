@@ -18,19 +18,21 @@ class WelcomeController < ApplicationController
 
   def deactivate
     if current_contractor && current_contractor.authenticate(params[:deactivate][:password])
-      current_contractor.update_attribute(:status, "inactive")
-      session[:contractor_id] = nil
-      flash[:notice] = "Account successfully deactivated."
-      redirect_to root_path
+      deactivate_user(current_contractor, :contractor_id)
     elsif current_developer && current_developer.authenticate(params[:deactivate][:password])
-      current_developer.update_attribute(:status, "inactive")
-      session[:developer_id] = nil
-      flash[:notice] = "Account successfully deactivated."
-      redirect_to root_path
+      deactivate_user(current_developer, :developer_id)
     else
-      flash.now[:error] = 'Invalid login data'
+      flash.now[:error] = "Invalid login data"
       redirect_to deactivate_account_path
     end
   end
 
+private
+
+  def deactivate_user(user, type)
+    user.update_attribute(:status, "inactive")
+    session[type] = nil
+    flash[:notice] = "Account successfully deactivated."
+    redirect_to root_path
+  end
 end
