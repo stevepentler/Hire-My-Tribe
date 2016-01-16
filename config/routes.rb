@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
   root to: "welcome#index"
 
-
   resources :developers, only: [:index, :show]
+  resource :developer, only: [:show, :create]
+
   resource :tribe, only: [:create, :show, :destroy]
   resources :specialties, only:[:show]
-
-  resource :developer, only: [:show, :create]
 
   resource :contractor, only: [:create, :show, :edit, :update] do
     resources :projects, only: [:create, :show, :index] do
@@ -15,8 +14,6 @@ Rails.application.routes.draw do
     end
     patch '/deactivate', to: "contractors#deactivate"
   end
-
-
 
   get '/login', to: "sessions#new"
   post '/login', to: "sessions#create"

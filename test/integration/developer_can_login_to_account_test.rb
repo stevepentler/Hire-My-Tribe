@@ -32,7 +32,6 @@ class DeveloperCanLoginToAccountTest < ActionDispatch::IntegrationTest
     refute page.has_content?("Sign Up")
   end
 
-
   test "developer can login to account" do
     create_list(:specialty, 3)
 
