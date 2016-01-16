@@ -1,10 +1,29 @@
 <div class='container form-font new-contractor'>
   <%= form_for(@contractor, url: contractor_path) do |f| %>
-    <%= f.label :company_name, "Company Name", class: "form-label" %>
+    <%= f.label :company_name, "Company Name"%>
     <%= f.text_field :company_name, id: "form-value" %>
     <br>
-    <%= f.label :first_name, "First Name", class: "form-label" %>
-    <%= f.text_field :first_name, id: "form-value"  %>
+    <%= f.label :first_name, "First Name" %>
+    <%= f.text_field :first_name, id: "form-value" %>
+    <br>
+    <%= f.label :last_name, "Last Name" %>
+    <%= f.text_field :last_name, id: "form-value" %>
+    <br>
+    <%= f.label :email %>
+    <%= f.text_field :email, id: "form-value" %>
+    <br>
+    <%= f.label :password %>
+    <%= f.password_field :password, id: "form-value" %>
+    <br>
+    <%= f.submit "Create Contractor Account", id: "form-button" %>
+  <% end %>
+</div>
+
+
+<div class='container form-font new-developer'>
+  <%= form_for(@developer, url: developer_path) do |f| %>
+    <%= f.label :name, "First Name", class: "form-label" %>
+    <%= f.text_field :name, id: "form-value"  %>
     <br>
     <%= f.label :last_name, "Last Name", class: "form-label" %>
     <%= f.text_field :last_name, id: "form-value"  %>
@@ -12,9 +31,11 @@
     <%= f.label :email, class: "form-label" %>
     <%= f.text_field :email, id: "form-value"  %>
     <br>
+    <%= select_tag "Specialties", options_from_collection_for_select(all_specialties, "id", "name"), id: "form-value"%>
+    <br>
     <%= f.label :password, class: "form-label" %>
     <%= f.password_field :password, id: "form-value"  %>
     <br>
-    <%= f.submit "Create Contractor Account", class: "form-label", id: "form-button" %>
+    <%= f.submit "Create Developer Account", class: "form-label", id: "form-button" %>
   <% end %>
 </div>

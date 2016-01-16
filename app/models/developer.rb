@@ -1,4 +1,5 @@
 class Developer < ActiveRecord::Base
+  has_secure_password
   belongs_to :specialty
   has_many :project_developers
   has_many :projects, through: :project_developers

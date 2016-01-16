@@ -18,8 +18,15 @@
   <%= render partial: "navbars/navbar" unless @disable_navbar %>
   <%= render partial: "navbars/root_navbar" if @disable_navbar %>
 
+<<<<<<< HEAD
   <div class="right-align" style='margin-right: 15px;'> <%= link_to "Logged in: Contractor " + current_contractor.first_name, contractor_path(current_contractor) if current_contractor %></div>
   <div class="right-align"> <%#= "Logged in: Developer " + current_developer.name if current_developer %> </div>
+=======
+  <div class="right-align login-link">
+    <%= link_to "View Account: #{current_contractor.first_name}", contractor_path if current_contractor %>
+    <%= link_to "View Account: #{current_developer.name}", developer_path if current_developer %>
+  </div>
+>>>>>>> master
 
   <div class="center">
     <% flash.each do |type, msg| %>

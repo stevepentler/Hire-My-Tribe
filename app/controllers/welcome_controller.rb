@@ -10,6 +10,7 @@ class WelcomeController < ApplicationController
       redirect_to root_path
     end
 
+    @developer = Developer.new
     @contractor = Contractor.new
   end
 end

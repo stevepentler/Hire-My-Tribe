@@ -6,22 +6,22 @@ class VisitorRemovesDeveloperFromTribeTest < ActionDispatch::IntegrationTest
 
     visit developer_path(dev1)
 
-    click_on "Add to tribe"
+    click_on "Add #{dev1.name} to the tribe"
     assert page.has_content?("#{dev1.name} has joined your tribe!")
 
-    visit developer_path(dev2)
-    
-    click_on "Add to tribe"
+    visit developer_path(dev2)    
+    click_on "Add #{dev2.name} to the tribe"
+
     assert page.has_content?("#{dev2.name} has joined your tribe!")
-    
+
     click_on "Current Tribe"
     assert_equal current_path, tribe_path
-    
+
     assert page.has_content?("#{dev1.name}")
     assert page.has_content?("#{dev1.name}")
-    within "#developer_#{dev1.name}" do 
+    within "#developer_#{dev1.name}" do
       click_on "Remove Developer"
-    end 
+    end
 
     refute page.has_content?("#{dev1.name}")
     assert page.has_content?("#{dev2.name}")

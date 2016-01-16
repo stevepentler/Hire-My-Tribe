@@ -43,7 +43,7 @@ class ContractorCanMakeMultipleOrders < ActionDispatch::IntegrationTest
     ApplicationController.any_instance.stubs(:current_contractor).returns(contractor)
 
     visit developer_path(dev)
-    click_on "Add to tribe"
+    click_on "Add #{dev.name} to the tribe"
 
     visit tribe_path
     click_on "Start Project"
