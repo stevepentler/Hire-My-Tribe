@@ -19,7 +19,7 @@ class VisitorAddsDevelopersToCartTest < ActionDispatch::IntegrationTest
     assert_equal current_path, tribe_path
     assert page.has_content?("#{dev.name}")
     assert page.has_content?("#{dev.rate.to_i}")
-    assert page.has_content?("Total: #{dev.rate.to_i}")
+    assert page.has_content?("Total: $#{dev.rate.to_i}")
   end
 
   test "a visitor cannot add the same developer to the cart" do
