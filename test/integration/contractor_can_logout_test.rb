@@ -11,9 +11,11 @@ class ContractorCanLogoutTest < ActionDispatch::IntegrationTest
       click_on "Contractor Login"
     end
 
-    assert page.has_content?("Logged in: Contractor #{contractor.first_name}")
+    assert page.has_content?("View Account: #{contractor.first_name}")
 
-    click_on "Logout"
+    within ".container" do
+      click_on "Logout"
+    end
 
     assert_equal login_path, current_path
     assert page.has_content?("Logged out #{contractor.first_name}")
