@@ -7,4 +7,8 @@ class Developer < ActiveRecord::Base
   def in_pending_tribe?(tribe)
     tribe.developer_ids.include?(id)
   end
+
+  def inactive?
+    status == "inactive"
+  end
 end

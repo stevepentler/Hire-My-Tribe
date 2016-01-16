@@ -7,12 +7,12 @@ class ContractorCanEditProfileTest < ActionDispatch::IntegrationTest
     visit root_path
     click_on "Sign Up"
 
-      fill_in "contractor[company_name]", with: "Mac"
-      fill_in "contractor[first_name]", with: "Aaron"
-      fill_in "contractor[last_name]", with: "Greenspan"
-      fill_in "contractor[email]", with: "hotdogs@hotmail.com"
-      fill_in "contractor[password]", with: "password"
-      click_on "Create Contractor Account"
+    fill_in "contractor[company_name]", with: "Mac"
+    fill_in "contractor[first_name]", with: "Aaron"
+    fill_in "contractor[last_name]", with: "Greenspan"
+    fill_in "contractor[email]", with: "hotdogs@hotmail.com"
+    fill_in "contractor[password]", with: "password"
+    click_on "Create Contractor Account"
 
 
     click_on "Edit Account Information"
