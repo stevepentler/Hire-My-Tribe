@@ -11,7 +11,8 @@ class ApplicationController < ActionController::Base
                 :current_pending_tribe,
                 :current_specialty,
                 :developer_path,
-                :all_specialties
+                :all_specialties,
+                :current_developer
 
   def developer_path(dev = nil)
     if dev

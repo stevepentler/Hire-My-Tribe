@@ -52,13 +52,9 @@ class SessionsController < ApplicationController
     render :new
   end
 
-  def login(user, type)
-    # flash[:notice] = "Loged in as #{user.}"
-  end
-
   def destroy
     flash[:notice] = "Logged out #{current_contractor.first_name}" if current_contractor
-    flash[:notice] = "Logged out #{current_developer.first_name}" if current_developer
+    flash[:notice] = "Logged out #{current_developer.name}" if current_developer
 
     session[:contractor_id] = nil
     session[:developer_id] = nil

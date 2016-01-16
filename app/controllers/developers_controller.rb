@@ -18,9 +18,11 @@ class DevelopersController < ApplicationController
   def show
     if params[:id]
       @developer = Developer.find(params[:id])
-    else
+    elsif current_developer
       @developer = current_developer
       render :current_developer
+    else
+      render file: 'public/404.html'
     end
   end
 
