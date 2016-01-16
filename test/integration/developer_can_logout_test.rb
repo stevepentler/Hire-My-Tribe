@@ -11,13 +11,13 @@ class DeveloperCanLogoutTest < ActionDispatch::IntegrationTest
       click_on "Developer Login"
     end
 
-    assert page.has_content?("Logged in: Developer #{developer.name}")
+    assert page.has_content?("View Account: #{developer.name}")
 
     click_on "Logout"
 
     assert_equal login_path, current_path
     assert page.has_content?("Logged out #{developer.name}")
-    refute page.has_content?("Logged in: Developer #{developer.name}")
+    refute page.has_content?("View Account: #{developer.name}")
 
     visit "/developer"
     assert page.has_content?("404")
