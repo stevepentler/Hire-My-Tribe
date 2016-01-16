@@ -19,17 +19,26 @@ class DevelopersController < ApplicationController
     if params[:id]
       @developer = Developer.find(params[:id])
     elsif current_developer
-      @developer = current_developer
       render :current_developer
     else
-      render file: 'public/404.html'
+      render file: "public/404.html"
     end
   end
+
+  def update
+    flash[:notice] = "Account information edited!"
+    current_developer.update(developer_constructor_params)
+    redirect_to developer_path
+  end
+
+  def edit
+  end
+
 
   private
 
   def developer_params
-    params.require(:developer).permit(:name, :last_name, :email, :password)
+    params.require(:developer).permit(:name, :last_name, :email, :password, :bio)
   end
 
   def developer_constructor_params

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: "welcome#index"
 
   resources :developers, only: [:index, :show]
-  resource :developer, only: [:show, :create]
+  resource :developer, only: [:show, :create, :edit, :update]
 
   resource :tribe, only: [:create, :show, :destroy]
   resources :specialties, only:[:show]
