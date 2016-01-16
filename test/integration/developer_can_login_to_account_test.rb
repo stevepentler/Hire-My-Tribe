@@ -52,4 +52,20 @@ class DeveloperCanLoginToAccountTest < ActionDispatch::IntegrationTest
     assert page.has_content?(dev.last_name)
     assert page.has_content?(dev.bio)
   end
+
+  test "new developer is included in developers pages" do
+    specialty = create_list(:specialty, 3).sample
+
+    visit sign_up_path
+
+      fill_in "developer[name]", with: "Aaron"
+      fill_in "developer[last_name]", with: "Greenspan"
+      fill_in "developer[email]", with: "hotdogs@hotmail.com"
+      select "#{specialty.name}", :from => "form-value"
+      fill_in "developer[password]", with: "password"
+      click_on "Create Developer Account"
+
+    visit specialty_path(specialty)
+    assert page.has_content? "Aaron"
+  end
 end
