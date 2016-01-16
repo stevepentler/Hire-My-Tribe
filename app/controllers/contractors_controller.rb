@@ -8,6 +8,7 @@ class ContractorsController < ApplicationController
       redirect_to contractor_path
     else
       flash[:error] = @contractor.errors.full_messages.join(", ")
+      redirect_to sign_up_path
     end
   end
 

@@ -12,6 +12,7 @@ class DevelopersController < ApplicationController
       redirect_to developer_path
     else
       flash[:error] = @developer.errors.full_messages.join(", ")
+      redirect_to sign_up_path
     end
   end
 

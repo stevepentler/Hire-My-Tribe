@@ -21,8 +21,7 @@ class ContractorCanLoginTest < ActionDispatch::IntegrationTest
     assert page.has_content?("Mac")
     assert page.has_content?("Aaron")
     assert page.has_content?("Greenspan")
-    assert page.has_content?("hotdogs@hotmail.com")
-
+    
     assert page.has_content?("Edit Account Information")
     assert page.has_content?("Deactivate Account")
     assert page.has_content?("Logout")
