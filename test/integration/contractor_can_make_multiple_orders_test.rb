@@ -17,6 +17,8 @@ class ContractorCanMakeMultipleOrders < ActionDispatch::IntegrationTest
     click_on "Start Project"
 
     project = Project.last
+
+    assert_equal "Pending", project.status
     assert_equal contractor_project_path(project), current_path
     assert page.has_content?("New Project")
     assert page.has_content?("Do Things")

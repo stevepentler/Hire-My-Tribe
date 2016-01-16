@@ -1,5 +1,10 @@
 <h1><%= @project.title %></h1>
 <p><%= @project.description %></p>
+<p>Total: $<%= @project.total %></p>
+<p><%= @project.status %></p>
+<p>Created At: <%= @project.created_at.to_formatted_s(:long)  %></p>
+<p>Updated At: <%= @project.updated_at.to_formatted_s(:long) %></p>
+
 
 <% @project.developers.each do |developer| %>
   <div class="col l8 s12 m6">
@@ -18,5 +23,6 @@
     </div>
   </div>
 <% end %>
-
-<%= link_to "Submit Payment", contractor_project_payment_path(@project) %>
+<% if @project.status == "Pending" %> 
+  <%= link_to "Submit Payment", contractor_project_payment_path(@project) %>
+<% end %> 

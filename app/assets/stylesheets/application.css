@@ -45,7 +45,7 @@ font-family: 'Cantarell', sans-serif;
    text-decoration: underline #669884;
    font-weight: 600;
    font-size: 150px;
-   margin-top: 50px ;
+   margin-top: 60px ;
    color: black;
    text-shadow: 2px 2px #669884;
    margin-bottom: 200px;
@@ -111,6 +111,11 @@ hr.gradient {
 
 #signup-button a {
   color: white;
+}
+
+#single-totem img {
+  height: 50px;
+  width: auto;
 }
 
 /*index page*/
