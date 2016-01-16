@@ -5,7 +5,7 @@ class ContractorRemovesDevelopersFromProjectTest < ActionDispatch::IntegrationTe
     dev_1, dev_2 = create_list(:developer, 2 )
 
     contractor = create(:contractor)
-    project = contractor.projects.create(title: "title", total: 0, description: "")
+    project = contractor.projects.create(title: "title", total: 0, description: "sample description")
     project.developers += [dev_1, dev_2]
 
     ApplicationController.any_instance.stubs(:current_contractor).returns(contractor)

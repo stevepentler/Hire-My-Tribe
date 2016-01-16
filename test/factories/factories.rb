@@ -13,6 +13,9 @@ FactoryGirl.define do
     title { FactoryGirl.generate(:project_title) }
     description " "
     total 40
+    status 0
+    created_at Time.now
+    updated_at Time.now
   end
 
   factory :admin do
@@ -23,11 +26,11 @@ FactoryGirl.define do
 
   factory :developer do
     name
-    profile_picture
-    rate
+    last_name
+    email { FactoryGirl.generate(:email) }
+    rate 
     password "password"
     specialty
-    email { FactoryGirl.generate(:email) }
   end
 
   factory :specialty do
@@ -65,6 +68,10 @@ FactoryGirl.define do
 
   sequence :name do |n|
     "Dev#{n}"
+  end
+
+  sequence :last_name do |n|
+    "Last{n}"
   end
 
   sequence :profile_picture do |n|
