@@ -1,15 +1,11 @@
 <div class="container">
   <div class="center">
-    <h1 class="center mint-shadow">Current Tribe</h1>
-    <div id="single-totem">
-      <%= image_tag("database/horse_animal_totem.png") %>
-      <%= image_tag("front_end/hawk_animal_totem.png") %>
-      <%= image_tag("back_end/fox_animal_totem.png") %>
-    </div>
-    <h3>Review your hires, <br>then complete the form below to start the project!</h3>
+    <h1 class="mint-shadow" style="font-size: 120px;">Current Tribe</h1>
+    <hr class="gradient">    
+    <h2>Review your hires, <br>then complete the form below to start the project!</h2>
+    <%= render "/small_totems_row" %>
   </div>
-
-  <%= render "/tribes/project"  %>
+    <%= render "/tribes/project"  %>
   
   <%= form_for([current_contractor, @project], url: contractor_projects_path) do |f| %>
     <br>

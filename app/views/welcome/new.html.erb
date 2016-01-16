@@ -1,7 +1,7 @@
 <div class='container form-font new-contractor'>
   <%= form_for(@contractor, url: contractor_path) do |f| %>
     <%= f.label :company_name, "Company Name"%>
-    <%= f.text_field :company_name %>
+    <%= f.text_field :company_name, id: "form-value" %>
     <br>
     <%= f.label :first_name, "First Name" %>
     <%= f.text_field :first_name, id: "form-value" %>

@@ -1,13 +1,3 @@
-form label {
-  font-size: 40px;
-  color: #540018;
-  text-shadow: .5px .5px grey;
-}
-
-form input {
-  font-size: 2.5em;
-  font-family: monospace;
-}
 
 /*fonts and colors*/
 .amatic-font {
@@ -86,6 +76,20 @@ font-family: 'Cantarell', sans-serif;
   background-repeat: no-repeat;
   background-position: center center;
 }
+/*reused*/
+
+hr.gradient { 
+  border: 0; 
+  height: 1px; 
+  background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0); 
+}
+#single-totem img {
+  height: 80px;
+  width: auto;
+}
 
 #signup-button {
     display: inline-block;
@@ -154,12 +158,17 @@ font-family: 'Cantarell', sans-serif;
   width: 100%;
 }
 
-/*new contractor form*/
-/*.form-label {
+/*forms*/
+form label {
   font-size: 40px;
   color: #540018;
   text-shadow: .5px .5px grey;
-}*/
+}
+
+form input {
+  font-size: 2.5em;
+  font-family: monospace;
+}
 
 #form-value {
   font-size: 2.5em;
@@ -170,10 +179,13 @@ font-family: 'Cantarell', sans-serif;
   border-radius: 10px;
   font-size: 2.5em;
   color: #540018;
-
 }
 
-
+/*.form-label {
+  font-size: 40px;
+  color: #540018;
+  text-shadow: .5px .5px grey;
+}*/
 
 
 
