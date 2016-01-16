@@ -77,6 +77,16 @@ font-family: 'Cantarell', sans-serif;
   background-position: center center;
 }
 /*reused*/
+.login-link {
+  margin-right: 5%;
+  font-size: 2.5em;
+}
+
+.login-link a {
+  /*text-shadow: 2px 2px #669884;*/
+  color: black;
+  text-decoration: underline;
+}
 
 hr.gradient { 
   border: 0; 
