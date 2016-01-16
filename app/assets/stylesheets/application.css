@@ -1,3 +1,5 @@
+
+/*fonts and colors*/
 .amatic-font {
   font-family: 'Amatic SC', cursive;
  }
@@ -18,39 +20,47 @@ font-family: 'Cantarell', sans-serif;
   color: #540018;
 }
 
+.mint-shadow {
+  text-shadow: 2px 2px #669884;
+}
+
+/*.brown-shadow {
+  text-shadow: 2px 2px #540018;
+}*/
+
 #navbar-font {
   font-size: 1.5em;
+  text-shadow: 2px 2px #540018;
+
 }
 
 #dropdown-font {
   font-size: 2.5em;
+  text-shadow: 2px 2px #540018;
+
 }
 
+/*navbars*/
  #brand-logo {
    text-decoration: underline #669884;
    font-weight: 600;
    font-size: 150px;
-   margin-top: 50px ;
+   margin-top: 60px ;
    color: black;
    text-shadow: 2px 2px #669884;
    margin-bottom: 200px;
  }
 
+#normal-brand-logo{
+  text-decoration: underline;
+  font-size: 60px;
+  text-shadow: 3px 3px #540018;
+}
+
+/*welcome page*/
 .parallax-container {
   margin-top: 80px;
    }
-
-.tribe-row {
-  display: inline-block;
-}
-
-.background-image { 
-  background-image: url('HireMyTribeLogoSmall.png');
-  background-size: contain; 
-  max-width: 100%;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
 
 #primary-logo {
   height: auto;
@@ -59,14 +69,36 @@ font-family: 'Cantarell', sans-serif;
   max-height: 500px;
 }
 
-#normal-brand-logo{
-  text-decoration: underline;
-  font-size: 50px;
+.background-image {
+  background-image: url('HireMyTribeLogoSmall.png');
+  background-size: contain;
+  max-width: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+/*reused*/
+.login-link {
+  margin-right: 5%;
+  font-size: 2.5em;
 }
 
-#primary-text {
-  font-weight: 600;
-  border-bottom-color: yellow;
+.login-link a {
+  /*text-shadow: 2px 2px #669884;*/
+  color: black;
+  text-decoration: underline;
+}
+
+hr.gradient {
+  border: 0;
+  height: 1px;
+  background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+}
+#single-totem img {
+  height: 80px;
+  width: auto;
 }
 
 #signup-button {
@@ -80,6 +112,13 @@ font-family: 'Cantarell', sans-serif;
 #signup-button a {
   color: white;
 }
+
+#single-totem img {
+  height: 50px;
+  width: auto;
+}
+
+/*index page*/
 #specialty-button {
   display: inline-block;
   text-align: center;
@@ -87,6 +126,11 @@ font-family: 'Cantarell', sans-serif;
   margin-top: 10px;
   font-size: 30px;
   color: white;
+}
+
+/*developer cards*/
+.tribe-row {
+  display: inline-block;
 }
 
 .card {
@@ -101,7 +145,7 @@ font-family: 'Cantarell', sans-serif;
 }
 
 #developer-card {
-  width: 60%;
+  width: 80%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -121,11 +165,6 @@ font-family: 'Cantarell', sans-serif;
   font-size: 2.0rem;
 }
 
-.card-action {
-  background-color: black;
-  left: 0;
-}
-
 #developer-bio {
   color: #540018;
   font-size: 50px;
@@ -134,10 +173,16 @@ font-family: 'Cantarell', sans-serif;
   width: 100%;
 }
 
-.form-label {
+/*forms*/
+form label {
   font-size: 40px;
   color: #540018;
   text-shadow: .5px .5px grey;
+}
+
+form input {
+  font-size: 2.5em;
+  font-family: monospace;
 }
 
 #form-value {
@@ -147,15 +192,6 @@ font-family: 'Cantarell', sans-serif;
 
 #form-button {
   border-radius: 10px;
+  font-size: 2.5em;
+  color: #540018;
 }
-
-
-
-
-
-
-
-
-
-
-

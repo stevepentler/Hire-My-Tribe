@@ -1,11 +1,19 @@
+<%= render partial: "specialties/specialty_buttons" %> 
+
 <div class="center">
-  <h1><%= @developer.name %></h1>
-  <ul>
-    <div class="card-image">
-      <img src="https://robohash.org/<%= @developer.id %>" style="width: 25%;">
-    </div>
-    <li><%= @developer.specialty.name %></li>
-    <li><%= @developer.rate %></li>
-  </ul>
-  <%= add_or_already_in_tribe  %>
+  <span>
+    <%= render partial: "/specialty_totem" %>
+    <h1 class="mint-shadow" style="font-size: 120px;"><%= @developer.name %></h1>
+  </span>
+  <h1><%= add_or_already_in_tribe %></h1>
+
+  <div class="card-image">
+    <img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAZvAAAAJDFiY2JjNTc4LTQ0NDktNDcyYy05YzMxLTcyZmVmZDU3OTU5OA.jpg" id="developer-image">
+  </div>
+
+  <h3><%= @developer.specialty.name %></h3>
+  <h3>Rate $<%= @developer.rate %>/hr</h3>
+
 </div>
+
+  

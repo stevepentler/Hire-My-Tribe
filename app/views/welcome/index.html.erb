@@ -5,12 +5,18 @@
 
   <div class="amatic-font center">
     <h2>Hire Developers, Not Recruiters</h2>
-    <h3 class="row waves-effect waves-light btn-large" id="signup-button" ><%= link_to "Sign Up", sign_up_path unless current_user? %></h3>
+    <% if !current_user? %>
+      <h3 class="row waves-effect waves-light btn-large" id="signup-button" ><%= link_to "Sign Up", sign_up_path %></h3>
+    <% end %>
   </div>
 
-  <div id="single-totem">
+<<<<<<< HEAD
+  <div class="center" id="single-totem">
     <%= image_tag("database/horse_animal_totem.png") %>
     <%= image_tag("front_end/hawk_animal_totem.png") %>
     <%= image_tag("back_end/fox_animal_totem.png") %>
   </div>
+=======
+<%= render partial: "/small_totems_row" %> 
+>>>>>>> master
 </div>

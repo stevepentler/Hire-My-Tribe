@@ -1,20 +1,46 @@
-<%= "Company Name: " + @contractor.company_name unless @contractor.company_name.empty? %>
-<br>
+<div class="container center amatic-font" style="font-size: 4em;">
+  <%= "Company Name: " + @contractor.company_name unless @contractor.company_name.empty? %>
+  <br>
 
+<<<<<<< HEAD
 <%= "First Name: " + @contractor.first_name %>
-<br>
-
 <%= "Last Name: " + @contractor.last_name %>
 <br>
 
-<%= "Email: " + @contractor.email %>
+<%= link_to "View Current & Past Projects", contractor_projects_path(@contractor) %>
 <br>
+=======
+  <%= "Name: " + @contractor.first_name + " " + @contractor.last_name %>
+  <br>
 
-<%= "Description: " + @contractor.bio %>
-<br>
+  <%= "Email: " + @contractor.email %>
+  <br>
+>>>>>>> master
+
+
+  <%= link_to "Projects", contractor_projects_path, method: :delete, class: "row waves-effect waves-light btn-large", id: "signup-button", style: "font-size: 60px;" %>
+  <br>
+
+<<<<<<< HEAD
 
 <%= link_to "Edit Account Information", edit_contractor_path %>
 <br>
+=======
+  <%= link_to "Logout", logout_path, method: :delete, class: "row waves-effect waves-light btn-large", id: "signup-button", style: "font-size: 60px;"%>
+  <br>
+>>>>>>> master
 
-<%= "Delete Account" %>
-<br>
+  <%= "Description: " + @contractor.bio %>
+  <br>
+  
+  <%= link_to "Edit Account Information", edit_contractor_path %>
+  <br>
+
+<<<<<<< HEAD
+link_to "Logout", logout_path, id: "dropdown-font", method: :delete
+>>>>>>> master
+=======
+  <%= link_to "Deactivate Account", deactivate_account_path, style: "color: red" %>
+
+</div>
+>>>>>>> master

@@ -9,7 +9,7 @@ class VisitorAddsDevelopersToCartTest < ActionDispatch::IntegrationTest
 
     assert_equal current_path, developer_path(developers.first)
 
-    click_on "Add to tribe"
+    click_on "Add #{dev.name} to the tribe"
 
     assert_equal current_path, developers_path
 
@@ -19,7 +19,7 @@ class VisitorAddsDevelopersToCartTest < ActionDispatch::IntegrationTest
     assert_equal current_path, tribe_path
     assert page.has_content?("#{dev.name}")
     assert page.has_content?("#{dev.rate.to_i}")
-    assert page.has_content?("Total: #{dev.rate.to_i}")
+    assert page.has_content?("Total: $#{dev.rate.to_i}")
   end
 
   test "a visitor cannot add the same developer to the cart" do
@@ -29,12 +29,12 @@ class VisitorAddsDevelopersToCartTest < ActionDispatch::IntegrationTest
 
     assert_equal current_path, developer_path(dev)
 
-    click_on "Add to tribe"
+    click_on "Add #{dev.name} to the tribe"
 
     visit developer_path(dev)
 
-    refute page.has_content?("Add to tribe")
-    assert page.has_content?("#{dev.name} is already in tribe")
+    refute page.has_content?("Add #{dev.name} to the tribe")
+    assert page.has_content?("#{dev.name} is already in a tribe")
   end
 
   test "a visitor is redirected to their path of origin when adding to cart" do
@@ -42,7 +42,7 @@ class VisitorAddsDevelopersToCartTest < ActionDispatch::IntegrationTest
       dev = create(:developer)
       visit specialty_path(dev.specialty)
       click_on "#{dev.name} Bio"
-      click_on "Add to tribe"
+      click_on "Add #{dev.name} to the tribe"
 
       assert_equal specialty_path(dev.specialty), current_path
     end
@@ -50,15 +50,14 @@ class VisitorAddsDevelopersToCartTest < ActionDispatch::IntegrationTest
     dev = create(:developer)
     visit developers_path
     click_on "#{dev.name} Bio"
-    click_on "Add to tribe"
+    click_on "Add #{dev.name} to the tribe"
 
     assert_equal developers_path, current_path
 
     dev = create(:developer)
     visit specialty_path(dev.specialty)
     click_on "#{dev.name} Bio"
-    click_on "Add to tribe"
-
+    click_on "Add #{dev.name} to the tribe"
     assert_equal specialty_path(dev.specialty), current_path
   end
 end
