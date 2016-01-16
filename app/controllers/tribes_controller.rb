@@ -13,6 +13,7 @@ class TribesController < ApplicationController
   end
 
   def show
+    render file: "public/404.html" if current_developer
     @project = Project.new
   end
 
