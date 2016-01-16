@@ -39,7 +39,7 @@ class DevelopersController < ApplicationController
   private
 
   def developer_params
-    params.require(:developer).permit(:name, :last_name, :email, :password, :bio)
+    params.require(:developer).permit(:name, :last_name, :email, :password, :bio, :rate)
   end
 
   def developer_constructor_params

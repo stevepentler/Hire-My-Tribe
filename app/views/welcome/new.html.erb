@@ -33,8 +33,8 @@
     <br>
     <%= select_tag "Specialties", options_from_collection_for_select(all_specialties, "id", "name"), id: "form-value"%>
     <br>
-    <%= f.label :rate%>
-    <%= f.password_field :rate, id: "form-value"  %>
+    <%= f.label :rate %>
+    <%= f.number_field :rate %> 
     <br>
     <%= f.label :password%>
     <%= f.password_field :password, id: "form-value"  %>
