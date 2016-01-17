@@ -71,9 +71,11 @@ class SessionsController < ApplicationController
   def destroy
     flash[:notice] = "Logged out #{current_contractor.first_name}" if current_contractor
     flash[:notice] = "Logged out #{current_developer.name}" if current_developer
+    flash[:notice] = "Logged out #{current_admin.username}" if current_admin
 
     session[:contractor_id] = nil
     session[:developer_id] = nil
+    session[:admin_id] = nil
 
     redirect_to login_path
   end
