@@ -11,3 +11,6 @@
 /log/*
 !/log/.keep
 /tmp
+
+* Ignore auto-generated test images
+/public/system/specialties/images/*
