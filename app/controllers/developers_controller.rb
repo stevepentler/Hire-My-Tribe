@@ -35,8 +35,20 @@ class DevelopersController < ApplicationController
   def edit
   end
 
+  def filter
+    @developers = sort[params["Sort By"]]
+    flash.now[:notice] = "Filter has been applied!"
+    render :index
+  end
 
   private
+
+  def sort
+    {
+      "Rate: Ascending" => Developer.order(rate: :asc),
+      "Rate: Descending" => Developer.order(rate: :desc)
+    }
+  end
 
   def developer_params
     params.require(:developer).permit(:name, :last_name, :email, :password, :bio, :rate)

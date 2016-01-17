@@ -1,4 +1,9 @@
-<%= render partial: "specialty_buttons" %> 
+<%= render partial: "specialty_buttons" %>
+
+<%= form_for(:filter, url: filter_path) do |f| %>
+  <%= select_tag "Sort By", options_for_select(["Rate: Ascending", "Rate: Descending"]), id: "sort-by"%>
+  <%= f.submit "Apply Sort" %>
+<% end %>
 
 <div class="row">
   <%= render @developers %>

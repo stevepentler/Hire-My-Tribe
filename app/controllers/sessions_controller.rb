@@ -15,7 +15,6 @@ class SessionsController < ApplicationController
         flash[:notice] = "Logged in as #{admin.username}"
         session[:admin_id] = admin.id
         redirect_to admin_dashboard_path
-        # binding.pry
       else
         flash.now[:error] = 'Invalid login data'
         render :new
