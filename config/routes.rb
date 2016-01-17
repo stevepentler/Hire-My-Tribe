@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :specialties, only: [:new, :create, :index]
     get '/dashboard', to: "admins#show"
   end
 
