@@ -12,6 +12,7 @@ class ProjectsController < ApplicationController
       redirect_to tribe_path
       end 
     else
+      session[:from_tribe] = true
       flash[:login_error] = "Please login before submitting a project"
       redirect_to login_path
     end

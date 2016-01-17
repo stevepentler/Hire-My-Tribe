@@ -15,7 +15,6 @@ class SessionsController < ApplicationController
         flash[:notice] = "Logged in as #{admin.username}"
         session[:admin_id] = admin.id
         redirect_to admin_dashboard_path
-        # binding.pry
       else
         flash.now[:error] = 'Invalid login data'
         render :new
@@ -34,7 +33,13 @@ class SessionsController < ApplicationController
     elsif contractor && contractor.authenticate(params[:session][:password])
       flash[:notice] = "Logged in as #{contractor.first_name}"
       session[:contractor_id] = contractor.id
-      redirect_to contractor_path
+      #redirect_to contractor_path
+      if session[:from_tribe] == true
+        session[:from_tribe] = false
+        redirect_to tribe_path
+      else
+        redirect_to contractor_path
+      end
     else
       invalid_login
     end
