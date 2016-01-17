@@ -1,11 +1,16 @@
 class ContractorsController < ApplicationController
 
-  def create
+def create
     @contractor = Contractor.new(contractor_params)
     if @contractor.save
       flash[:notice] = "Logged in as #{@contractor.first_name}"
       session[:contractor_id] = @contractor.id
-      redirect_to contractor_path
+      if session[:from_tribe] == true
+        session[:from_tribe] = false
+        redirect_to tribe_path
+      else
+        redirect_to contractor_path
+      end
     else
       flash[:error] = @contractor.errors.full_messages.join(", ")
       redirect_to sign_up_path
