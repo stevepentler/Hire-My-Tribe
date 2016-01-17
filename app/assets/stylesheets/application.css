@@ -31,7 +31,6 @@ font-family: 'Cantarell', sans-serif;
 #navbar-font {
   font-size: 1.5em;
   text-shadow: 2px 2px #540018;
-
 }
 
 #dropdown-font {
@@ -196,7 +195,30 @@ form input {
   color: #540018;
 }
 
+
 #filter {
     font-size: 1.0em;
     font-family: monospace;
 }
+
+.row {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-top: 50px;
+}
+
+.right-side{
+  background-color: rgb(255,150,150)
+}
+
+.left-side{
+  background-color: rgb(150,255,150)
+}
+
+#form-button {
+    border-radius: 10px;
+    font-size: 1.5em;
+    color: #540018;
+}
+
