@@ -195,6 +195,12 @@ form input {
   color: #540018;
 }
 
+
+#filter {
+    font-size: 1.0em;
+    font-family: monospace;
+}
+
 .row {
     margin-left: auto;
     margin-right: auto;
@@ -216,16 +222,3 @@ form input {
     color: #540018;
 }
 
-/*.left-button {
-    border-radius: 10px;
-    font-size: 0.5em;
-    color: #540018;
-    margin-left: -30px;
-}
-
-.right-button {
-    border-radius: 10px;
-    font-size: 0.5em;
-    color: #540018;
-    margin-left: -23px;
-}*/

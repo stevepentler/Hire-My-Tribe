@@ -25,5 +25,5 @@ Rails.application.routes.draw do
   get '/sign_up', to: "welcome#new"
   get '/deactivate_account', to: "welcome#deactivate_account"
   post '/deactivate', to: "welcome#deactivate"
-
+  post '/filter', to: "developers#filter"
 end
