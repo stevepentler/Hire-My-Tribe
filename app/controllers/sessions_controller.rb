@@ -10,8 +10,17 @@ class SessionsController < ApplicationController
   def create
     session[:developer_id] = nil
     session[:contractor_id] = nil
-
-    if params[:commit] == "Developer Login"
+    if admin = Admin.find_by(email: params[:session][:email])
+      if admin.authenticate(params[:session][:password])
+        flash[:notice] = "Logged in as #{admin.username}"
+        session[:admin_id] = admin.id
+        redirect_to admin_dashboard_path
+        # binding.pry
+      else
+        flash.now[:error] = 'Invalid login data'
+        render :new
+      end
+    elsif params[:commit] == "Developer Login"
       create_developer
     elsif  params[:commit] == "Contractor Login"
       create_contractor

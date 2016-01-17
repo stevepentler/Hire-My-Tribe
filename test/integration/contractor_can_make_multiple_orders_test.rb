@@ -11,12 +11,14 @@ class ContractorCanMakeMultipleOrders < ActionDispatch::IntegrationTest
     ApplicationController.any_instance.stubs(:current_pending_tribe).returns(tribe)
 
     visit tribe_path
-
     fill_in "project[title]", with: "New Project"
     fill_in "project[description]", with: "Do Things"
+
     click_on "Start Project"
 
     project = Project.last
+
+    assert_equal "Pending", project.status
     assert_equal contractor_project_path(project), current_path
     assert page.has_content?("New Project")
     assert page.has_content?("Do Things")
@@ -44,6 +46,8 @@ class ContractorCanMakeMultipleOrders < ActionDispatch::IntegrationTest
     click_on "Add #{dev.name} to the tribe"
 
     visit tribe_path
+    fill_in "project[title]", with: "Project Name"
+    fill_in "project[description]", with: "sample description"
     click_on "Start Project"
 
     visit tribe_path

@@ -7,10 +7,11 @@ class ContractorViewsAllCurrentAndPastProjectsTest < ActionDispatch::Integration
     contractor = create(:contractor)
     ApplicationController.any_instance.stubs(:current_contractor).returns(contractor)
 
-    project1 = create(:project, status: 0)
-    project2 = create(:project, status: 1)
-    project3 = create(:project, status: 2)
-    project4 = create(:project, status: 3)
+    project1 = create(:project, title: "First Project", description: "sample1", status: 0, contractor: contractor, developers: [dev1, dev2])
+    project2 = create(:project, title: "Second Project", description: "sample2", status: 1, contractor: contractor, developers: [dev1, dev2])
+    project3 = create(:project, title: "Third Project", description: "sample3", status: 2, contractor: contractor, developers: [dev1, dev2])
+    project4 = create(:project, title: "Fourth Project", description: "sample4", status: 3, contractor: contractor, developers: [dev1, dev2])
+
 
     contractor.projects += [project1, project2, project3, project4]
 
@@ -45,5 +46,41 @@ class ContractorViewsAllCurrentAndPastProjectsTest < ActionDispatch::Integration
     end
   end
 
+  test "contractor can view data for invidivual project" do 
+    dev1, dev2 = create_list(:developer, 2)
 
+    contractor = create(:contractor)
+    ApplicationController.any_instance.stubs(:current_contractor).returns(contractor)
+
+    project1 = create(:project, title: "First Project", description: "sample1", status: 0, contractor: contractor, developers: [dev1, dev2])
+    project2 = create(:project, title: "Second Project", description: "sample2", status: 1, contractor: contractor, developers: [dev1, dev2])
+    project3 = create(:project, title: "Third Project", description: "sample3", status: 2, contractor: contractor, developers: [dev1, dev2])
+    project4 = create(:project, title: "Fourth Project", description: "sample4", status: 3, contractor: contractor, developers: [dev1, dev2])
+
+    contractor.projects += [project1, project2, project3, project4]
+
+    visit contractor_projects_path
+
+    click_on "#{project3.title}"
+
+    assert page.has_content?(dev1.name)
+    assert page.has_content?(dev1.rate)
+    assert page.has_content?(dev2.name)
+    assert page.has_content?(dev2.rate)
+
+    click_on "#{dev1.name} Bio"
+    assert_equal developer_path(dev1), current_path
+
+    visit contractor_project_path(project3)
+
+    assert_equal contractor_project_path(project3.id), current_path
+
+    assert page.has_content?(project3.status)
+    assert page.has_content?(project3.total)
+    assert page.has_content?(project3.created_at.to_formatted_s(:long))
+    assert page.has_content?(project3.updated_at.to_formatted_s(:long))
+
+    assert page.has_content?(dev2.rate)
+
+  end 
 end
