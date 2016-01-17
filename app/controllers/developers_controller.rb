@@ -41,7 +41,7 @@ class DevelopersController < ApplicationController
     render :index
   end
 
-  private
+private
 
   def sort
     {
