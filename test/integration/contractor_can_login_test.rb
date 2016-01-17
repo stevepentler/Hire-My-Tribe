@@ -21,8 +21,7 @@ class ContractorCanLoginTest < ActionDispatch::IntegrationTest
     assert page.has_content?("Mac")
     assert page.has_content?("Aaron")
     assert page.has_content?("Greenspan")
-    assert page.has_content?("hotdogs@hotmail.com")
-
+    
     assert page.has_content?("Edit Account Information")
     assert page.has_content?("Deactivate Account")
     assert page.has_content?("Logout")
@@ -76,6 +75,9 @@ class ContractorCanLoginTest < ActionDispatch::IntegrationTest
 
   test "unregistered visit cant start project and redirects to sign_up_path" do
     visit tribe_path
+
+    fill_in "project[title]", with: "Project Name 1"
+    fill_in "project[description]", with: "sample description 1"
     click_on "Start Project"
 
     assert_equal login_path, current_path

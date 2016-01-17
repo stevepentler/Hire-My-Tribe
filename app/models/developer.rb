@@ -4,6 +4,14 @@ class Developer < ActiveRecord::Base
   has_many :project_developers
   has_many :projects, through: :project_developers
 
+  validates :name, presence: true
+  validates :last_name, presence: true
+  validates :email, presence: true, uniqueness: true
+  validates :rate, presence: true, numericality: true
+  validates :status, presence: true
+  validates :specialty_id, presence: true
+  
+
   def in_pending_tribe?(tribe)
     tribe.developer_ids.include?(id)
   end
