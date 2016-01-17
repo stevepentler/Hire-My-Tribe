@@ -18,6 +18,11 @@ FactoryGirl.define do
     updated_at Time.now
   end
 
+  factory :admin do
+    username "admin"
+    email "paco@raba.com"
+    password "pass"
+  end
 
   factory :developer do
     name
