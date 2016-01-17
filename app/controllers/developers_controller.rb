@@ -36,7 +36,7 @@ class DevelopersController < ApplicationController
   end
 
   def filter
-    @developers = sort[params["Sort By"]]
+    @developers = sort[params["Sort By"]][Developer]
     flash.now[:notice] = "Filter has been applied!"
     render :index
   end
@@ -44,9 +44,9 @@ class DevelopersController < ApplicationController
 private
 
   def sort
-    {
-      "Rate: Ascending" => Developer.order(rate: :asc),
-      "Rate: Descending" => Developer.order(rate: :desc)
+    { 
+      "Rate: Ascending" => lambda { |active| active.order(rate: :asc) },
+      "Rate: Descending" => lambda { |active| active.order(rate: :desc) }
     }
   end
 
