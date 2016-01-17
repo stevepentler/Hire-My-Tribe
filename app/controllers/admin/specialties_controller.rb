@@ -1,4 +1,4 @@
-class Admin::SpecialtiesController < ApplicationController
+class Admin::SpecialtiesController < Admin::BaseController
   def new
     @specialty = Specialty.new
   end
