@@ -18,8 +18,13 @@ def create
   end
 
   def show
-    render file: 'public/404.html' unless current_contractor
-    @contractor = current_contractor
+    if params[:contractor_id]
+      @contractor = Contractor.find(params[:contractor_id])
+      render :public
+    else
+      render file: 'public/404.html' unless current_contractor
+      @contractor = current_contractor
+    end
   end
 
   def edit
@@ -33,6 +38,10 @@ def create
     else
       flash[:error] = current_contractor.errors.full_messages.join(", ")
     end
+  end
+
+  def index
+    @contractors = Contractor.all
   end
 
 private

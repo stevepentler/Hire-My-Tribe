@@ -25,15 +25,19 @@ ActiveRecord::Schema.define(version: 20160118195641) do
   end
 
   create_table "contractors", force: :cascade do |t|
-    t.string   "company_name",    default: ""
+    t.string   "company_name",      default: ""
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
     t.string   "password_digest"
-    t.text     "bio",             default: ""
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
-    t.string   "status",          default: "active"
+    t.text     "bio",               default: ""
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.string   "status",            default: "active"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
   end
 
   create_table "developer_tags", force: :cascade do |t|

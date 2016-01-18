@@ -1,4 +1,6 @@
 <div class="container center amatic-font" style="font-size: 4em;">
+  <%= image_tag( @contractor.logo , height: "100px", id: "contractor-#{@contractor.id}-logo") %>
+
   <%= "Company Name: " + @contractor.company_name unless @contractor.company_name.empty? %>
   <br>
 
