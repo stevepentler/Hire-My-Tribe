@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160117224039) do
+ActiveRecord::Schema.define(version: 20160118013618) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,14 @@ ActiveRecord::Schema.define(version: 20160117224039) do
     t.datetime "updated_at",                         null: false
     t.string   "status",          default: "active"
   end
+
+  create_table "developer_tags", force: :cascade do |t|
+    t.integer "developer_id"
+    t.integer "tag_id"
+  end
+
+  add_index "developer_tags", ["developer_id"], name: "index_developer_tags_on_developer_id", using: :btree
+  add_index "developer_tags", ["tag_id"], name: "index_developer_tags_on_tag_id", using: :btree
 
   create_table "developers", force: :cascade do |t|
     t.string   "name"
@@ -88,6 +96,14 @@ ActiveRecord::Schema.define(version: 20160117224039) do
     t.datetime "image_updated_at"
   end
 
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "developer_tags", "developers"
+  add_foreign_key "developer_tags", "tags"
   add_foreign_key "developers", "specialties"
   add_foreign_key "project_developers", "developers"
   add_foreign_key "project_developers", "projects"
