@@ -13,11 +13,11 @@
   <h3>Email <%= current_developer.email %></h3>
   <h3>Bio: <%= current_developer.bio %> </h3>
   <h3>Tags:</h3>
-  <ul>
+  <div>
     <% current_developer.tags.each do |tag| %>
-    <li><%= tag.name %></li>
+      <%= tag.name %>
     <% end %>
-  </ul>
+  </div>
 
   <span class="card-totem">
     <%= image_tag("database/horse_animal_totem.png") if (current_developer.specialty.name == "Database")%>
