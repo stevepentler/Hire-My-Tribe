@@ -1,10 +1,12 @@
 <div class="center">
   <%= image_tag developer.picture, id:"developer-image" %>
-  <h3 class=" mint-shadow dev-name"><%= developer.name + " " + developer.last_name%></h3>
+  <h3 class=" mint-shadow dev-name" style="font-size: 4em;"><%= developer.name + " " + developer.last_name%></h3>
 </div>
-<ul class="dev-facts">
-  <li>Specialty: <%= developer.specialty.name %></li>
-  <li>Skill rating:<%= developer.skills_rating %></li>
-  <li>Rate: $<%= developer.rate %>/hr</li>
-  <li>Email: <%= developer.email %></li>
-</ul>
+<div style="margin-top: -10px;">
+  <ul class="dev-facts">
+    <li>Specialty: <%= developer.specialty.name %></li>
+    <li>Skill rating:<%= developer.skills_rating %></li>
+    <li>Rate: $<%= developer.rate %>/hr</li>
+    <li>Email: <%= developer.email %></li>
+  </ul>
+</div>
