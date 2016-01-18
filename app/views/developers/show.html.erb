@@ -1,4 +1,4 @@
-<%= render partial: "specialties/specialty_buttons" %> 
+<%= render partial: "specialties/specialty_buttons" %>
 
 <div class="center">
   <span>
@@ -8,12 +8,11 @@
   <h1><%= add_or_already_in_tribe %></h1>
 
   <div class="card-image">
-    <img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAZvAAAAJDFiY2JjNTc4LTQ0NDktNDcyYy05YzMxLTcyZmVmZDU3OTU5OA.jpg" id="developer-image">
+    <%= image_tag @developer.picture, id:"developer-image" %>
   </div>
 
   <h3><%= @developer.specialty.name %></h3>
+  <h3><%= @developer.skills_rating %></h3>
   <h3>Rate $<%= @developer.rate %>/hr</h3>
 
 </div>
-
-  

@@ -4,10 +4,11 @@
   <h1 class="mint-shadow"><%= current_developer.name %> <%= current_developer.last_name %></h1>
 
   <div class="card-image">
-    <img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAZvAAAAJDFiY2JjNTc4LTQ0NDktNDcyYy05YzMxLTcyZmVmZDU3OTU5OA.jpg" id=current_developer-image">
+    <img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAZvAAAAJDFiY2JjNTc4LTQ0NDktNDcyYy05YzMxLTcyZmVmZDU3OTU5OA.jpg" id="current_developer-image">
   </div>
 
   <h3><%= current_developer.specialty.name %></h3>
+  <h3>Skill rating:<%= current_developer.skills_rating %></h3>
   <h3>Rate $<%= current_developer.rate %>/hr</h3>
   <h3>Email <%= current_developer.email %></h3>
   <h3>Bio: <%= current_developer.bio %> </h3>
