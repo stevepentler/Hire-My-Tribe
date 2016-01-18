@@ -15,7 +15,7 @@
     <%= f.text_area :bio, :cols => "10", :rows => "10", value: current_developer.bio %>
     <br>
     <%= f.label :picture %>
-    <%= f.file_field :picture %>
+    <%= f.file_field :picture, class: "file-field" %>
     <br>
     <%= f.submit "Update Developer Account", class: "form-label", id: "form-button" %>
   <% end %>
