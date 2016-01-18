@@ -17,7 +17,7 @@
         <%= f.text_field :email, id: "form-value" %>
         <br>
         <%= f.label :logo %>
-        <%= f.file_field :logo %>
+        <%= f.file_field :logo, class: "file-field" %>
         <br>
         <%= f.label :password %>
         <%= f.password_field :password, id: "form-value" %>
@@ -45,7 +45,7 @@
         <%= f.number_field :rate %>
         <br>
         <%= f.label :picture %>
-        <%= f.file_field :picture %>
+        <%= f.file_field :picture, class: "file-field" %>
         <br>
         <%= f.label :password, class: "form-label" %>
         <%= f.password_field :password, id: "form-value"  %>
