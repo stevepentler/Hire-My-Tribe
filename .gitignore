@@ -13,4 +13,5 @@
 /tmp
 
 * Ignore auto-generated test images
-/public/system/specialties/images/*
+/public/system/specialties/*
+/public/system/developers/*
