@@ -199,7 +199,6 @@ form input {
   color: #540018;
 }
 
-
 #filter {
     font-size: 1.0em;
     font-family: monospace;
@@ -210,14 +209,6 @@ form input {
     margin-right: auto;
     margin-bottom: 20px;
     margin-top: 50px;
-}
-
-.right-side{
-  background-color: rgb(255,150,150)
-}
-
-.left-side{
-  background-color: rgb(150,255,150)
 }
 
 #form-button {
@@ -235,8 +226,4 @@ form input {
     height: 64px;
     line-height: 64px;
     padding: 0 15px;
-}
-
-#xyz {
-  font-size: : 10em;
 }
