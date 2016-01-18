@@ -7,7 +7,7 @@ class ProjectTest < ActiveSupport::TestCase
   should have_many :developers
 
   should define_enum_for :status
-  
+
   should validate_presence_of(:title)
   should validate_uniqueness_of(:title)
   should validate_presence_of(:description)
