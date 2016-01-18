@@ -1,12 +1,16 @@
 <div class="container center">
-  <h1>All Tags</h1>
+  <h1 class="mint-shadow" style="font-size: 120px;">All Tags</h1>
+  <h1 class="row waves-effect waves-light btn-large" id="signup-button" ><%= link_to("Add a Tag", new_admin_tag_path) %></h1>
   <ul>
     <% @tags.each do |tag| %>
-      <li><h3><%= tag.name %></div>
-      <h3 class="row waves-effect waves-light btn-large" id="signup-button" ><%= link_to("Edit Tag", edit_admin_tag_path(tag)) %><h3></li>
-      <h3 class="row waves-effect waves-light btn-large" id="signup-button" ><%= link_to("Remove Tag", admin_tag_path(tag), method: :delete) %><h3></li>
+      <div class="card brown lighten-5" style="height: 120px;">
+        <div class="container">
+          <li><h1 style="display: inline; float: left;"><%= tag.name %></h1>
+          <span class="row waves-effect waves-light btn-large" id="tag-index-button", style="margin-right: 30px;" ><%= link_to("Edit Tag", edit_admin_tag_path(tag)) %></span>
+          <span class="row waves-effect waves-light btn-large" id="tag-index-button" ><%= link_to("Remove Tag", admin_tag_path(tag), method: :delete) %></span></li>
+        </div>
+      </div>
     <% end %> 
   <ul>
 
-  <h3 class="row waves-effect waves-light btn-large" id="signup-button" ><%= link_to("Add a Tag", new_admin_tag_path) %></h3>
 </div>

@@ -227,3 +227,14 @@ form input {
     line-height: 64px;
     padding: 0 15px;
 }
+
+/*tag index*/
+#tag-index-button {
+  display: inline-block;
+  background-color: #669884;
+  font-size: 30px;
+}
+
+#tag-index-button a {
+  color: white;
+}
