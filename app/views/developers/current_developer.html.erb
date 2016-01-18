@@ -12,6 +12,12 @@
   <h3>Rate $<%= current_developer.rate %>/hr</h3>
   <h3>Email <%= current_developer.email %></h3>
   <h3>Bio: <%= current_developer.bio %> </h3>
+  <h3>Tags:</h3>
+  <div>
+    <% current_developer.tags.each do |tag| %>
+      <%= tag.name %>
+    <% end %>
+  </div>
 
   <span class="card-totem">
     <%= image_tag("database/horse_animal_totem.png") if (current_developer.specialty.name == "Database")%>

@@ -3,6 +3,8 @@ class Developer < ActiveRecord::Base
   belongs_to :specialty
   has_many :project_developers
   has_many :projects, through: :project_developers
+  has_many :developer_tags
+  has_many :tags, through: :developer_tags
 
   has_attached_file :picture, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "defaults/default_developer.png"
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\Z/

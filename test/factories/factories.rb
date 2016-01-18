@@ -9,6 +9,10 @@ FactoryGirl.define do
     bio "Nothing interesting"
   end
 
+  factory :tag do
+    name { FactoryGirl.generate(:tag_name) }
+  end
+
   factory :project do
     title { FactoryGirl.generate(:project_title) }
     description " "
@@ -28,7 +32,7 @@ FactoryGirl.define do
     name
     last_name
     email { FactoryGirl.generate(:email) }
-    rate 
+    rate
     password "password"
     specialty
   end
@@ -40,6 +44,10 @@ FactoryGirl.define do
       description: "sample description"
       )
     }
+  end
+
+  sequence :tag_name do |n|
+    "Ruby#{n}"
   end
 
   sequence :project_title do |n|
@@ -71,7 +79,7 @@ FactoryGirl.define do
   end
 
   sequence :last_name do |n|
-    "Last{n}"
+    "Last#{n}"
   end
 
   sequence :profile_picture do |n|

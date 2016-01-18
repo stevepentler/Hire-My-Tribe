@@ -2,6 +2,7 @@ class DevelopersController < ApplicationController
   def index
     session[:specialty] = nil
     @developers = Developer.all
+    @tags = Tag.all
   end
 
   def create
@@ -36,7 +37,8 @@ class DevelopersController < ApplicationController
   end
 
   def filter
-    @developers = sort[params["Sort By"]][Developer]
+    @tags = Tag.all
+    @developers = Filter.sort_filter(params)
     flash.now[:notice] = "Filter has been applied!"
     render :index
   end
@@ -44,10 +46,22 @@ class DevelopersController < ApplicationController
 private
 
   def sort
-    { 
+    {
       "Rate: Ascending" => lambda { |active| active.order(rate: :asc) },
       "Rate: Descending" => lambda { |active| active.order(rate: :desc) }
     }
+  end
+
+  def selection_filter(initial_developers)
+    preload = initial_developers.joins(:tags)
+    intersection_query = selected_tags.reduce(initial_developers) do |acc, tag_name|
+      acc.merge(preload.where(tags: {name: tag_name}))
+    end
+  end
+
+  def selected_tags
+    params["filter"] ||= {}
+    params["filter"].select{ |key, val| val == "1" }.keys
   end
 
   def developer_params
