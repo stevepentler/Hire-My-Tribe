@@ -1,7 +1,7 @@
 require 'test_helper'
 
-class ContractorRemovesDevelopersFromProjectTest < ActionDispatch::IntegrationTest
-  test "Project show page has option to remove developers from project" do
+class ContractorSeesCorrectDataOnProjectCheckoutShowTest < ActionDispatch::IntegrationTest
+  test "Project has correct data from tribe page" do
     dev_1, dev_2 = create_list(:developer, 2 )
 
     contractor = create(:contractor)
