@@ -1,0 +1,8 @@
+<ul class="dev-facts">
+  <li>Tags:
+      <% developer.tags.each do |tag| %>
+       <span class="card" id="tag-card"> <%= tag.name %> </span>
+      <% end %>
+  </li>
+  <li>Bio: <span style="font-size: 0.7em;"><%= developer.bio %></span></li>
+</ul>

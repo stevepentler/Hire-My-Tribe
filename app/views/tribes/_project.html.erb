@@ -9,7 +9,9 @@
           <h3>Specialty: <%= developer.specialty.name %></h3>
           <h3>Rate: <%= developer.rate %>$/h</h3>
           <%= link_to "#{developer.name} Bio", developer_path(developer) %>
-          <%= link_to "Remove Developer", tribe_path(developer_id: developer.id), method: :delete %>
+          <%= link_to "Remove Developer",
+                      tribe_path(developer_id: developer.id),
+                      method: :delete %>
         </span>
         <br>
       </div>
