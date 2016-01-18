@@ -23,7 +23,7 @@ module Filter
   def self.selected_tags(params)
     params["filter"] ||= {}
     params["filter"].select{ |key, val| val == "1" }.keys.map do |tag_name|
-      Tag.find_by(name: tag_name)
+      Tag.includes(:developers).find_by(name: tag_name)
     end
   end
 end
