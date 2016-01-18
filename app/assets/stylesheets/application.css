@@ -109,12 +109,15 @@ hr.gradient {
     text-align: center;
     background-color: #669884;
     margin-top: 10px;
-    font-size: 50px;
+    font-size: 1.8em;
+    color: white;
+    font-family: 'Amatic SC', cursive;
 }
 
 #signup-button a {
-  color: white;
+    color: white;
 }
+
 
 #single-totem img {
   height: 50px;
@@ -208,7 +211,7 @@ form input {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px;
-    margin-top: 50px;
+    margin-top: 10px;
 }
 
 #form-button {
@@ -228,6 +231,7 @@ form input {
     padding: 0 15px;
 }
 
+
 /*tag index*/
 #tag-index-button {
   display: inline-block;
@@ -237,4 +241,21 @@ form input {
 
 #tag-index-button a {
   color: white;
+} 
+
+.dev-show-card {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.profile {
+  background-color: white
+}
+
+#tag-card {
+  margin-left: 10px
+}
+
+.file-field {
+  padding-top: 10px;
 }

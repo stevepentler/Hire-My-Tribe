@@ -1,25 +1,46 @@
 <%= render partial: "specialties/specialty_buttons" %>
-
-<div class="center">
-  <span>
-    <%= render partial: "/specialty_totem" %>
-    <h1 class="mint-shadow" style="font-size: 120px;"><%= @developer.name %></h1>
-  </span>
-  <h1><%= add_or_already_in_tribe %></h1>
-
-  <div class="card-image">
-    <%= image_tag @developer.picture, id:"developer-image" %>
+<div class="row" style="margin-top: -40px;">
+  <div class="col s1"><br>
   </div>
 
-  <h3><%= @developer.specialty.name %></h3>
-  <h3><%= @developer.skills_rating %></h3>
-  <h3>Rate $<%= @developer.rate %>/hr</h3>
-  <h3>Tags:</h3>
-  <div>
-    <% @developer.tags.each do |tag| %>
-      <%= tag.name %>
-    <% end %>
-  </div>
+  <div class="row profile col s10 ">
+    <br>
+    <div class="col s5 card brown lighten-5 dev-show-card">
+      <div class="center">
+        <%= image_tag @developer.picture, id:"developer-image" %>
+        <h3 class=" mint-shadow" style="font-size: 4em;"><%= @developer.name + " " + @developer.last_name%></h3>
+      </div style="margin-top: -10px;">
+      <ul class="dev-facts" style="font-size: 2em;">
+        <li>Specialty: <%= @developer.specialty.name %></li>
+        <li>Skill rating:<%= @developer.skills_rating %></li>
+        <li>Rate: $<%= @developer.rate %>/hr</li>
+        <li>Email: <%= @developer.email %></li>
+      </ul>
+    </div>
+
+    <div class="col s1">
+      <br>
+    </div>
+
+    <div class="col s6 card brown lighten-5 dev-show-card">
+      <span class="center" style="font-size: large;"><%= add_or_already_in_tribe %></span>
+      <ul class="dev-facts" style="font-size: 2em;">
+        <li>Tags:
+            <% @developer.tags.each do |tag| %>
+             <span class="card" id="tag-card"> <%= tag.name %> </span>
+            <% end %>
+        </li>
+        <li>Bio: <span style="font-size: 0.7em;"><%= @developer.bio %></span></li>
+      </ul>
+      </div>
+      <div class="center">
+        <span class="card-totem">
+          <%= image_tag("database/horse_animal_totem.png") if (@developer.specialty.name == "Database")%>
+          <%= image_tag("front_end/hawk_animal_totem.png") if (@developer.specialty.name == "Front End")%>
+          <%= image_tag("back_end/fox_animal_totem.png") if (@developer.specialty.name == "Back End")%>
+        </span>
+      </div>
+    </div>
 
 
 </div>
