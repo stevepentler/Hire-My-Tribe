@@ -37,8 +37,7 @@ class DevelopersController < ApplicationController
   end
 
   def filter
-    binding.pry
-    @developers = filtration2(sort[params["Sort By"]][Developer])
+    @developers = filtration(sort[params["Sort By"]][Developer])
     flash.now[:notice] = "Filter has been applied!"
     render :index
   end
@@ -62,20 +61,20 @@ private
     initial_developers.joins(:tags).where(tags: {name: selected_tags.join("AND")} )
   end
 
-  # def filter_by(tag)
-  #   {tag.name => lambda {|active| active.joins(:tags).where("tags.name = '#{tag.name}'")}}
-  # end
-  #
-  # def selected_filters
-  #   filters = {}
-  #   selected_tags.each do |tag|
-  #     filters.merge!(filter_by(tag))
-  #   end
-  #   filters
-  # end
+  def filter_by(tag)
+    {tag.name => lambda {|active| active.joins(:tags).where("tags.name = '#{tag.name}'")}}
+  end
+
+  def selected_filters
+    filters = {}
+    selected_tags.each do |tag|
+      filters.merge!(filter_by(tag))
+    end
+    filters
+  end
 
   def selected_tags
-    all_tags.select{|tag| params.keys.include?(tag.name)}.map{|tag| tag.name}
+    all_tags.select{|tag| params.keys.include?(tag.name)}
   end
 
   def developer_params
