@@ -39,8 +39,3 @@ class AdminCrudSpecialtiesTest < ActionDispatch::IntegrationTest
   end
 
 end
-
-# As an authenticated Admin:
-#       I can create an specialty.
-#         - A specialty must have a title, description.
-#         - The photo is optional. If not present, a stand-in photo is used.
