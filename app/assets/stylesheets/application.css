@@ -40,7 +40,6 @@ body {
 #dropdown-font {
   font-size: 2.5em;
   text-shadow: 2px 2px #540018;
-
 }
 
 /*navbars*/
@@ -51,7 +50,7 @@ body {
    margin-top: 60px ;
    color: black;
    text-shadow: 2px 2px #669884;
-   margin-bottom: 200px;
+   margin-bottom: 20px;
  }
 
 #normal-brand-logo{
@@ -141,20 +140,30 @@ hr.gradient {
 }
 
 .card-totem img {
-  height: 180px;
+  height: 175px;
   width: auto;
-  margin-top: 0;
+  margin-top: 10px;
   margin-bottom: -10%;
 }
 
-#developer-card {
+/*#developer-card {
   width: 80%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}*/
+
+.height-restrictor {
+  height: 200px;
+  width: 200px;
   margin-left: auto;
   margin-right: auto;
 }
 
 #developer-image {
-  height: 250px;
+  max-width: 250px;
+  height: auto;
+  max-height: 250px;
   border-radius: 150px;
 }
 

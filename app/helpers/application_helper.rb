@@ -13,7 +13,7 @@ module ApplicationHelper
     elsif current_developer
 
     else
-      button_to "Add #{@developer.name} to the tribe", tribe_path(developer_id: @developer.id), id: "signup-button"
+      button_to "Add #{@developer.name} to the tribe", tribe_path(developer_id: @developer.id), id: "form-button"
     end
   end
 end

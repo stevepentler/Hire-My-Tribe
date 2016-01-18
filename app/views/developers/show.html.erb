@@ -1,11 +1,13 @@
 <%= render partial: "specialties/specialty_buttons" %>
 
 <div class="center">
-  <span>
+  <div style="margin-bottom: 8%;">
     <%= render partial: "/specialty_totem" %>
-    <h1 class="mint-shadow" style="font-size: 120px;"><%= @developer.name %></h1>
-  </span>
+  </div>
+  <h1 class="mint-shadow" style="font-size: 120px;"><%= @developer.name %></h1>
+    <div>
   <h1><%= add_or_already_in_tribe %></h1>
+  </div>
 
   <div class="card-image">
     <%= image_tag @developer.picture, id:"developer-image" %>
