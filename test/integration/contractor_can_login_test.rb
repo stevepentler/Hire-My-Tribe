@@ -21,7 +21,7 @@ class ContractorCanLoginTest < ActionDispatch::IntegrationTest
     assert page.has_content?("Mac")
     assert page.has_content?("Aaron")
     assert page.has_content?("Greenspan")
-    
+
     assert page.has_content?("Edit Account Information")
     assert page.has_content?("Deactivate Account")
     assert page.has_content?("Logout")
@@ -36,7 +36,9 @@ class ContractorCanLoginTest < ActionDispatch::IntegrationTest
   test "contractor can login to an existing account" do
     contractor = create(:contractor)
     visit root_path
-    click_on "Login"
+    within ".left" do
+      click_on "Login"
+    end
 
     assert_equal current_path, login_path
     within '#contractor-login-form' do

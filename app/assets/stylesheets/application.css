@@ -1,3 +1,7 @@
+body {
+  /*background-image: url("https://i.ytimg.com/vi/h34MSoNUXSM/maxresdefault.jpg");
+  background-size: 150%;*/
+}
 
 /*fonts and colors*/
 .amatic-font {
@@ -5,7 +9,7 @@
  }
 
 .cantarell-font {
-font-family: 'Cantarell', sans-serif;
+  font-family: 'Cantarell', sans-serif;
 }
 
 .mint {
@@ -189,12 +193,11 @@ form input {
   font-family: monospace;
 }
 
-#form-button {
+/*#form-button {
   border-radius: 10px;
   font-size: 2.5em;
   color: #540018;
-}
-
+}*/
 
 #filter {
     font-size: 1.0em;
@@ -208,17 +211,19 @@ form input {
     margin-top: 50px;
 }
 
-.right-side{
-  background-color: rgb(255,150,150)
-}
-
-.left-side{
-  background-color: rgb(150,255,150)
-}
-
 #form-button {
     border-radius: 10px;
-    font-size: 1.5em;
-    color: #540018;
+    font-size: 2.0em;
+    color: white;
+    background-color: #795548;
+    font-family: 'Amatic SC', cursive;
 }
 
+.side-nav a {
+    color: #444;
+    display: block;
+    font-size: 2rem;
+    height: 64px;
+    line-height: 64px;
+    padding: 0 15px;
+}
