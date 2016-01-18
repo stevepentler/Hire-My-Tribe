@@ -1,3 +1,8 @@
+body {
+  /*background-image: url("https://i.ytimg.com/vi/h34MSoNUXSM/maxresdefault.jpg");
+  background-size: 150%;*/
+}
+
 /*fonts and colors*/
 .amatic-font {
   font-family: 'Amatic SC', cursive;
@@ -221,4 +226,17 @@ form input {
     color: white;
     background-color: #795548;
     font-family: 'Amatic SC', cursive;
+}
+
+.side-nav a {
+    color: #444;
+    display: block;
+    font-size: 2rem;
+    height: 64px;
+    line-height: 64px;
+    padding: 0 15px;
+}
+
+#xyz {
+  font-size: : 10em;
 }
