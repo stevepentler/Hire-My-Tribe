@@ -9,8 +9,14 @@ class Admin::TagsController < ApplicationController
   end 
 
   def create
-    @tag = Tag.create(tag_params)
-    redirect_to admin_tags_path
+    @tag = Tag.new(tag_params)
+    if @tag.save
+      flash[:notice] = "#{@tag.name} Tag Added!"
+      redirect_to admin_tags_path
+    else 
+      flash[:error] = @tag.errors.full_messages.join(", ")
+      redirect_to new_admin_tag_path
+    end
   end 
 
   def edit
@@ -22,8 +28,8 @@ class Admin::TagsController < ApplicationController
     if @tag.update(tag_params)
       flash[:notice] = "Tag has been updated!"
       redirect_to admin_tags_path
-    else 
-      flash[:error] = "Tag has not been updated!"
+    else
+      flash[:error] = @tag.errors.full_messages.join(", ")
       render :edit
     end
   end
