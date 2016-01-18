@@ -68,9 +68,6 @@ class ContractorViewsAllCurrentAndPastProjectsTest < ActionDispatch::Integration
     assert page.has_content?(dev2.name)
     assert page.has_content?(dev2.rate)
 
-    click_on "#{dev1.name} Bio"
-    assert_equal developer_path(dev1), current_path
-
     visit contractor_project_path(project3)
 
     assert_equal contractor_project_path(project3.id), current_path

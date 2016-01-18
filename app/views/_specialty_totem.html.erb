@@ -1,5 +1,3 @@
   <span class="card-totem">
-    <%= image_tag("database/horse_animal_totem.png") if (@developer.specialty.name == "Database")%>
-    <%= image_tag("front_end/hawk_animal_totem.png") if (@developer.specialty.name == "Front End")%>
-    <%= image_tag("back_end/fox_animal_totem.png") if (@developer.specialty.name == "Back End")%>
+    <%= image_tag(@developer.specialty.image) %>
   </span>

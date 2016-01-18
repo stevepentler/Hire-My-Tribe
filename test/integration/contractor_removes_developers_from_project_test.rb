@@ -15,7 +15,7 @@ class ContractorRemovesDevelopersFromProjectTest < ActionDispatch::IntegrationTe
     assert page.has_content?(dev_1.name)
     assert page.has_content?(dev_2.name)
 
-    click_on "Remove #{dev_1.name} from project"
+    click_on "Remove #{dev_1.name}"
 
     assert_equal contractor_project_path(project), current_path
 
