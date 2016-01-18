@@ -39,10 +39,6 @@ class ApplicationController < ActionController::Base
     @specialties ||= Specialty.all
   end
 
-  def disable_navbar
-    @disable_navbar = true
-  end
-
   def current_user?
     (current_developer || current_contractor) || current_admin
   end

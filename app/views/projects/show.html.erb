@@ -1,28 +1,46 @@
-<h1><%= @project.title %></h1>
-<p><%= @project.description %></p>
-<p>Total: $<%= @project.total %></p>
-<p><%= @project.status %></p>
-<p>Created At: <%= @project.created_at.to_formatted_s(:long)  %></p>
-<p>Updated At: <%= @project.updated_at.to_formatted_s(:long) %></p>
+<div class="contain">
+  <h1><%= @project.title %></h1>
+  <h3>Status: <%= @project.status %></h3>
+  <h3>Created At: <%= @project.created_at.to_formatted_s(:long)  %></h3>
+  <h3>Last Updated: <%= @project.updated_at.to_formatted_s(:long) %></h3>
+  <h3>Description: <%= @project.description %></h3>
+  <br>
+
+  <table class="striped responsive-table" id="checkout-table">
+    <thead>
+      <tr>
+          <th data-field="developer_name">Name</th>
+          <th data-field="developer_specialty">Specialty</th>
+          <th data-field="developer_rate">Rate</th>
+          <th data-field="developer_tags">Tags</th>
+          <th data-field="developer_remove">Remove from Project</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @project.developers.each do |developer| %>
+        <tr>
+          <td><%= developer.name %></td>
+          <td><%= developer.specialty.name %></td>
+          <td><%= developer.rate %></td>
+          <td><%= developer.tag_name_list.join(", ") %></td>
+          <td><%= link_to "Remove #{developer.name}", contractor_project_remove_dev_path(@project, dev: developer.id),
+            method: :delete %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+  <% if @project.status == "Pending" %> 
+    <%= link_to "Submit Payment", contractor_project_payment_path(@project), id: "checkout-button" %>
+  <% end %>
+  <br>
 
 
-<% @project.developers.each do |developer| %>
-  <div class="col l8 s12 m6">
-    <div class="card-small tribe-row">
-      <span class="card-image left">
-        <img src="https://robohash.org/<%= developer.id %>">
-      </span>
-      <span class="card-content right" id="developer_<%=developer.name%>">
-        <h3><%= developer.name %></h3>
-        <h3>Specialty: <%= developer.specialty.name %></h3>
-        <h3>Rate: <%= developer.rate %>$/h</h3>
-        <%= link_to "#{developer.name} Bio", developer_path(developer) %>
-        <%= link_to "Remove #{developer.name} from project", contractor_project_remove_dev_path(@project, dev: developer.id), method: :delete %>
-      </span>
-      <br>
-    </div>
-  </div>
-<% end %>
-<% if @project.status == "Pending" %> 
-  <%= link_to "Submit Payment", contractor_project_payment_path(@project) %>
-<% end %> 
+
+
+  <h3>Total Developer Rate/Hour: $<%= @project.total %></h3>
+  <h3>Hours Per Developer: <%= @project[:dev_hours] %></h3>
+  <h1 id="final-cost"><strong>Final Project Cost: $<%= (@project[:dev_hours] * @project.total) %></strong></h1>
+</div>

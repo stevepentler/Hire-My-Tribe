@@ -45,7 +45,8 @@ class ProjectsController < ApplicationController
     project_params.merge(
       total: current_pending_tribe.total,
       contractor: current_contractor,
-      developers: current_pending_tribe.developers
+      developers: current_pending_tribe.developers,
+      dev_hours: params[:project][:dev_hours]
       )
   end
 end

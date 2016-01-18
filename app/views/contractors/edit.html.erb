@@ -1,5 +1,5 @@
 <span id='edit-contractor-form'>
-  <%= form_for(current_contractor, url: contractor_path) do |f| %>
+    <%= form_for(current_contractor, url: contractor_path) do |f| %>
 
     <%= f.label :company_name, "Company Name" %>
     <%= f.text_field :company_name, value: current_contractor.company_name %>

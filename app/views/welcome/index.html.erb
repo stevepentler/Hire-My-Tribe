@@ -1,6 +1,7 @@
 <div class="center">
-  <a href="/" class="brand-logo center" id="brand-logo">Hire My Tribe</a>  
+  <a href="/" class="brand-logo center" id="brand-logo">Hire My Tribe</a>
 </div>
+
 <div class="container">
   <div class="parallax-container">
     <div class="background-image parallax" id="primary-logo"></div>
@@ -9,10 +10,10 @@
   <div class="amatic-font center">
     <h2>Hire Developers, Not Recruiters</h2>
     <% if !current_user? %>
-      <h3 class="row waves-effect waves-light btn-large" id="signup-button" ><%= link_to "Sign Up", sign_up_path %></h3>
+      <h3 class="row waves-effect waves-light btn-large" id="signup-button" >
+        <%= link_to "Sign Up", sign_up_path %>
+      </h3>
     <% end %>
   </div>
-
-<%= render partial: "/small_totems_row" %>
-
+  <%= render partial: "/small_totems_row" %>
 </div>
