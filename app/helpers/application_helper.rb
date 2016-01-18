@@ -1,9 +1,9 @@
 module ApplicationHelper
-  def login_or_logout
+  def login_or_logout(id="dropdown-font")
     if current_user?
-      link_to "Logout", logout_path, id: "dropdown-font", method: :delete
+      link_to "Logout", logout_path, id: id, method: :delete
     else
-      link_to "Login", login_path, id: "dropdown-font"
+      link_to "Login", login_path, id: id
     end
   end
 

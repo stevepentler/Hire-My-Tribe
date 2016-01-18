@@ -44,7 +44,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user?
-    current_developer || current_contractor
+    (current_developer || current_contractor) || current_admin
   end
 
   def current_developer

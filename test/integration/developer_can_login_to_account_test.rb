@@ -43,7 +43,9 @@ class DeveloperCanLoginToAccountTest < ActionDispatch::IntegrationTest
 
     dev = create(:developer)
     visit root_path
-    click_on "Login"
+    within ".left" do
+      click_on "Login"
+    end
 
     assert_equal current_path, login_path
     within '#developer-login-form' do

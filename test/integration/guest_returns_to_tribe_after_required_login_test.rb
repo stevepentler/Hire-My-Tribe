@@ -7,7 +7,9 @@ class GuestReturnsToTribeAfterRequiredLoginTest < ActionDispatch::IntegrationTes
 
     visit developer_path(dev1)
     click_on "Add #{dev1.name} to the tribe"
-    click_on "Current Tribe"
+    within ".right" do
+      click_on "Current Tribe"
+    end
 
     fill_in "project[title]", with: "project 1 name"
     fill_in "project[description]", with: "project 1 description"
@@ -29,7 +31,9 @@ class GuestReturnsToTribeAfterRequiredLoginTest < ActionDispatch::IntegrationTes
 
     visit developer_path(dev1)
     click_on "Add #{dev1.name} to the tribe"
-    click_on "Current Tribe"
+    within ".right" do
+      click_on "Current Tribe"
+    end
 
     fill_in "project[title]", with: "project 1 name"
     fill_in "project[description]", with: "project 1 description"

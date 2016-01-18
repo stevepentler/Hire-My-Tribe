@@ -13,7 +13,9 @@ class DeveloperCanLogoutTest < ActionDispatch::IntegrationTest
 
     assert page.has_content?("View Account: #{developer.name}")
 
-    click_on "Logout"
+    within ".left" do
+      click_on "Logout"
+    end
 
     assert_equal login_path, current_path
     assert page.has_content?("Logged out #{developer.name}")

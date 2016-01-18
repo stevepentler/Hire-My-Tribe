@@ -15,7 +15,9 @@ class VisitorAddsDevelopersToCartTest < ActionDispatch::IntegrationTest
 
     assert page.has_content?("#{dev.name} has joined your tribe!")
 
-    click_on "Current Tribe"
+    within ".right" do
+      click_on "Current Tribe"
+    end
     assert_equal current_path, tribe_path
     assert page.has_content?("#{dev.name}")
     assert page.has_content?("#{dev.rate.to_i}")
