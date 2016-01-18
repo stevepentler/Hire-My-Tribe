@@ -14,7 +14,7 @@ class DeveloperCanLoginToAccountTest < ActionDispatch::IntegrationTest
     fill_in "developer[last_name]", with: "Greenspan"
     fill_in "developer[email]", with: "hotdogs@hotmail.com"
     fill_in "developer[rate]", with: 10
-    
+
     select "Database", from: "form-value"
 
     fill_in "developer[password]", with: "password"
@@ -40,7 +40,9 @@ class DeveloperCanLoginToAccountTest < ActionDispatch::IntegrationTest
 
     dev = create(:developer)
     visit root_path
-    click_on "Login"
+    within ".left" do
+      click_on "Login"
+    end
 
     assert_equal current_path, login_path
     within '#developer-login-form' do
