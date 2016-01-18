@@ -40,6 +40,14 @@ ActiveRecord::Schema.define(version: 20160118014934) do
     t.datetime "logo_updated_at"
   end
 
+  create_table "developer_tags", force: :cascade do |t|
+    t.integer "developer_id"
+    t.integer "tag_id"
+  end
+
+  add_index "developer_tags", ["developer_id"], name: "index_developer_tags_on_developer_id", using: :btree
+  add_index "developer_tags", ["tag_id"], name: "index_developer_tags_on_tag_id", using: :btree
+
   create_table "developers", force: :cascade do |t|
     t.string   "name"
     t.float    "rate"
@@ -92,6 +100,14 @@ ActiveRecord::Schema.define(version: 20160118014934) do
     t.datetime "image_updated_at"
   end
 
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "developer_tags", "developers"
+  add_foreign_key "developer_tags", "tags"
   add_foreign_key "developers", "specialties"
   add_foreign_key "project_developers", "developers"
   add_foreign_key "project_developers", "projects"
