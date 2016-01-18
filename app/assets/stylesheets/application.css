@@ -109,11 +109,9 @@ hr.gradient {
     text-align: center;
     background-color: #669884;
     margin-top: 10px;
-    font-size: 50px;
-}
-
-#signup-button a {
-  color: white;
+    font-size: 1.8em;
+    color: white;
+    font-family: 'Amatic SC', cursive;
 }
 
 #single-totem img {
