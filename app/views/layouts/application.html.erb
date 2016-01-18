@@ -15,8 +15,7 @@
 </head>
 <body>
   <div class='amatic-font'>
-  <%= render partial: "navbars/navbar" unless @disable_navbar %>
-  <%= render partial: "navbars/root_navbar" if @disable_navbar %>
+  <%= render partial: "navbars/navbar"%>
   <div class="left-side">
     <% flash.each do |type, msg| %>
       <h3><%= msg %></h3>

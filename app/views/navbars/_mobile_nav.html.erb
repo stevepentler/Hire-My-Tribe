@@ -1,0 +1,9 @@
+<li>
+  <%= link_to "View Account: #{current_contractor.first_name}", contractor_path, class: "sidebar-font-profile" if current_contractor %>
+  <%= link_to "View Account: #{current_developer.name}", developer_path, class: "sidebar-font-profile" if current_developer %>
+</li>
+<li><%= link_to "Developers", developers_path %></li>
+<li><%= link_to "Contractors", developers_path %></li>
+<li><%= link_to "Current Tribe", tribe_path unless current_developer %></li>
+<li class="divider"></li>
+<li><%= login_or_logout("sidebar-log") %></li>

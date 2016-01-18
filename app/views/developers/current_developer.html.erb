@@ -6,18 +6,9 @@
 
   <div class="row profile col s10 ">
     <br>
-    <div class="col s5 card brown lighten-5 dev-show-card">
-      <div class="center">
-        <img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAZvAAAAJDFiY2JjNTc4LTQ0NDktNDcyYy05YzMxLTcyZmVmZDU3OTU5OA.jpg" id="developer-image">
-        <h3 class=" mint-shadow dev-name"><%= current_developer.name + " " + current_developer.last_name%></h3>
-      </div>
-      <ul class="dev-facts">
-        <li>Specialty: <%= current_developer.specialty.name %></li>
-        <li>Skill rating:<%= current_developer.skills_rating %></li>
-        <li>Rate: $<%= current_developer.rate %>/hr</li>
-        <li>Email: <%= current_developer.email %></li>
-      </ul>
 
+    <div class="col s5 card brown lighten-5 dev-show-card">
+      <%= render partial: "/developers/developer_left_card", locals: {developer: current_developer} %>
       <div class="row">
         <span class="col s1">&nbsp;</span>
         <span class="col s4"> <%= link_to "Edit Account", edit_developer_path, style: "font-size: large"%></span>
@@ -31,21 +22,14 @@
     </div>
 
     <div class="col s6 card brown lighten-5 dev-show-card">
-      <ul class="dev-facts">
-        <li>Tags:
-            <% current_developer.tags.each do |tag| %>
-             <span class="card" id="tag-card"> <%= tag.name %> </span>
-            <% end %>
-        </li>
-        <li>Bio: <span style="font-size: 0.7em;"><%= current_developer.bio %></span></li>
-      </ul>
-      </div>
-      <div class="center">
-        <span class="card-totem">
-          <%= image_tag("database/horse_animal_totem.png") if (current_developer.specialty.name == "Database")%>
-          <%= image_tag("front_end/hawk_animal_totem.png") if (current_developer.specialty.name == "Front End")%>
-          <%= image_tag("back_end/fox_animal_totem.png") if (current_developer.specialty.name == "Back End")%>
-        </span>
-      </div>
+      <%= render partial: "/developers/developer_right_card", locals: {developer: current_developer} %>
     </div>
+
+    <div class="center">
+      <span class="card-totem">
+        <%= image_tag(current_developer.specialty.image) %>
+      </span>
+    </div>
+  </div>
+
 </div>
