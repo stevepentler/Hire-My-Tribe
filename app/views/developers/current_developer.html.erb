@@ -1,31 +1,51 @@
 <%= render partial: "specialties/specialty_buttons" %>
 
-<div class="center">
-  <h1 class="mint-shadow"><%= current_developer.name %> <%= current_developer.last_name %></h1>
-
-  <div class="card-image">
-    <img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAZvAAAAJDFiY2JjNTc4LTQ0NDktNDcyYy05YzMxLTcyZmVmZDU3OTU5OA.jpg" id="current_developer-image">
+<div class="row">
+  <div class="col s1"><br>
   </div>
 
-  <h3><%= current_developer.specialty.name %></h3>
-  <h3>Skill rating:<%= current_developer.skills_rating %></h3>
-  <h3>Rate $<%= current_developer.rate %>/hr</h3>
-  <h3>Email <%= current_developer.email %></h3>
-  <h3>Bio: <%= current_developer.bio %> </h3>
-  <h3>Tags:</h3>
-  <div>
-    <% current_developer.tags.each do |tag| %>
-      <%= tag.name %>
-    <% end %>
-  </div>
+  <div class="row profile col s10 ">
+    <br>
+    <div class="col s5 card brown lighten-5 dev-show-card">
+      <div class="center">
+        <img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAZvAAAAJDFiY2JjNTc4LTQ0NDktNDcyYy05YzMxLTcyZmVmZDU3OTU5OA.jpg" id="developer-image">
+        <h3 class=" mint-shadow dev-name"><%= current_developer.name + " " + current_developer.last_name%></h3>
+      </div>
+      <ul class="dev-facts">
+        <li>Specialty: <%= current_developer.specialty.name %></li>
+        <li>Skill rating:<%= current_developer.skills_rating %></li>
+        <li>Rate: $<%= current_developer.rate %>/hr</li>
+        <li>Email: <%= current_developer.email %></li>
+      </ul>
 
-  <span class="card-totem">
-    <%= image_tag("database/horse_animal_totem.png") if (current_developer.specialty.name == "Database")%>
-    <%= image_tag("front_end/hawk_animal_totem.png") if (current_developer.specialty.name == "Front End")%>
-    <%= image_tag("back_end/fox_animal_totem.png") if (current_developer.specialty.name == "Back End")%>
-  </span>
+      <div class="row">
+        <span class="col s1">&nbsp;</span>
+        <span class="col s4"> <%= link_to "Edit Account", edit_developer_path, style: "font-size: large"%></span>
+        <span class="col s2">&nbsp;</span>
+        <span class ="col s4"> <%= link_to "Deactivate Account", deactivate_account_path, style: "color: red; font-size: large" %></span>
+      </div>
+    </div>
 
-  <%= link_to "Edit Account Information", edit_developer_path %>
-  <%= link_to "Deactivate Account", deactivate_account_path %>
+    <div class="col s1">
+      <br>
+    </div>
 
+    <div class="col s6 card brown lighten-5 dev-show-card">
+      <ul class="dev-facts">
+        <li>Tags:
+            <% current_developer.tags.each do |tag| %>
+             <span class="card" id="tag-card"> <%= tag.name %> </span>
+            <% end %>
+        </li>
+        <li>Bio: <span style="font-size: 0.7em;"><%= current_developer.bio %></span></li>
+      </ul>
+      </div>
+      <div class="center">
+        <span class="card-totem">
+          <%= image_tag("database/horse_animal_totem.png") if (current_developer.specialty.name == "Database")%>
+          <%= image_tag("front_end/hawk_animal_totem.png") if (current_developer.specialty.name == "Front End")%>
+          <%= image_tag("back_end/fox_animal_totem.png") if (current_developer.specialty.name == "Back End")%>
+        </span>
+      </div>
+    </div>
 </div>
