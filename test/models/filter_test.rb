@@ -5,7 +5,7 @@ class FilterTest < ActiveSupport::TestCase
   test "existance" do
     assert Filter
   end
-  
+
   test "it filters developers by tags and order" do
     tag_1, tag_2, tag_3 = create_list(:tag, 3)
     dev_1 = create(:developer, tags: [tag_1, tag_2, tag_3])
