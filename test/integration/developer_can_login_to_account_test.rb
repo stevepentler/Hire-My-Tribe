@@ -10,21 +10,24 @@ class DeveloperCanLoginToAccountTest < ActionDispatch::IntegrationTest
     assert page.has_content?("Login")
     refute page.has_content?("Logout")
 
+
     fill_in "developer[name]", with: "Aaron"
     fill_in "developer[last_name]", with: "Greenspan"
     fill_in "developer[email]", with: "hotdogs@hotmail.com"
     fill_in "developer[rate]", with: 10
-    
+    attach_file "developer[picture]", "app/assets/images/back_end/skunk_animal_totem.png"
+
     select "Database", from: "form-value"
 
     fill_in "developer[password]", with: "password"
     click_on "Create Developer Account"
 
+    developer = Developer.last
+
     assert_equal "/developer", current_path
     assert page.has_content?("Aaron")
     assert page.has_content?("Greenspan")
     assert page.has_content?("hotdogs@hotmail.com")
-
     assert page.has_content?("Logout")
     refute page.has_content?("Login")
 
