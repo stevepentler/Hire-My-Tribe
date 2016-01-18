@@ -14,7 +14,7 @@ class DeveloperCanEditProfileTest < ActionDispatch::IntegrationTest
 
     visit "/developer"
 
-    click_on "Edit Account Information"
+    click_on "Edit Account"
 
     assert_equal edit_developer_path, current_path
 
