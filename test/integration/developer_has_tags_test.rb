@@ -34,8 +34,6 @@ class DeveloperHasTagsTest < ActionDispatch::IntegrationTest
     find(:css, "#filter_#{tag.name}").set(true)
     click_on "Apply Sort"
 
-    save_and_open_page
-
     assert page.has_content?(expected_dev1.name)
     assert page.has_content?(expected_dev2.name)
     refute page.has_content?(not_expected_dev.name)
