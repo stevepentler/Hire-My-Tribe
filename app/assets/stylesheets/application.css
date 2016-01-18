@@ -231,6 +231,28 @@ form input {
     padding: 0 15px;
 }
 
+#checkout-table {
+    font-size: 2.5em;
+}
+
+#final-cost {
+    color: red
+}
+
+#checkout-button {
+    border-radius: 10px;
+    font-size: 4.0em;
+    color: white;
+    background-color: #795548;
+    font-family: 'Amatic SC', cursive;
+}
+
+.contain {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .dev-show-card {
   margin-left: 10px;
   margin-right: 10px;

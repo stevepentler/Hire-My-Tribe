@@ -24,4 +24,8 @@ class Developer < ActiveRecord::Base
   def inactive?
     status == "inactive"
   end
+
+  def tag_name_list
+    self.tags.all.map { |tag| tag.name }
+  end
 end
