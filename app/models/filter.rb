@@ -2,9 +2,8 @@ module Filter
   def self.sort_filter(params)
     developers = sort_developers(params)
     tags = selected_tags(params)
-    preload = developers.joins(:tags)
 
-    tags.reduce(developers) do |acc, tag|
+    tags.inject(developers) do |acc, tag|
       acc & tag.developers
     end
   end
