@@ -248,3 +248,7 @@ form input {
 #tag-card {
   margin-left: 10px
 }
+
+.file-field {
+  padding-top: 10px;
+}
