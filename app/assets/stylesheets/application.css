@@ -227,3 +227,7 @@ form input {
     line-height: 64px;
     padding: 0 15px;
 }
+
+.file-field {
+  padding-top: 10px;
+}
