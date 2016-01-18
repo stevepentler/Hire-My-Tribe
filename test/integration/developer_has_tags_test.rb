@@ -31,8 +31,10 @@ class DeveloperHasTagsTest < ActionDispatch::IntegrationTest
       assert page.has_content?(dev.name)
     end
 
-    find(:css, "##{tag.name}").set(true)
+    find(:css, "#filter_#{tag.name}").set(true)
     click_on "Apply Sort"
+
+    save_and_open_page
 
     assert page.has_content?(expected_dev1.name)
     assert page.has_content?(expected_dev2.name)
@@ -60,8 +62,8 @@ class DeveloperHasTagsTest < ActionDispatch::IntegrationTest
       assert page.has_content?(dev.name)
     end
 
-    find(:css, "##{tag1.name}").set(true)
-    find(:css, "##{tag2.name}").set(true)
+    find(:css, "#filter_#{tag1.name}").set(true)
+    find(:css, "#filter_#{tag2.name}").set(true)
 
     click_on "Apply Sort"
 

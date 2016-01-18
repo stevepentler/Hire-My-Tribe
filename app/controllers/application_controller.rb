@@ -39,10 +39,6 @@ class ApplicationController < ActionController::Base
     @specialties ||= Specialty.all
   end
 
-  def all_tags
-    @tags ||= Tag.all
-  end
-
   def disable_navbar
     @disable_navbar = true
   end

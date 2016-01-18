@@ -10,8 +10,8 @@
       <% if @tags %>
         <% @tags.each do |tag| %>
             <li>
-              <%= check_box_tag(tag.name) %>
-              <%= label_tag(tag.name, tag.name) %>
+              <%= f.check_box(tag.name) %>
+              <%= f.label(tag.name, tag.name) %>
             </li>
         <% end %>
       <% end %>

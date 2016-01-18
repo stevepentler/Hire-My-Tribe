@@ -37,7 +37,7 @@ class DevelopersController < ApplicationController
   end
 
   def filter
-    @developers = filtration(sort[params["Sort By"]][Developer])
+    @developers = selection_filter(sort[params["Sort By"]][Developer])
     flash.now[:notice] = "Filter has been applied!"
     render :index
   end
@@ -51,30 +51,38 @@ private
     }
   end
 
-  def filtration(initial_developers)
-    selected_tags.reduce(initial_developers) do |acc, tag|
-      selected_filters[tag.name][acc]
+  # def filtration(initial_developers)
+  #   selected_tags.reduce(initial_developers) do |acc, tag_name|
+  #     selected_filters[tag_name][acc]
+  #   end
+  # end
+
+  # def filtration2(initial_developers)
+  #   initial_developers.joins(:tags).where(tags: {name: selected_tags.join("AND")} )
+  # end
+  #
+  # def filter_by(tag_name)
+  #   { tag_name => lambda { |active| active.joins(:tags).where("tags.name = '#{tag_name}'") } }
+  # end
+
+  def selection_filter(initial_developers)
+    preload = initial_developers.joins(:tags)
+    intersection_query = selected_tags.reduce(initial_developers) do |acc, tag_name|
+      acc.merge(preload.where(tags: {name: tag_name}))
     end
   end
 
-  def filtration2(initial_developers)
-    initial_developers.joins(:tags).where(tags: {name: selected_tags.join("AND")} )
-  end
 
-  def filter_by(tag)
-    {tag.name => lambda {|active| active.joins(:tags).where("tags.name = '#{tag.name}'")}}
-  end
-
-  def selected_filters
-    filters = {}
-    selected_tags.each do |tag|
-      filters.merge!(filter_by(tag))
-    end
-    filters
-  end
+  # def selected_filters
+  #   filters = {}
+  #   selected_tags.each do |tag_name|
+  #     filters.merge!(filter_by(tag_name))
+  #   end
+  #   filters
+  # end
 
   def selected_tags
-    all_tags.select{|tag| params.keys.include?(tag.name)}
+    params["filter"].select{ |key, val| val == "1" }.keys
   end
 
   def developer_params
