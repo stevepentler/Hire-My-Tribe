@@ -20,6 +20,7 @@ FactoryGirl.define do
     status 0
     created_at Time.now
     updated_at Time.now
+    contractor
   end
 
   factory :admin do

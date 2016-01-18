@@ -19,9 +19,9 @@ class ProjectLinksTest < ActionDispatch::IntegrationTest
 
     assert_equal project_path(sample_project), current_path
 
-    assert page.has_content?(project.title)
-    assert page.has_content?(project.description)
-    refute page.has_content?(project.status)
+    assert page.has_content?(sample_project.title)
+    assert page.has_content?(sample_project.description)
+    refute page.has_content?(sample_project.status)
   end
 
   test "contractor pages link to contractor's projects" do

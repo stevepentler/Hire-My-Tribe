@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :projects, only: [:show]
   resources :contractors, only:[:index, :show]
 
   namespace :admin do
