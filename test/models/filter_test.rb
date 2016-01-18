@@ -6,9 +6,4 @@ class FilterTest < ActiveSupport::TestCase
     assert Filter
   end
 
-  def test_extracts_tags
-    params = {}
-    Filter.selected_tags()
-  end
-
 end
