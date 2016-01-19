@@ -58,6 +58,14 @@ Developer.create(name: "Aaron",
 
 Admin.create(username: 'admin', password: 'admin', email: 'admin')
 
-Tag.create(name: "Ruby")
-Tag.create(name: "Rust")
-Tag.create(name: "Javascript")
+ruby = Tag.create(name: "Ruby")
+rust = Tag.create(name: "Rust")
+js = Tag.create(name: "Javascript")
+
+Developer.all[0].tags += [ruby]
+Developer.all[1].tags += [ruby, js]
+Developer.all[2].tags += [ruby, rust]
+Developer.all[3].tags += [ruby, js, rust]
+
+Project.create(title: "Little Shop", contractor: Contractor.first, description: "Make a sweet shop with an owl background!", dev_hours: 45, developers: Developer.all)
+
