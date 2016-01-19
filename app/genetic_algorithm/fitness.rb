@@ -32,26 +32,26 @@ module Fitness
     end
   end
 
-  def total_with_named_language(contractor_opts, dna)
+  def self.total_with_named_language(contractor_opts, dna)
     dna.select do |dev|
       languages = dev.tags.map{|x| x.name}
       languages.include?(contractor_opts[dev.specialty.url_name][1])
     end.count
   end
 
-  def total_skill_rate(dna)
+  def self.total_skill_rate(dna)
     dna.reduce(0) do |acc, dev|
       acc + dev.skills_rating
     end
   end
 
-  def total_cost_difference(contractor_opts, dna)
+  def self.total_cost_difference(contractor_opts, dna)
     actual_cost = dna.map{|dev| dev.rate}.reduce(&:+)
     expected_cost = contractor_opts[:cost]
     expected_cost - actual_cost
   end
 
-  def team_breakdown_difference(contractor_opts, dna)
+  def self.team_breakdown_difference(contractor_opts, dna)
     actual_team = dna.reduce(Hash.new(0)) do |acc, dev|
       acc[dev.specialty.url_name] += 1
     end
