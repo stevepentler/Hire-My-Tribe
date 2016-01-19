@@ -15,11 +15,12 @@ FactoryGirl.define do
 
   factory :project do
     title { FactoryGirl.generate(:project_title) }
-    description " "
+    description "description"
     total 40
     status 0
     created_at Time.now
     updated_at Time.now
+    contractor
   end
 
   factory :admin do

@@ -25,14 +25,14 @@ ActiveRecord::Schema.define(version: 20160118195641) do
   end
 
   create_table "contractors", force: :cascade do |t|
-    t.string   "company_name",      default: ""
+    t.string   "company_name",      default: "Independent"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
     t.string   "password_digest"
     t.text     "bio",               default: ""
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
     t.string   "status",            default: "active"
     t.string   "logo_file_name"
     t.string   "logo_content_type"
