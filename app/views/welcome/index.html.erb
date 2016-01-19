@@ -1,22 +1,19 @@
-
+<body class="background-wolf">
   <div class="center">
     <div class="row center"> 
       <div class="col s10 offset-s1 center">
         <h1 class="brand-logo center" id="brand-logo">Hire My Tribe</h1>
 
         <div class="parallax-container">
-          <div class="background-image parallax" id="primary-logo"></div>
+          <div class="parallax background-image" id="primary-logo"><img src="images/HireMyTribeLogoSmall.png"></div>
         </div>
-        <h3 style="margin-top: 10px; color: black;">Hire Developers, Not Recruiters</h3>
+
+        <h3 id="recruiters">Hire Developers, Not Recruiters</h3>
         <% if !current_user? %>
           <h3 class="row waves-effect waves-light btn-large" id="signup-button" >
             <%= link_to "Sign Up", sign_up_path %></h3>
         <% end %>
       </div>
-
     </div>
   </div>
-
-
-
-<!--   <%= render partial: "/small_totems_row" %> -->
+</body>
