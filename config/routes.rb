@@ -14,8 +14,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :contractors, only:[:index]
   resources :projects, only: [:show]
-  resources :contractors, only:[:index, :show]
 
   namespace :admin do
     resources :specialties, only: [:new, :create, :index]

@@ -1,5 +1,8 @@
 <div class="contain">
   <h1><%= @project.title %></h1>
+  <h3>Company: <%= @project.contractor.company_name %>
+  <h3>Contractor: <%= link_to @project.contractor.full_name, contractor_path(contractor_id: @project.contractor.id) %>
+  <h3><%=("Status: " + @project.status) if current_contractors_project?(@project)%></h3>
   <h3><%=("Status: " + @project.status) if current_contractors_project?(@project)%></h3>
   <h3>Created At: <%= @project.created_at.to_formatted_s(:long)  %></h3>
   <h3>Last Updated: <%= @project.updated_at.to_formatted_s(:long) %></h3>

@@ -70,6 +70,12 @@ class ProjectLinksTest < ActionDispatch::IntegrationTest
   end
 
   test "project pages link to project's contractor" do
+    project = create(:project)
 
+    visit project_path(project)
+    click_on project.contractor.first_name
+
+    assert_equal contractor_path, current_path
+    assert page.has_content?(project.title)
   end
 end
