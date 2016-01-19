@@ -240,7 +240,7 @@ form input {
 
 #tag-index-button a {
   color: white;
-} 
+}
 
 /*checkout cart*/
 #checkout-table {
@@ -276,4 +276,16 @@ form input {
 
 .file-field {
   padding-top: 10px;
+}
+
+.brown-button {
+  border-radius: 10px;
+  font-size: 2.0em;
+  color: white;
+  background-color: #795548;
+  font-family: 'Amatic SC', cursive;
+}
+
+.specialty-image {
+  height: 10em;
 }
