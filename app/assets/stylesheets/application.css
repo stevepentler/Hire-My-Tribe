@@ -303,3 +303,11 @@ form input {
 .specialty-image {
   height: 10em;
 }
+
+.tribe-cart-picture {
+  height: 2em;
+}
+
+.tribe-cart-text{
+  font-size:0.7em
+}
