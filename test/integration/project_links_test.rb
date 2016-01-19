@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class ProjectLinksTest < ActionDispatch::IntegrationTest
   test "developer pages link to developer's projects" do
@@ -41,11 +41,11 @@ class ProjectLinksTest < ActionDispatch::IntegrationTest
   end
 
   test "contractor profile page links to contractor's project" do
-    contractor = create(:contractor)
+    con = create(:contractor)
     project = create(:project)
-    contractor.projects << project
+    con.projects << project
 
-    ApplicationController.any_instance.stubs(:current_contractor).returns(contractor)
+    ApplicationController.any_instance.stubs(:current_contractor).returns(con)
 
     visit contractor_path
     assert page.has_content?(project.title)
