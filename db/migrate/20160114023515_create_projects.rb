@@ -4,7 +4,7 @@ class CreateProjects < ActiveRecord::Migration
       t.string :title
       t.text :description
       t.integer :status, default: 0
-      t.integer :total
+      t.integer :total, default: 0
       t.references :contractor, index: true, foreign_key: true
 
       t.timestamps null: false

@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 20160118195641) do
     t.string   "email"
     t.string   "password_digest"
     t.text     "bio"
-    t.integer  "skills_rating"
+    t.integer  "skills_rating",        default: 0
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 20160118195641) do
     t.string   "title"
     t.text     "description"
     t.integer  "status",        default: 0
-    t.integer  "total"
+    t.integer  "total",         default: 0
     t.integer  "contractor_id"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false

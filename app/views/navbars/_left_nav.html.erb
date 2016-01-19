@@ -2,4 +2,6 @@
 <li id="navbar-font">
   <%= link_to "View Account: #{current_contractor.first_name}", contractor_path, class: "navbar-font-profile", id: "navbar-font" if current_contractor %>
   <%= link_to "View Account: #{current_developer.name}", developer_path, class: "navbar-font-profile", id: "navbar-font" if current_developer %>
+
+   <%= link_to "View Dashboard: #{current_admin.username}", admin_dashboard_path, class: "navbar-font-profile", id: "navbar-font" if current_admin %>
 </li>

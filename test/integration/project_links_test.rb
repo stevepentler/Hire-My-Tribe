@@ -32,6 +32,9 @@ class ProjectLinksTest < ActionDispatch::IntegrationTest
 
     visit contractor_path(contractor_id: contractor.id)
     assert page.has_content?(project.title)
+    refute page.has_content?("Edit Account")
+    refute page.has_content?("Deactivate Account")
+    
     click_on "#{project.title}"
 
     assert_equal project_path(project), current_path

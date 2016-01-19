@@ -8,12 +8,14 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user?,
                 :current_contractor,
+                :current_admin,
                 :current_pending_tribe,
                 :current_specialty,
                 :developer_path,
                 :all_specialties,
                 :current_developer,
                 :all_tags
+
 
   def developer_path(dev = nil)
     if dev

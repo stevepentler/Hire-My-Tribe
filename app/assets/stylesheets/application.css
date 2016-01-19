@@ -1,17 +1,11 @@
-body {
-  background-image: url('http://www.wolvesonly.com/tw65.jpg');
+.background-wolf {
+  background-image: url('backgrounds/wolf.jpg');
   background-size: cover;
 }
 
-/*#transparent {
-  background-size: cover;
-
-  background-color: rgba(255, 255, 255, 0.2)
-}*/
-#background-owl {
-  background-image: url('backgrounds/owl.jpg');
-  opacity: .3;
-  z-index: -1;
+.background-fox {
+  background-image: url('backgrounds/arctic_fox.jpg');
+  background-size: contain;
 }
 /*fonts and colors*/
 .amatic-font {
@@ -43,7 +37,7 @@ body {
 }*/
 
 #navbar-font {
-  font-size: 1.5em;
+  font-size: 1.8em;
   text-shadow: 2px 2px #540018;
 }
 
@@ -56,12 +50,16 @@ body {
 /*navbars*/
  #brand-logo {
    text-decoration: underline #669884;
-   font-weight: 600;
+   font-weight: 900;
    font-size: 150px;
    margin-top: -20px;
-   color: black;
-   text-shadow: 2px 2px #669884;
+   color: #black;
+/*   -webkit-text-fill-color: #669884;  Will override color (regardless of order)
+   -webkit-text-stroke-width: 3px;
+   -webkit-text-stroke-color: black;*/
+   text-shadow: 3px 3px #669884;
    /*margin-bottom: 200px;*/
+   /*#01DBF9*/
  }
 
 #normal-brand-logo{
@@ -83,8 +81,17 @@ body {
   max-height: 400px;
 }
 
+#recruiters {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  font-size: 4.0em;
+  font-weight: 900;
+  color: black;
+  text-shadow: 2px 2px #669884;
+}
+
 .background-image {
-  background-image: url('HireMyTribeLogoSmall.png');
+  background-image: url('HireMyTribeBlackOverlay.png');
   background-size: contain;
   max-width: 100%;
   background-repeat: no-repeat;
@@ -114,7 +121,6 @@ hr.gradient {
 #single-totem img {
   height: 80px;
   width: auto;
-  opacity: .4;
 }
 
 #signup-button {
@@ -154,7 +160,7 @@ hr.gradient {
 }
 
 .card {
-  max-width: 80%;
+  max-width: 100%;
 }
 
 .card-totem img {
@@ -165,14 +171,17 @@ hr.gradient {
 }
 
 #developer-card {
-  width: 80%;
+  width: 70%;
   margin-left: auto;
   margin-right: auto;
 }
 
 #developer-image {
   height: 250px;
+  width: 250px;
   border-radius: 150px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .brown.lighten-5 {
