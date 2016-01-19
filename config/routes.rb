@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   resources :projects, only: [:show]
 
   namespace :admin do
-    resources :specialties, only: [:new, :create, :index]
+    resources :specialties, only: [:new, :create, :index, :edit, :update]
     resources :tags, except: [:show]
     get '/dashboard', to: "admins#show"
   end
