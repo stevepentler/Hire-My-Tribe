@@ -32,8 +32,11 @@
   </table>
 
   <br>
-  <% if @project.status == "Pending" %> 
+  <% if @project.status == "Pending" %>
     <%= link_to "Submit Payment", contractor_project_payment_path(@project), id: "checkout-button" %>
+  <% else %>
+  <%= link_to "Complete Project", contractor_project_complete_path(@project), id: "checkout-button", method: :patch %>
+  <%= link_to "Cancel Project", contractor_project_cancel_path(@project), id: "checkout-button", method: :patch %>
   <% end %>
   <br>
 

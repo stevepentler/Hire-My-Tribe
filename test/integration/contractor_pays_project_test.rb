@@ -43,7 +43,4 @@ class ContractorPaysProjectTest < ActionDispatch::IntegrationTest
     assert_equal "Pending", project.status
     assert page.has_content? "Some of your developers are unavailable"
   end
-
-  # payment only if every developer availabe
-  # complete or cancelled project frees developers
 end

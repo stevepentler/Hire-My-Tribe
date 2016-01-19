@@ -12,6 +12,8 @@ Rails.application.routes.draw do
       delete 'remove_dev', to: "projects#remove_dev"
       get 'payment', to: "projects#submit_payment"
       post 'payment', to: "projects#pay"
+      patch 'complete', to: "projects#complete"
+      patch 'cancel', to: "projects#cancel"
     end
   end
 

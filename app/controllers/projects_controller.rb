@@ -43,6 +43,26 @@ class ProjectsController < ApplicationController
     redirect_to contractor_project_path(@project)
   end
 
+  def complete
+    @project = Project.find(params[:project_id])
+    @project.update_attribute(:status, 2)
+    @project.developers.each do |dev|
+      dev.update_attribute(:status,'available')
+    end
+    flash[:sucess] = "Project Complete - Congratulations!"
+    redirect_to contractor_project_path(@project)
+  end
+
+  def cancel
+    @project = Project.find(params[:project_id])
+    @project.update_attribute(:status, 3)
+    @project.developers.each do |dev|
+      dev.update_attribute(:status,'available')
+    end
+    flash[:sucess] = "The Project has been cancelled"
+    redirect_to contractor_project_path(@project)
+  end
+
   def remove_dev
     Project.find(params[:project_id]).remove(params[:dev])
     redirect_to contractor_project_path(params[:project_id])
