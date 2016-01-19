@@ -47,7 +47,6 @@ class AdminCrudSpecialtiesTest < ActionDispatch::IntegrationTest
 
     visit 'admin/dashboard'
     click_on "Specialties"
-    # save_and_open_page
     within "#specialty-#{specialty.url_name}" do
       click_on "Edit Specialty"
     end
