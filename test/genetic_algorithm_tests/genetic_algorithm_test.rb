@@ -13,7 +13,8 @@ class GeneticAlgorithmTest < Minitest::Test
       fitness: Fitness.euc_dist(Array.new(count, 0)),
       mutation: Mutation.add_rand,
       m_rate: 1,
-      m_max: 5
+      m_max: 5,
+      standard: true
     }
   end
 
@@ -29,7 +30,8 @@ class GeneticAlgorithmTest < Minitest::Test
       c_rate: 1,
       fitness: Fitness.taxi_dist(Array.new(count, 0)),
       mutation: Mutation.bit_flip,
-      m_rate: 1
+      m_rate: 1,
+      standard: true
     }
   end
 

@@ -13,7 +13,11 @@ module Mutation
 
   def self.swap_dev
     Proc.new do |dev|
-      Developer.all.sample
+      all_developers.sample
     end
+  end
+
+  def self.all_developers
+    @developers ||= Developer.all
   end
 end

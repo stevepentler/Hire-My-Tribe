@@ -25,9 +25,7 @@ class TribesController < ApplicationController
   def auto_suggest
     contractor_opts = format_params_for_auto_suggest
     ga = GeneticAlgorithm.new(dev_opts(contractor_opts))
-    binding.pry
     ga.evolve(25)
-    binding.pry
     @pending_tribe = PendingTribe.new(ga.fittest_chromosome.dna.map{|dev| dev.id})
     @project = Project.new
     render :show

@@ -5,12 +5,12 @@ class ChromosomeTest < Minitest::Test
   end
 
   def test_initializes_with_given_dna
-    c = Chromosome.new(dna: [1,2,3,4])
+    c = Chromosome.new(dna: [1,2,3,4], standard: true)
     assert_equal [1,2,3,4], c.dna
   end
 
   def test_initializes_with_random_dna
-    c = Chromosome.new(range: (1.0..5.0), count: 6)
+    c = Chromosome.new(range: (1.0..5.0), count: 6, standard: true)
     assert_equal 6, c.dna.count
 
     c.dna.each do |bp|
@@ -30,7 +30,7 @@ class ChromosomeTest < Minitest::Test
 
 
   def test_initializes_with_mutation_function
-    c = Chromosome.new(dna: [], mutation: Mutation.add_rand)
+    c = Chromosome.new(dna: [], mutation: Mutation.add_rand, standard: true)
 
     10.times do
       x = c.mutation_type[1, m_max: 5]

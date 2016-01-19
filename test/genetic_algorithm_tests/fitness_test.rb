@@ -30,7 +30,7 @@ class FitnessTest < ActionDispatch::IntegrationTest
   end
 
   def test_developers_fitness
-    assert_equal 11.399999999999999, Fitness.developers_fitness(contractor_opts)[hypothesis_dna]
+    assert_equal 11.205128205128208, Fitness.developers_fitness(contractor_opts)[hypothesis_dna]
   end
 
   def test_developers_fitness_scaling
