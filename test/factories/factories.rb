@@ -26,7 +26,7 @@ FactoryGirl.define do
   factory :admin do
     username "admin"
     email "paco@raba.com"
-    password "pass"
+    password "admin"
   end
 
   factory :developer do
