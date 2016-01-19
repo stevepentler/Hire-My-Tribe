@@ -13,7 +13,7 @@
     <tbody>
       <% current_pending_tribe.developers.each do |developer| %>
         <tr>
-          <td><img class="tribe-cart-picture", src="https://robohash.org/<%= developer.id %>"></td>
+          <td><%= image_tag developer.picture, class: "tribe-cart-picture"%></td>
           <td class="tribe-cart-text"><%= link_to developer.name, developer_path(developer) %></td>
           <td class="tribe-cart-text"><%= developer.specialty.name%></td>
           <td class="tribe-cart-text"><%= developer.rate%></td>
