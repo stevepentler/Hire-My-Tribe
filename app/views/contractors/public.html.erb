@@ -1,16 +1,22 @@
-<div class="container center amatic-font" style="font-size: 4em;">
-  <%= image_tag( @contractor.logo , height: "100px", id: "contractor-#{@contractor.id}-logo") %>
-  <%= "Company Name: " + @contractor.company_name unless @contractor.company_name.empty? %>
-  <br>
-
-  <%= "Name: " + @contractor.first_name + " " + @contractor.last_name %>
-  <br>
-
-  <%= "Projects: " %>
-  <% @contractor.projects.each do |project| %>
-    <%= link_to "#{project.title}", project_path(project) %>
-  <% end %>
-  <br>
-
-  <%= "Description: " + @contractor.bio %>
+<div class="container center amatic-font" style="font-size: 4em; margin-top: 60px;">
+  <div class="col s5 card brown lighten-5 dev-show-card">  
+    <div class="center" style="padding-top: 50px;">
+      <%= image_tag @contractor.logo, id:"contractor-image" %>
+      <h3 class=" mint-shadow dev-name" style="font-size: 2em;"><%= @contractor.full_name %></h3>
+    </div>
+    <div style="margin-top: -10px;">
+      <ul style="font-size: 1em;">
+        <li>Company: <%= @contractor.company_name %></li>
+        <li>Name:<%= @contractor.full_name %></li>
+        <li>Email: <%= @contractor.email %></li>
+        <li>Bio:</li>
+        <li style="font-size: .7em; margin-left: 30px;"><%= @contractor.bio %></li>
+        <li>Projects:</li>
+        <li><% @contractor.projects.each do |project| %>
+            <%= link_to "#{project.title}", contractor_project_path(project) %>, 
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
