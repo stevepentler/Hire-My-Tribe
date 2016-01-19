@@ -5,9 +5,11 @@
     <% end %>
   </li>
   <li>Projects:
-    <% developer.projects.each do |project| %>
-     <span class="card" id="project-card"> <%= link_to project.title, project_path(project) %> </span>
-    <% end %>
+    <ul>
+      <% developer.projects.each do |project| %>
+        <li><%= link_to "#{project.title}: #{project.contractor.company_name} ", project_path(project) %></li>
+      <% end %>
+    </ul>
   </li>
   <li>Bio: <span style="font-size: 0.7em;"><%= developer.bio %></span></li>
 </ul>

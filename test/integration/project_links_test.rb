@@ -25,8 +25,39 @@ class ProjectLinksTest < ActionDispatch::IntegrationTest
   end
 
   test "contractor pages link to contractor's projects" do
+    contractor = create(:contractor)
+    project = create(:project)
 
+    contractor.projects << project
+
+    visit contractor_path(contractor_id: contractor.id)
+    assert page.has_content?(project.title)
+    click_on "#{project.title}"
+
+    assert_equal project_path(project), current_path
+    assert page.has_content?(project.title)
+    assert page.has_content?(project.description)
+    refute page.has_content?(project.status)
   end
+
+  test "contractor profile page links to contractor's project" do
+    contractor = create(:contractor)
+    project = create(:project)
+    contractor.projects << project
+
+    ApplicationController.any_instance.stubs(:current_contractor).returns(contractor)
+
+    visit contractor_path
+    assert page.has_content?(project.title)
+    click_on "#{project.title}"
+
+    assert_equal contractor_project_path(project), current_path
+    assert page.has_content?(project.title)
+    assert page.has_content?(project.description)
+    assert page.has_content?(project.status)
+  end
+
+
 
   test "project pages link to project's developers" do
 

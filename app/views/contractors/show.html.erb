@@ -4,10 +4,14 @@
   <%= "Company Name: " + @contractor.company_name unless @contractor.company_name.empty? %>
   <br>
 
-<%= "Name: " + @contractor.first_name + " " + @contractor.last_name %>
-<br>
+  <%= "Name: " + @contractor.first_name + " " + @contractor.last_name %>
+  <br>
 
-  <%= link_to "Projects", contractor_projects_path, class: "row waves-effect waves-light btn-large", id: "signup-button", style: "font-size: 60px;" %>
+
+  <%= @contractor.projects.each do |project| %>
+    <%= link_to "#{project.title}", contractor_project_path(project )%>
+  <% end %>
+
   <br>
 
   <%= link_to "Logout", logout_path, method: :delete, class: "row waves-effect waves-light btn-large", id: "signup-button", style: "font-size: 60px;"%>
