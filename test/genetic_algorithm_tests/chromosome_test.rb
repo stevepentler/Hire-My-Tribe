@@ -70,7 +70,6 @@ class ChromosomeTest < ActiveSupport::TestCase
 
     c.dna.each do |bp|
       refute bp == 0
-      puts bp
       assert -5 <= bp && bp <= 5
     end
 
@@ -79,7 +78,6 @@ class ChromosomeTest < ActiveSupport::TestCase
 
     c.dna.each do |bp|
       refute bp == 1
-      puts bp
       assert -6 <= bp && bp <= 6
     end
 

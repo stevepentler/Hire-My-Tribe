@@ -107,7 +107,7 @@ class GeneticAlgorithmTest < Minitest::Test
       ga.evolve(25)
       fin = ga.fittest_chromosome
       assert_equal Array.new(50,1), fin.dna
-      p "init_fit: #{init.fitness}, fin_fit: #{fin.fitness}"
+      # p "init_fit: #{init.fitness}, fin_fit: #{fin.fitness}"
     end
 
     second_opts = good_binary_opts.merge(fitness: Fitness.taxi_dist(Array.new(50, 1)))
@@ -118,7 +118,7 @@ class GeneticAlgorithmTest < Minitest::Test
       ga.evolve(25)
       fin = ga.fittest_chromosome
       assert_equal Array.new(50,0), fin.dna
-      p "init_fit: #{init.fitness}, fin_fit: #{fin.fitness}"
+      # p "init_fit: #{init.fitness}, fin_fit: #{fin.fitness}"
     end
 
     third_opts = good_binary_opts.merge(fitness: Fitness.taxi_dist( (Array.new(25,1) + Array.new(25,0))))
@@ -130,7 +130,7 @@ class GeneticAlgorithmTest < Minitest::Test
       fin = ga.fittest_chromosome
 
       assert_equal (Array.new(25,0) + Array.new(25,1)), fin.dna
-      puts "fin_fit: #{fin.dna}"
+      # puts "fin_fit: #{fin.dna}"
     end
 
     fourth_opts = good_binary_opts.merge(fitness: Fitness.summation_dist( (Array.new(25,1) + Array.new(25,0)).shuffle))
@@ -144,7 +144,7 @@ class GeneticAlgorithmTest < Minitest::Test
       expected = [Array.new(50,0), Array.new(50,1)]
 
       assert expected.include?(fin.dna)
-      puts "fin_fit: #{fin.dna}"
+      # puts "fin_fit: #{fin.dna}"
     end
 
   end
@@ -159,29 +159,29 @@ class GeneticAlgorithmTest < Minitest::Test
       ga.evolve(25)
       fin = ga.fittest_chromosome
       assert 100 < fin.fitness
-      p "init_fit: #{init.fitness}, fin_fit: #{fin.fitness}"
-      puts fin.dna
+      # p "init_fit: #{init.fitness}, fin_fit: #{fin.fitness}"
+      # puts fin.dna
     end
   end
 
-  def find_best_parameters
-    c_rates = (0..10).to_a.map { |x| 0.25 + x*5/(100.to_f) }
-    m_rates = (0..10).to_a.map { |x| 0.2 + x/(100.to_f) }
-
-    params = []
-
-    c_rates.each do |c|
-      m_rates.each do |m|
-        good_rates = {c_rate: c, m_rate: m}
-        good_neural_opts = neural_opts(140, 30,(-1.0..1.0), 100).merge(good_rates)
-        ga = GeneticAlgorithm.new(good_neural_opts)
-        init = ga.fittest_chromosome.fitness
-        ga.evolve(25)
-        fin = ga.fittest_chromosome.fitness
-        p "c_rate:#{c}, m_rate:#{m}, init_fit: #{init}, fin_fit: #{fin}"
-        params << [c, m, ga.fittest_chromosome]
-      end
-    end
-    p params.sort_by{|x| -x[2].fitness}[0..10].map{|x| [x[0],x[1],x[2].fitness]}
-  end
+  # def find_best_parameters
+  #   c_rates = (0..10).to_a.map { |x| 0.25 + x*5/(100.to_f) }
+  #   m_rates = (0..10).to_a.map { |x| 0.2 + x/(100.to_f) }
+  #
+  #   params = []
+  #
+  #   c_rates.each do |c|
+  #     m_rates.each do |m|
+  #       good_rates = {c_rate: c, m_rate: m}
+  #       good_neural_opts = neural_opts(140, 30,(-1.0..1.0), 100).merge(good_rates)
+  #       ga = GeneticAlgorithm.new(good_neural_opts)
+  #       init = ga.fittest_chromosome.fitness
+  #       ga.evolve(25)
+  #       fin = ga.fittest_chromosome.fitness
+  #       # p "c_rate:#{c}, m_rate:#{m}, init_fit: #{init}, fin_fit: #{fin}"
+  #       params << [c, m, ga.fittest_chromosome]
+  #     end
+  #   end
+  #   # p params.sort_by{|x| -x[2].fitness}[0..10].map{|x| [x[0],x[1],x[2].fitness]}
+  # end
 end
