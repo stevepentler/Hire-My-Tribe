@@ -1,3 +1,6 @@
-<div class="container row">
-  <%= render @specialties %>
+<div class="container">
+  <div class="row center">
+    <%= button_to "New Specialty", new_admin_specialty_path, class: "brown-button", method: :get %>
+    <%= render @specialties %>
+  </div>
 </div>

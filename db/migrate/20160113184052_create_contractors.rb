@@ -1,7 +1,7 @@
 class CreateContractors < ActiveRecord::Migration
   def change
     create_table :contractors do |t|
-      t.string :company_name, default: ""
+      t.string :company_name, default: "Independent"
       t.string :first_name
       t.string :last_name
       t.string :email

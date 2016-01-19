@@ -6,11 +6,16 @@
       <div class="card brown lighten-5" style="height: 120px;">
         <div class="container">
           <li><h1 style="display: inline; float: left;"><%= tag.name %></h1>
-          <span class="row waves-effect waves-light btn-large" id="tag-index-button", style="margin-right: 30px;" ><%= link_to("Edit Tag", edit_admin_tag_path(tag)) %></span>
-          <span class="row waves-effect waves-light btn-large" id="tag-index-button" ><%= link_to("Remove Tag", admin_tag_path(tag), method: :delete) %></span></li>
+            <span class="row waves-effect waves-light btn-large" id="tag-index-button", style="margin-right: 30px;" >
+              <%= link_to("Edit Tag", edit_admin_tag_path(tag)) %>
+            </span>
+          
+            <span class="row waves-effect waves-light btn-large" id="tag-index-button" >
+              <%= link_to("Remove Tag", admin_tag_path(tag), method: :delete) %>
+            </span
+          ></li>
         </div>
       </div>
-    <% end %> 
+    <% end %>
   <ul>
-
 </div>

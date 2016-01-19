@@ -1,2 +1,11 @@
-<%= content_tag :h2, specialty.name %>
-<%= image_tag specialty.image, id:"#{specialty.name}-image" %>
+<div class="row">
+  <div class="col s3">
+    <%= image_tag specialty.image, id:"#{specialty.name}-image", class: "specialty-image" %>
+  </div>
+  <div class="col s3">
+    <%= content_tag :h2, specialty.name %>
+  </div>
+  <div class="col s3">
+    <%= content_tag :h2, specialty.description %>
+  </div>
+</div>

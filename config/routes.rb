@@ -11,10 +11,14 @@ Rails.application.routes.draw do
     resources :projects, only: [:create, :show, :index] do
       delete 'remove_dev', to: "projects#remove_dev"
       get 'payment', to: "projects#submit_payment"
+      post 'payment', to: "projects#pay"
+      patch 'complete', to: "projects#complete"
+      patch 'cancel', to: "projects#cancel"
     end
   end
 
-  resources :contractors, only:[:index, :show]
+  resources :contractors, only:[:index]
+  resources :projects, only: [:show]
 
   namespace :admin do
     resources :specialties, only: [:new, :create, :index]

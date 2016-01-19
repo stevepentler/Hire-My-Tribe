@@ -37,4 +37,8 @@ module ApplicationHelper
       contractor.company_name
     end
   end
+
+  def current_contractors_project?(project)
+    project.contractor == current_contractor
+  end
 end
