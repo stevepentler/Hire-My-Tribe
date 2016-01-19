@@ -5,7 +5,9 @@ class AdminCrudSpecialtiesTest < ActionDispatch::IntegrationTest
     admin = create(:admin)
     ApplicationController.any_instance.stubs(:current_admin).returns(admin)
 
-    visit new_admin_specialty_path
+    visit 'admin/dashboard'
+    click_on "Specialties"
+    click_on "New Specialty"
 
     fill_in "Name", with: "database"
     fill_in "Description", with: ""
@@ -37,5 +39,4 @@ class AdminCrudSpecialtiesTest < ActionDispatch::IntegrationTest
     assert page.has_content? specialty.name
     assert page.has_css? "#database-image"
   end
-
 end

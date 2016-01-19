@@ -1,6 +1,9 @@
 <div class="contain">
   <h1><%= @project.title %></h1>
-  <h3>Status: <%= @project.status %></h3>
+  <h3>Company: <%= @project.contractor.company_name %>
+  <h3>Contractor: <%= link_to @project.contractor.full_name, contractor_path(contractor_id: @project.contractor.id) %>
+  <h3><%=("Status: " + @project.status) if current_contractors_project?(@project)%></h3>
+  <h3><%=("Status: " + @project.status) if current_contractors_project?(@project)%></h3>
   <h3>Created At: <%= @project.created_at.to_formatted_s(:long)  %></h3>
   <h3>Last Updated: <%= @project.updated_at.to_formatted_s(:long) %></h3>
   <h3>Description: <%= @project.description %></h3>
@@ -20,30 +23,29 @@
     <tbody>
       <% @project.developers.each do |developer| %>
         <tr>
-          <td><%= developer.name %></td>
+          <td><%= link_to developer.name, developer_path(developer) %></td>
           <td><%= developer.specialty.name %></td>
           <td><%= developer.rate %></td>
           <td><%= developer.tag_name_list.join(", ") %></td>
-          <td><%= link_to "Remove #{developer.name}", contractor_project_remove_dev_path(@project, dev: developer.id),
-            method: :delete %></td>
+          <td><%= link_to("Remove #{developer.name}", contractor_project_remove_dev_path(@project, dev: developer.id),
+            method: :delete) if current_contractors_project?(@project) %> </td>
         </tr>
       <% end %>
     </tbody>
   </table>
 
+  <% if current_contractors_project?(@project) %>
   <br>
-  <% if @project.status == "Pending" %>
-    <%= link_to "Submit Payment", contractor_project_payment_path(@project), id: "checkout-button" %>
-  <% else %>
-  <%= link_to "Complete Project", contractor_project_complete_path(@project), id: "checkout-button", method: :patch %>
-  <%= link_to "Cancel Project", contractor_project_cancel_path(@project), id: "checkout-button", method: :patch %>
-  <% end %>
+    <% if @project.status == "Pending" %>
+      <%= link_to "Submit Payment", contractor_project_payment_path(@project), id: "checkout-button" %>
+    <% else %>
+      <%= link_to "Complete Project", contractor_project_complete_path(@project), id: "checkout-button", method: :patch %>
+      <%= link_to "Cancel Project", contractor_project_cancel_path(@project), id: "checkout-button", method: :patch %>
+    <% end %>
   <br>
-
-
-
 
   <h3>Total Developer Rate/Hour: $<%= @project.total %></h3>
   <h3>Hours Per Developer: <%= @project[:dev_hours] %></h3>
   <h1 id="final-cost"><strong>Final Project Cost: $<%= (@project[:dev_hours] * @project.total) %></strong></h1>
+<% end %>
 </div>

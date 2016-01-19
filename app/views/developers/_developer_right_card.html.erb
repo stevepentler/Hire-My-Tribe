@@ -1,8 +1,15 @@
-<ul class="dev-facts" style="font-size: 2em;">
+<ul style="font-size: 2em;">
   <li>Tags:
-      <% developer.tags.each do |tag| %>
-       <span class="card" id="tag-card"> <%= tag.name %> </span>
+    <% developer.tags.each do |tag| %>
+     <span class="card" id="tag-card"> <%= tag.name %> </span>
+    <% end %>
+  </li>
+  <li>Projects:
+    <ul>
+      <% developer.projects.each do |project| %>
+        <li><%= link_to "#{project.title}: #{project.contractor.company_name} ", project_path(project) %></li>
       <% end %>
+    </ul>
   </li>
   <li>Bio: <span style="font-size: 0.7em;"><%= developer.bio %></span></li>
 </ul>
