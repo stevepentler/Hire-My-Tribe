@@ -28,9 +28,13 @@ module Fitness
       correct_language_bonus = total_with_named_language(contractor_opts, dna)
       skill_bonus = total_skill_rate(dna)/5.0
       cost_bonus = total_cost_difference(contractor_opts, dna)
-      team_breakdown_bonus = team_breakdown_difference(contractor_opts, dna)
+      team_breakdown_penalty = team_breakdown_difference(contractor_opts, dna)
+
+      correct_language_bonus + skill_bonus + cost_bonus + team_breakdown_penalty
     end
   end
+
+private
 
   def self.total_with_named_language(contractor_opts, dna)
     dna.select do |dev|
@@ -54,15 +58,16 @@ module Fitness
   def self.team_breakdown_difference(contractor_opts, dna)
     actual_team = dna.reduce(Hash.new(0)) do |acc, dev|
       acc[dev.specialty.url_name] += 1
+      acc
     end
 
     expected_team = contractor_opts.map do |key, val|
       [key, val[0]] if key != :cost
-    end.to_h
+    end.reject{|x| x.nil?}.to_h
 
     differences = actual_team.merge(expected_team){|k, v1, v2| (v1-v2)**2}
-    differences.reduce(0) do |acc, k, v|
-      acc + v
+    differences.reduce(0) do |acc, k_v|
+      acc - k_v[1]
     end
   end
 end
