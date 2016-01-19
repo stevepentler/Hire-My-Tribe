@@ -46,7 +46,8 @@ Developer.create(name: "Aaron",
                 email: "hotdog4@hotmail.com",
                 password: "$",
                 rate: 40,
-                specialty: be )
+                specialty: be,
+                skills_rating: 5)
 
 
 Admin.create(username: 'admin', password: 'admin', email: 'admin')
@@ -62,6 +63,7 @@ Developer.all[3].tags += [ruby, js, rust]
 
 Project.create(title: "Little Shop", contractor: Contractor.first, description: "Make a sweet shop with an owl background!", dev_hours: 45, developers: Developer.all)
 
+Tag.create(name: "Postgresql")
 Tag.create(name: "Rails")
 Tag.create(name: "Phoenix")
 Tag.create(name: "css")

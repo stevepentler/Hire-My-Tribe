@@ -31,7 +31,6 @@ class AutoSuggestionTest < ActiveSupport::TestCase
     p fin.map{|x| {x.specialty.name => x.tags.map{|y| y.name}}}
     p "cost" + "#{fin.reduce(0){|a, x| a + x.rate}}"
     p fin.map{|x| x.skills_rating }
-
   end
 
   def dev_opts(contractor_opts)
