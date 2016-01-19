@@ -7,10 +7,10 @@ class ProjectsController < ApplicationController
         @pending_tribe = PendingTribe.new
         flash[:project_added] = "New project created!"
         redirect_to contractor_project_path(@project)
-      else 
+      else
       flash[:error] = @project.errors.full_messages.join(", ")
       redirect_to tribe_path
-      end 
+      end
     else
       session[:from_tribe] = true
       flash[:login_error] = "Please login before submitting a project"
@@ -28,6 +28,19 @@ class ProjectsController < ApplicationController
 
   def submit_payment
     @project = Project.find(params[:project_id])
+  end
+
+  def pay
+    @project = Project.find(params[:project_id])
+    if @project.developers.any? {|dev| dev.status == 'unavailable'}
+      flash[:error] = "Some of your developers are unavailable"
+    else
+      @project.update_attribute(:status, 1)
+      @project.developers.each do |dev|
+        dev.update_attribute(:status,'unavailable')
+      end
+    end
+    redirect_to contractor_project_path(@project)
   end
 
   def remove_dev

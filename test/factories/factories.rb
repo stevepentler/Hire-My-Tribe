@@ -15,7 +15,7 @@ FactoryGirl.define do
 
   factory :project do
     title { FactoryGirl.generate(:project_title) }
-    description " "
+    description "Yeah"
     total 40
     status 0
     created_at Time.now
