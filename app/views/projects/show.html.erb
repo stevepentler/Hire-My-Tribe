@@ -20,7 +20,7 @@
     <tbody>
       <% @project.developers.each do |developer| %>
         <tr>
-          <td><%= developer.name %></td>
+          <td><%= link_to developer.name, developer_path(developer) %></td>
           <td><%= developer.specialty.name %></td>
           <td><%= developer.rate %></td>
           <td><%= developer.tag_name_list.join(", ") %></td>

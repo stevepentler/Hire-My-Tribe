@@ -57,10 +57,16 @@ class ProjectLinksTest < ActionDispatch::IntegrationTest
     assert page.has_content?(project.status)
   end
 
-
-
   test "project pages link to project's developers" do
+    project = create(:project)
+    dev1, dev2 = create_list(:developer, 2)
+    project.developers << [dev1, dev2]
 
+    visit project_path(project)
+    click_on dev1.name
+
+    assert_equal developer_path(dev1), current_path
+    assert page.has_content?(project.title)
   end
 
   test "project pages link to project's contractor" do
