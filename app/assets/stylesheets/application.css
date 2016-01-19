@@ -1,8 +1,18 @@
 body {
-  /*background-image: url("https://i.ytimg.com/vi/h34MSoNUXSM/maxresdefault.jpg");
-  background-size: 150%;*/
+  background-image: url('backgrounds/owlT2.jpg');
+  background-size: cover;
 }
 
+/*#transparent {
+  background-size: cover;
+
+  background-color: rgba(255, 255, 255, 0.2)
+}*/
+#background-owl {
+  background-image: url('backgrounds/owl.jpg');
+  opacity: .3;
+  z-index: -1;
+}
 /*fonts and colors*/
 .amatic-font {
   font-family: 'Amatic SC', cursive;
@@ -48,10 +58,10 @@ body {
    text-decoration: underline #669884;
    font-weight: 600;
    font-size: 150px;
-   margin-top: 60px ;
+   margin-top: -20px;
    color: black;
    text-shadow: 2px 2px #669884;
-   margin-bottom: 200px;
+   /*margin-bottom: 200px;*/
  }
 
 #normal-brand-logo{
@@ -62,14 +72,15 @@ body {
 
 /*welcome page*/
 .parallax-container {
-  margin-top: 80px;
+  margin-top: -5%;
+  margin-bottom: -10%;
    }
 
 #primary-logo {
   height: auto;
   width: auto;
   max-width: 1200px;
-  max-height: 500px;
+  max-height: 400px;
 }
 
 .background-image {
@@ -78,6 +89,7 @@ body {
   max-width: 100%;
   background-repeat: no-repeat;
   background-position: center center;
+  margin-bottom: -100px;
 }
 /*reused*/
 .login-link {
@@ -102,13 +114,15 @@ hr.gradient {
 #single-totem img {
   height: 80px;
   width: auto;
+  opacity: .4;
 }
 
 #signup-button {
     display: inline-block;
     text-align: center;
     background-color: #669884;
-    margin-top: 10px;
+    margin-top: 0px;
+    margin-bottom: 30px;
     font-size: 1.8em;
     color: white;
     font-family: 'Amatic SC', cursive;
