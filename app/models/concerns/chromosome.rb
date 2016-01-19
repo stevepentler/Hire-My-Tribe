@@ -39,4 +39,12 @@ class Chromosome
   def fitness
     fitness_score[dna]
   end
+
+  def no_repeats?
+    dna.map{|x| x.id}.uniq.length == dna.length
+  end
+
+  def no_repeats_bin?
+    {true => 1, false => 0}[no_repeats?]
+  end
 end

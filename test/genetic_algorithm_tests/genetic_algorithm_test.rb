@@ -1,5 +1,4 @@
 class GeneticAlgorithmTest < Minitest::Test
-
   def neural_opts(total, count, range, threshold)
     {
       total: total,

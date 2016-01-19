@@ -1,4 +1,4 @@
-class ChromosomeTest < Minitest::Test
+class ChromosomeTest < ActiveSupport::TestCase
 
   def test_exists
     assert Chromosome
@@ -88,5 +88,16 @@ class ChromosomeTest < Minitest::Test
     c.dna.all? do |bp|
       bp == 0
     end
+  end
+
+  def test_no_repeaters
+    dev1, dev2, dev3 = create_list(:developer,3)
+    c = Chromosome.new(dna: [dev1, dev2, dev3])
+
+    assert c.no_repeats?
+
+    d = Chromosome.new(dna: [dev1, dev1, dev2])
+
+    refute d.no_repeats?
   end
 end

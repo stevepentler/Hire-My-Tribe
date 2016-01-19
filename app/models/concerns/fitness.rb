@@ -21,16 +21,16 @@ module Fitness
     end
   end
 
-# {"front_end" => [total,language ], back_end: [total, language], database: [total, language], cost: pph}
-
   def self.developers_fitness(contractor_opts)
     Proc.new do |dna|
       correct_language_bonus = total_with_named_language(contractor_opts, dna)*2.5
       skill_bonus = total_skill_rate(dna)/3.0
       cost_bonus = total_cost_difference(contractor_opts, dna)/6.5
       team_breakdown_penalty = team_breakdown_difference(contractor_opts, dna)
+      repeating_member_bonus = 7 * Chromosome.new(dna: dna).no_repeats_bin?
 
-      correct_language_bonus + skill_bonus + cost_bonus + team_breakdown_penalty
+      correct_language_bonus + skill_bonus + cost_bonus + team_breakdown_penalty +
+      repeating_member_bonus
     end
   end
 

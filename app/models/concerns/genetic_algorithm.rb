@@ -31,11 +31,18 @@ class GeneticAlgorithm
     fittest_chromosome.fitness >= fitness_threshold
   end
 
+  # def top_non_repeater
+  #   population.chromosomes.sort_by{ |chrom| -chrom.fitness }.find{ |dev_chrom|
+  #     dev_chrom.no_repeats?
+  #   }
+  # end
+
   def evolve(n)
     n.times do
       break if sufficient_fitness?
       breed_generation
     end
+    # top_non_repeater
     fittest_chromosome
   end
 end
