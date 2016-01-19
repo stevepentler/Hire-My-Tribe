@@ -18,7 +18,6 @@ class Admin::SpecialtiesController < Admin::BaseController
   end
 
   def edit
-    # binding.pry
     @specialty = Specialty.find_by(url_name: params[:id])
   end
 
