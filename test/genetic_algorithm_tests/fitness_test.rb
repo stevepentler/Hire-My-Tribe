@@ -89,6 +89,4 @@ class FitnessTest < ActionDispatch::IntegrationTest
       Developer.create(name: "7", last_name: "7", tags: langs[1..4], email: "7", rate: 40, specialty: specialties[2], skills_rating: 4)
     ]
   end
-
-
 end

@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
 
 db = Specialty.create(name: "Database",
         url_name: "database",
@@ -69,3 +62,31 @@ Developer.all[3].tags += [ruby, js, rust]
 
 Project.create(title: "Little Shop", contractor: Contractor.first, description: "Make a sweet shop with an owl background!", dev_hours: 45, developers: Developer.all)
 
+Tag.create(name: "Rails")
+Tag.create(name: "Phoenix")
+Tag.create(name: "css")
+Tag.create(name: "Elixir")
+Tag.create(name: "Haskell")
+Tag.create(name: "Elm")
+Tag.create(name: "Go")
+Tag.create(name: "Java")
+Tag.create(name: "SQlite3")
+
+def generate_devs(n)
+  tags = Tag.all
+  specialties = Specialty.all
+  n.times do |i|
+    m = rand(0..3)
+    skilled_tags = [tags.shuffle[0..m]].flatten
+    Developer.create(name: "#{i}",
+                    last_name: "#{i}",
+                    email: "#{i}",
+                    rate: rand(10..50),
+                    specialty: specialties.sample,
+                    tags: skilled_tags,
+                    password: "password",
+                    skills_rating: rand(0..5))
+  end
+end
+
+generate_devs(250)

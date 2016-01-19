@@ -10,4 +10,10 @@ module Mutation
       bp + rand(-1.0..1.0) * opts[:m_max]
     end
   end
+
+  def self.swap_dev
+    Proc.new do |dev|
+      Developer.all.sample
+    end
+  end
 end

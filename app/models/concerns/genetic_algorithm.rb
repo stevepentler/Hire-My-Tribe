@@ -1,5 +1,4 @@
 class GeneticAlgorithm
-
   attr_reader :population, :built_by, :fitness_threshold
 
   def initialize(opts)
