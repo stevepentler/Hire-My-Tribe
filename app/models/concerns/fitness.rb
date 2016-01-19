@@ -26,7 +26,7 @@ module Fitness
   def self.developers_fitness(contractor_opts)
     Proc.new do |dna|
       correct_language_bonus = total_with_named_language(contractor_opts, dna)*2.5
-      skill_bonus = total_skill_rate(dna)/3.5
+      skill_bonus = total_skill_rate(dna)/3.0
       cost_bonus = total_cost_difference(contractor_opts, dna)/6.5
       team_breakdown_penalty = team_breakdown_difference(contractor_opts, dna)
 
