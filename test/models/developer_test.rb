@@ -15,6 +15,7 @@ class DeveloperTest < ActiveSupport::TestCase
   should validate_uniqueness_of(:email)
   should validate_presence_of(:rate)
   should validate_numericality_of(:rate)
+  should validate_inclusion_of(:skills_rating).in_range([0,1,2,3,4,5])
   should validate_presence_of(:specialty_id)
   should validate_presence_of(:password)
 end

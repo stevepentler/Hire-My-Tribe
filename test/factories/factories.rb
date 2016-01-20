@@ -36,6 +36,7 @@ FactoryGirl.define do
     rate
     password "password"
     specialty
+    skills_rating 3
   end
 
   factory :specialty do
