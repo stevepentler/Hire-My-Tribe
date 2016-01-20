@@ -12,7 +12,9 @@
 
     <div class="col s5">
       <%= form_for(:filter, url: filter_path) do |f| %>
-      <%= select_tag "Sort By", options_for_select(["Rate: Ascending", "Rate: Descending"]), id: "sort-by"%>
+      <%= f.select "sort",
+          options_for_select("Rate: Ascending" => "rate asc",
+                             "Rate: Descending" => "rate desc"), id: "sort-by"%>
       <ul id="index-tags">
         <% if @tags %>
           <% @tags.each do |tag| %>
@@ -33,5 +35,5 @@
     <div class="developer" data-name="<%= developer.name.upcase + " " + developer.last_name.upcase %>" >
       <%= render developer, locals: {developer => developer} %>
     </div>
-  <% end %> 
+  <% end %>
 </div>

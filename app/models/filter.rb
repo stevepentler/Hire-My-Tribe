@@ -1,5 +1,6 @@
 module Filter
   def self.sort_filter(params)
+    binding.pry
     developers = sort_developers(params)
     tags = selected_tags(params)
 
@@ -9,16 +10,20 @@ module Filter
   end
 
   def self.sort_developers(params)
-    sort[params["Sort By"]][Developer]
+    Developer.order(sort_params_to_sort_options(params))
   end
 
-  def self.sort
-    {
-      "Rate: Ascending" => lambda { |active| active.order(rate: :asc) },
-      "Rate: Descending" => lambda { |active| active.order(rate: :desc) }
-    }
+  def self.sort_params_to_sort_options(params)
+    [params["filter"]["sort"].split.map(&:to_sym)].to_h
   end
-
+  #
+  # def self.sort
+  #   {
+  #     "Rate: Ascending" => lambda { |active| active.order(rate: :asc) },
+  #     "Rate: Descending" => lambda { |active| active.order(rate: :desc) }
+  #   }
+  # end
+  #
   def self.selected_tags(params)
     params["filter"] ||= {}
     params["filter"].select{ |key, val| val == "1" }.keys.map do |tag_name|
