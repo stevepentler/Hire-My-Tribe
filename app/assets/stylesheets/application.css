@@ -194,12 +194,38 @@ hr.gradient {
   margin-right: auto;
 }
 
+#contractor-card {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 #developer-image {
   height: 150px;
   width: 150px;
   border-radius: 150px;
   margin-right: auto;
   margin-left: auto;
+}
+
+#contractor-image {
+  width: auto;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.contractor-card-image img {
+    display: block;
+    border-radius: 2px 2px 0 0;
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 250px;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .brown.lighten-5 {
@@ -219,6 +245,14 @@ hr.gradient {
   background-color: #669884;
   width: 100%;
   margin-bottom: -5px;
+}
+
+#contractor-bio {
+  color: #540018;
+  font-size: 50px;
+  text-align: center;
+  background-color: #669884;
+  width: 100%;
 }
 
 /*forms*/

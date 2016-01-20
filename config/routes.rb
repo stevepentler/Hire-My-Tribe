@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     resources :specialties, only: [:new, :create, :index, :edit, :update]
     resources :tags, except: [:show]
     get '/dashboard', to: "admins#show"
+    patch '/rate_developer', to: 'developers#rate'
   end
 
 

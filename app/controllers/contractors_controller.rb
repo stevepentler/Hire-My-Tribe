@@ -47,6 +47,6 @@ def create
 private
 
   def contractor_params
-    params.require(:contractor).permit(:company_name, :first_name, :last_name, :email, :password, :bio)
+    params.require(:contractor).permit(:company_name, :first_name, :last_name, :email, :password, :bio, :logo)
   end
 end

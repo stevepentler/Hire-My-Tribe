@@ -65,7 +65,7 @@ private
   end
 
   def developer_params
-    params.require(:developer).permit(:name, :last_name, :email, :password, :bio, :rate, :picture)
+    params.require(:developer).permit(:name,:last_name, :email, :password, :bio, :rate, :picture)
   end
 
   def developer_constructor_params

@@ -5,7 +5,15 @@
 <div style="margin-top: -10px;">
   <ul style="font-size: 2em; margin-left: 10%;">
     <li>Specialty: <%= developer.specialty.name %></li>
-    <li>Skill rating:<%= developer.skills_rating %></li>
+    <li>Skill rating: <%= developer.skills_rating %></li>
+    <% if current_admin %>
+      <div style="display: inline-block;">
+        <%= form_for(:rating, url: admin_rate_developer_path(dev_id: developer.id), method: :patch) do |f| %>
+        <%= f.number_field :rating, style:"font-size:0.8em; float: left; width: 40%" %>
+        <%= f.submit "Update Rating" , style:"font-size:0.8em; width: 50%; float: right; margin-top: 10px;"%>
+        <% end %>
+      </div>
+    <% end %>
     <li>Rate: $<%= developer.rate %>/hr</li>
     <li>Email: <%= developer.email %></li>
   </ul>

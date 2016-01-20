@@ -13,6 +13,7 @@ class Developer < ActiveRecord::Base
   validates :last_name, presence: true
   validates :email, presence: true, uniqueness: true
   validates :rate, presence: true, numericality: true
+  validates :skills_rating, inclusion: { in: [0,1,2,3,4,5] }
   validates :status, presence: true
   validates :specialty_id, presence: true
 
