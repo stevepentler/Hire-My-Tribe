@@ -13,7 +13,7 @@
   <% all_specialties.each do |specialty| %>
     <span class="col s3"><%= f.label specialty.url_name, "#{specialty.name} developers: " %></span>
     <span class="col s2"><%= "Total Devs:" %><%= f.number_field specialty.url_name %></span>
-    <span class="col s2"> <%= "Preferred Language:" %><%= f.select("#{specialty.url_name}_lang", options_for_select(all_tags.map{|x| x.name})) %></span>
+    <span class="col s2"> <%= "Preferred Language:" %><%= language_dropdown(f,specialty) %></span>
   <% end %>
   </div>
   <%= f.submit "Suggest Developer Team" %>

@@ -30,4 +30,23 @@ module ApplicationHelper
   def current_contractors_project?(project)
     project.contractor == current_contractor
   end
+
+  def project_actions(status)
+    case status
+    when "Pending"
+      concat( link_to "Submit Payment", contractor_project_payment_path(@project), id: "checkout-button")
+    when "Paid & Active"
+      concat( link_to "Complete Project", contractor_project_complete_path(@project), id: "checkout-button", method: :patch)
+      concat(" ")
+      concat( link_to "Cancel Project", contractor_project_cancel_path(@project), id: "checkout-button", method: :patch)
+    end
+  end
+
+  def project_cost(project)
+    project.dev_hours * project.total
+  end
+
+  def language_dropdown(f,specialty)
+    f.select("#{specialty.url_name}_lang", options_for_select(all_tags.map{|x| x.name}))
+  end
 end
