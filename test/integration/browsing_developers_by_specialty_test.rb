@@ -7,7 +7,7 @@ class BrowsingDevelopersBySpecialtyTest < ActionDispatch::IntegrationTest
 
     visit developers_path
     within '.dropdown-content' do 
-      click_on "Database Developers"
+      click_on "Database"
     end
 
     assert_equal "/specialties/database", current_path
@@ -16,7 +16,7 @@ class BrowsingDevelopersBySpecialtyTest < ActionDispatch::IntegrationTest
 
     visit developers_path
     within '.dropdown-content' do
-      click_on "Front End Developers"
+      click_on "Front End"
     end
     assert_equal "/specialties/front_end", current_path
 
@@ -25,7 +25,7 @@ class BrowsingDevelopersBySpecialtyTest < ActionDispatch::IntegrationTest
 
     visit developers_path
     within '.dropdown-content' do
-      click_on "Back End Developers"
+      click_on "Back End"
     end
     assert_equal "/specialties/back_end", current_path
 

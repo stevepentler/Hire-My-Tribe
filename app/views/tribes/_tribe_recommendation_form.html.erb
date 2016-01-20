@@ -1,0 +1,21 @@
+<div class="row recommendation-form">
+  <%= form_for(:auto_suggest, url: auto_suggest_tribe_path) do |f| %>
+  <div class="row">
+    <span class="col s2">
+      <%= f.label :total_devs, "Total Developers" %>
+      <%= f.number_field :total_devs%>
+    </span>
+    <span class="col s2">
+      <%= f.label :total_cost, "Total Cost per Hour" %>
+      <%= f.number_field :total_cost %>
+    </span>
+    <span class="col s1"><br><br><br><br><br><br><br><br></span>
+  <% all_specialties.each do |specialty| %>
+    <span class="col s3"><%= f.label specialty.url_name, "#{specialty.name} developers: " %></span>
+    <span class="col s2"><%= "Total Devs:" %><%= f.number_field specialty.url_name %></span>
+    <span class="col s2"> <%= "Preferred Language:" %><%= f.select("#{specialty.url_name}_lang", options_for_select(all_tags.map{|x| x.name})) %></span>
+  <% end %>
+  </div>
+  <%= f.submit "Suggest Developer Team" %>
+  <% end %>
+</div>
