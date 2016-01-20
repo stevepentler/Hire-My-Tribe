@@ -45,4 +45,8 @@ module ApplicationHelper
   def project_cost(project)
     project.dev_hours * project.total
   end
+
+  def language_dropdown(f,specialty)
+    f.select("#{specialty.url_name}_lang", options_for_select(all_tags.map{|x| x.name}))
+  end
 end
