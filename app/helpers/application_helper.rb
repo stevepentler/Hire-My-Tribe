@@ -34,16 +34,12 @@ module ApplicationHelper
   def project_actions(status)
     case status
     when "Pending"
-      concat( link_to "Submit Payment", contractor_project_payment_path(@project), id: "checkout-button")
+      concat( link_to "Submit Payment", new_contractor_project_charge_path(@project), id: "checkout-button")
     when "Paid & Active"
       concat( link_to "Complete Project", contractor_project_complete_path(@project), id: "checkout-button", method: :patch)
       concat(" ")
       concat( link_to "Cancel Project", contractor_project_cancel_path(@project), id: "checkout-button", method: :patch)
     end
-  end
-
-  def project_cost(project)
-    project.dev_hours * project.total
   end
 
   def language_dropdown(f,specialty)

@@ -1,21 +1,23 @@
-<div class="row recommendation-form">
+<div class="recommendation-form">
   <%= form_for(:auto_suggest, url: auto_suggest_tribe_path) do |f| %>
   <div class="row">
-    <span class="col s2">
+    <div class="col l2 m6 s12">
       <%= f.label :total_devs, "Total Developers" %>
       <%= f.number_field :total_devs%>
-    </span>
-    <span class="col s2">
+    </div>
+    <div class="col l2 m6 s12">
       <%= f.label :total_cost, "Total Cost per Hour" %>
       <%= f.number_field :total_cost %>
-    </span>
-    <span class="col s1"><br><br><br><br><br><br><br><br></span>
+    </div>
+    <div class="col l2 m1 s0" style="height: 180px;">
+    </div>
   <% all_specialties.each do |specialty| %>
-    <span class="col s3"><%= f.label specialty.url_name, "#{specialty.name} developers: " %></span>
-    <span class="col s2"><%= "Total Devs:" %><%= f.number_field specialty.url_name %></span>
-    <span class="col s2"> <%= "Preferred Language:" %><%= language_dropdown(f,specialty) %></span>
+    <div class="col l2 m12 s12">
+      <div><%= f.label specialty.url_name, "#{specialty.name}: " %></div></div>
+    <div class="col l2 m12 s12"><%= "Total Devs:" %><%= f.number_field specialty.url_name %></div>
+    <div class="col l2 m12 s12"> <%= "Preferred Language:" %><%= f.select("#{specialty.url_name}_lang", options_for_select(all_tags.map{|x| x.name})) %></div>
   <% end %>
-  </div>
-  <%= f.submit "Suggest Developer Team" %>
+</div>
+  <%= f.submit "Suggest a Tribe" %>
   <% end %>
 </div>

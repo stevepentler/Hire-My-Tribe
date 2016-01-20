@@ -28,11 +28,7 @@ class ContractorCanMakeMultipleOrders < ActionDispatch::IntegrationTest
 
     click_on "Submit Payment"
 
-    assert_equal contractor_project_payment_path(project), current_path
-
-    click_on "Make Payment"
-
-    assert_equal contractor_project_path(project), current_path
+    assert_equal new_contractor_project_charge_path(project), current_path
 
   end
 
