@@ -28,13 +28,9 @@ class ProjectsController < ApplicationController
 
   def pay
     @project = Project.find(params[:project_id])
-    if @project.developers.any? {|dev| dev.status == 'unavailable'}
-      flash[:error] = "Some of your developers are unavailable"
-    else
-      @project.update_attribute(:status, 1)
-      @project.developers.each do |dev|
-        dev.update_attribute(:status,'unavailable')
-      end
+    @project.update_attribute(:status, 1)
+    @project.developers.each do |dev|
+      dev.update_attribute(:status,'unavailable')
     end
     redirect_to contractor_project_path(@project)
   end
