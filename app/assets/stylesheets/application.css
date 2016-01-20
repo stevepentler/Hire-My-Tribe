@@ -54,7 +54,7 @@
    font-size: 150px;
    margin-top: -20px;
    color: #black;
-/*   -webkit-text-fill-color: #669884;  Will override color (regardless of order) 
+/*   -webkit-text-fill-color: #669884;  Will override color (regardless of order)
    -webkit-text-stroke-width: 3px;
    -webkit-text-stroke-color: black;*/
    text-shadow: 3px 3px #669884;
@@ -82,7 +82,7 @@
 }
 
 #recruiters {
-  margin-top: 10px; 
+  margin-top: 10px;
   margin-bottom: 0px;
   font-size: 4.0em;
   font-weight: 900;
@@ -311,4 +311,12 @@ form input {
 
 .specialty-image {
   height: 10em;
+}
+
+.tribe-cart-picture {
+  height: 2em;
+}
+
+.tribe-cart-text{
+  font-size:0.7em
 }

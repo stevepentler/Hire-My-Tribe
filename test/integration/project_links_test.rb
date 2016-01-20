@@ -34,7 +34,7 @@ class ProjectLinksTest < ActionDispatch::IntegrationTest
     assert page.has_content?(project.title)
     refute page.has_content?("Edit Account")
     refute page.has_content?("Deactivate Account")
-    save_and_open_page
+    
     click_on "#{project.title}"
 
     assert_equal project_path(project), current_path
