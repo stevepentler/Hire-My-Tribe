@@ -13,13 +13,13 @@ class ChargesController < ApplicationController
 
     charge = Stripe::Charge.create(
       :customer    => customer.id,
-      :amount      => @project.total,
+      :amount      => (project_cost(@project) * 100),
       :description => 'Hire My Tribe',
       :currency    => 'usd'
     )
-
+    redirect_to contractor_project_payment_path(@project)
+    flash[:payment] = "Thank you for your payment of #{project_cost(@project)}"
   rescue Stripe::CardError => e
     flash[:error] = e.message
-    redirect_to new_contractor_project_charges_path
   end
 end

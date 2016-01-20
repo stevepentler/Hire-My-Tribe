@@ -26,10 +26,6 @@ class ProjectsController < ApplicationController
     @projects = Project.all
   end
 
-  def submit_payment
-    @project = Project.find(params[:project_id])
-  end
-
   def pay
     @project = Project.find(params[:project_id])
     if @project.developers.any? {|dev| dev.status == 'unavailable'}

@@ -1,6 +1,14 @@
+<%= render partial: "/small_totems_row" %>
 <div class='background-fox'>
-  <div class="row">
-    <div class='container form-font new-contractor col s4 offset-s1 contractor-signup'>
+<br>
+
+  <div class="row" style="margin-top: 100px;">
+    <div class="col s1">
+      <br>
+    </div>
+
+    <span id="contractor-sign-up-form" class="col s4">
+    <h3 class="mint-shadow" id="contractor-sign-up">New Contractor Account</h3>
       <%= form_for(@contractor, url: contractor_path) do |f| %>
         <%= f.label :company_name, "Company Name"%>
         <%= f.text_field :company_name, id: "form-value" %>
@@ -15,18 +23,22 @@
         <%= f.text_field :email, id: "form-value" %>
         <br>
         <%= f.label :logo %>
-        <%= f.file_field :logo, class: "file-field" %>
+        <br>
+        <%= f.file_field :logo, class: "new-form-file-field" %>
         <br>
         <%= f.label :password %>
         <%= f.password_field :password, id: "form-value" %>
         <br>
         <%= f.submit "Create Contractor Account", id: "form-button" %>
       <% end %>
+    </span>
+
+    <div class="col s2">
+      <br>
     </div>
 
-    <div class="col s2"><br></div>
-
-    <div class='container form-font new-developer col s4 developer-signup'>
+    <span id="developer-sign-up-form" class='col s4'>
+      <h3 class="mint-shadow" id="developer-sign-up">New Developer Account</h3>
       <%= form_for(@developer, url: developer_path) do |f| %>
         <%= f.label :name, "First Name", class: "form-label" %>
         <%= f.text_field :name, id: "form-value"  %>
@@ -43,13 +55,17 @@
         <%= f.number_field :rate %>
         <br>
         <%= f.label :picture %>
-        <%= f.file_field :picture, class: "file-field" %>
+        <br>
+        <%= f.file_field :picture, class: "new-form-file-field" %>
         <br>
         <%= f.label :password, class: "form-label" %>
         <%= f.password_field :password, id: "form-value"  %>
         <br>
         <%= f.submit "Create Developer Account", class: "form-label", id: "form-button" %>
       <% end %>
+    </span>
+    <div class="col s1">
+      <br>
     </div>
   </div>
 </div>

@@ -6,13 +6,13 @@
       </div>
     <% end %>
     <label class="amount">
-      <span>Amount: <%= @project.total %></span>
+      <span>Amount: <%= project_cost(@project)%></span>
     </label>
   </article>
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="Hire Your Tribe"
-          data-amount= <%= @project.total %>
+          data-amount= <%= project_cost(@project) * 100%>
           data-locale="auto"></script>
 <% end %>
