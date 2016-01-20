@@ -6,7 +6,8 @@
           <th data-field="developer_specialty">Specialty</th>
           <th data-field="developer_rate">Rate</th>
           <th data-field="developer_tags">Tags</th>
-          <th data-field="developer_remove">Remove from Current Tribe</th>
+          <th data-field="developer_status">Status</th>
+          <th data-field="developer_remove">Remove Dev</th>
       </tr>
     </thead>
 
@@ -18,6 +19,7 @@
           <td class="tribe-cart-text"><%= developer.specialty.name%></td>
           <td class="tribe-cart-text"><%= developer.rate%></td>
           <td class="tribe-cart-text"><%= developer.tag_name_list.join(", ")%></td>
+          <td class="tribe-cart-text"><%= developer.status %></td>
           <td class="tribe-cart-text" id=<%="developer_#{developer.name}"%>><%= link_to "Remove Developer",
                                 tribe_path(developer_id: developer.id),
                                 method: :delete%></td>
