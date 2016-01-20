@@ -18,14 +18,24 @@
 $(document).ready(function(){
   $(".dropdown-button").dropdown();
   $(".button-collapse").sideNav();
-});
-
-// parralax
-$(document).ready(function(){
   $('.parallax').parallax();
+  $('select').material_select();
 });
 
+$(document).ready(function(){
 
-$(document).ready(function() {
-    $('select').material_select();
-});
+  var $developers = $('.developer');
+
+  $('#developer_filter_name').on('keyup', function () {
+    var currentName = this.value;
+    $developers.each(function (index, developer) {
+      var $developer = $(developer);
+      if ($developer.data('name').indexOf(currentName) >= 0) {
+        $developer.show();
+      }
+      else {
+        $developer.hide();
+      }
+    });
+  });
+}); 
