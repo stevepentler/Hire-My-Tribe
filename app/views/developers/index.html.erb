@@ -33,9 +33,11 @@
       <% end %>
   </div>
 
-<div class="row">
-  <% @developers.each do |developer| %>
-    <div class="developer" data-name="<%= developer.name.upcase + " " + developer.last_name.upcase %>" >
+<div class="row developer-listing">
+  <% @developers.each_with_index do |developer, i| %>
+    <div class="developer"
+     data-name="<%= developer.name.upcase + " " + developer.last_name.upcase %>"
+            id="<%= "#{i}-#{developer.id}" %>" >
       <%= render developer, locals: {developer => developer} %>
     </div>
   <% end %>

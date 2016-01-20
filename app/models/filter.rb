@@ -1,7 +1,7 @@
 module Filter
   def self.sort_filter(params)
     developers = sort_developers(params) || Developer.all
-    tags = selected_tags(params)
+    tags = selected_tags(params) || []
 
     tags.inject(developers) do |acc, tag|
       acc & tag.developers
@@ -22,7 +22,7 @@ module Filter
   end
 
   def self.selected_tags(params)
-    params["filter_tag_id"].keys.map do |tag_id|
+    params.fetch("filter_tag_id",{}).keys.map do |tag_id|
       Tag.includes(:developers).find(tag_id)
     end
   end

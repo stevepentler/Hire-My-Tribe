@@ -8,40 +8,22 @@ class SortIndexByRateTest < ActionDispatch::IntegrationTest
 
     visit developers_path
 
-    within "div.developer-wrapper:nth-child(1)" do
-      assert page.has_content?(dev1.name)
-    end
-    within "div.developer-wrapper:nth-child(2)" do
-      assert page.has_content?(dev2.name)
-    end
-    within "div.developer-wrapper:nth-child(3)" do
-      assert page.has_content?(dev3.name)
-    end
+    assert page.has_css?("#0-#{dev1.id}")
+    assert page.has_css?("#1-#{dev2.id}")
+    assert page.has_css?("#2-#{dev3.id}")
 
-    select "Rate: Ascending", from: "sort-by"
+    select "Hourly Rate: Ascending", from: "filter[sort]"
     click_on "Apply Sort"
 
-    within "div.developer-wrapper:nth-child(1)" do
-      assert page.has_content?(dev1.name)
-    end
-    within "div.developer-wrapper:nth-child(2)" do
-      assert page.has_content?(dev3.name)
-    end
-    within "div.developer-wrapper:nth-child(3)" do
-      assert page.has_content?(dev2.name)
-    end
+    assert page.has_css?("#0-#{dev1.id}")
+    assert page.has_css?("#1-#{dev3.id}")
+    assert page.has_css?("#2-#{dev2.id}")
 
-    select "Rate: Descending", from: "sort-by"
+    select "Hourly Rate: Descending", from: "filter[sort]"
     click_on "Apply Sort"
 
-    within "div.developer-wrapper:nth-child(1)" do
-      assert page.has_content?(dev2.name)
-    end
-    within "div.developer-wrapper:nth-child(2)" do
-      assert page.has_content?(dev3.name)
-    end
-    within "div.developer-wrapper:nth-child(3)" do
-      assert page.has_content?(dev1.name)
-    end
+    assert page.has_css?("#0-#{dev2.id}")
+    assert page.has_css?("#1-#{dev3.id}")
+    assert page.has_css?("#2-#{dev1.id}")
   end
 end
