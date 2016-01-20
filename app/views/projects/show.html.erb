@@ -35,12 +35,7 @@
 
   <% if current_contractors_project?(@project) %>
   <br>
-    <% if @project.status == "Pending" %>
-      <%= link_to "Submit Payment", contractor_project_payment_path(@project), id: "checkout-button" %>
-    <% else %>
-      <%= link_to "Complete Project", contractor_project_complete_path(@project), id: "checkout-button", method: :patch %>
-      <%= link_to "Cancel Project", contractor_project_cancel_path(@project), id: "checkout-button", method: :patch %>
-    <% end %>
+  <% project_actions(@project.status) %>
   <br>
 
   <h3>Total Developer Rate/Hour: $<%= @project.total %></h3>
