@@ -21,6 +21,7 @@
 #index-tags label{
   font-size: 2em;
 }
+
 /*fonts and colors*/
 .amatic-font {
   font-family: 'Amatic SC', cursive;
@@ -45,10 +46,6 @@
 .mint-shadow {
   text-shadow: 2px 2px #669884;
 }
-
-/*.brown-shadow {
-  text-shadow: 2px 2px #540018;
-}*/
 
 #navbar-font {
   font-size: 1.5em;
@@ -348,6 +345,13 @@ form input {
   padding-top: 10px;
 }
 
+.new-form-file-field {
+  padding-top: 10px;
+  font-size: 2.5em;
+  font-family: 'Amatic SC', cursive;
+  text-shadow: 2px 2px #669884;
+}
+
 .brown-button {
   border-radius: 10px;
   font-size: 2.0em;
@@ -364,6 +368,14 @@ form input {
   height: 2em;
 }
 
-.tribe-cart-text{
+.tribe-cart-text {
   font-size:0.7em
+}
+
+#contractor-sign-up {
+  margin-bottom: 60px;
+}
+
+#developer-sign-up {
+  margin-bottom: 60px;
 }
