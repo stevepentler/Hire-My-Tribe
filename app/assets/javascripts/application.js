@@ -16,7 +16,15 @@
 
 // dropdown button
 $(document).ready(function(){
-  $(".dropdown-button").dropdown();
+  $('.dropdown-button').dropdown({
+      inDuration: 300,
+      outDuration: 225,
+      constrain_width: false,
+      hover: true,
+      gutter: 0,
+      belowOrigin: false
+  });
+     
   $(".button-collapse").sideNav();
   $('.parallax').parallax();
   $('select').material_select();

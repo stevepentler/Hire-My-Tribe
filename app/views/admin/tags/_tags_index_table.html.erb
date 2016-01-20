@@ -1,0 +1,22 @@
+<table class="striped responsive-table" id="checkout-table">
+  <thead>
+    <tr>
+        <th data-field="tag_name">Name</th>
+        <th data-field="tag_edit">Edit Tag</th>
+        <th data-field="tag_remove">Remove Tag</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tags.each do |tag| %>
+      <tr>
+        <h1><td class="tribe-cart-text"><%= tag.name%></td><h1>
+        <td class="tribe-cart-text" id=<%="tag_#{tag.name}"%>><%= link_to "Edit Tag",
+                              edit_admin_tag_path(id: tag.id)%></td>
+        <td class="tribe-cart-text" id=<%="tag_#{tag.name}"%>><%= link_to "Remove Tag",
+                              admin_tag_path(id: tag.id),
+                              method: :delete%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -5,7 +5,7 @@ class VisitorAddsDevelopersToCartTest < ActionDispatch::IntegrationTest
     dev = create(:developer)
 
     visit developers_path
-    click_on "#{dev.name} Bio"
+    click_on "#{dev.name}'s Bio"
 
     assert_equal current_path, developer_path(developers.first)
 
@@ -43,7 +43,7 @@ class VisitorAddsDevelopersToCartTest < ActionDispatch::IntegrationTest
     3.times do
       dev = create(:developer)
       visit specialty_path(dev.specialty)
-      click_on "#{dev.name} Bio"
+      click_on "#{dev.name}'s Bio"
       click_on "Add #{dev.name} to the tribe"
 
       assert_equal specialty_path(dev.specialty), current_path
@@ -51,14 +51,14 @@ class VisitorAddsDevelopersToCartTest < ActionDispatch::IntegrationTest
 
     dev = create(:developer)
     visit developers_path
-    click_on "#{dev.name} Bio"
+    click_on "#{dev.name}'s Bio"
     click_on "Add #{dev.name} to the tribe"
 
     assert_equal developers_path, current_path
 
     dev = create(:developer)
     visit specialty_path(dev.specialty)
-    click_on "#{dev.name} Bio"
+    click_on "#{dev.name}'s Bio"
     click_on "Add #{dev.name} to the tribe"
     assert_equal specialty_path(dev.specialty), current_path
   end

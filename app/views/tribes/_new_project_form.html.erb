@@ -1,0 +1,14 @@
+<%= form_for([current_contractor, @project], url: contractor_projects_path) do |f| %>
+  <br>
+  <%= f.label :title, "Project Title" %>
+  <%= f.text_field :title, id: "form-value" %>
+  <br>
+  <%= f.label :description, "Project Description" %>
+  <%= f.text_field :description, id: "form-value" %>
+  <br>
+  <%= f.label :dev_hours, "Project Hours per Developer" %>
+  <%= f.number_field :dev_hours, id: "form-value" %>
+  <br>
+  <h3><%= "Total: $#{current_pending_tribe.total}" %></h3>
+  <%= f.submit "Start Project", id: "form-button"%>
+<%end%>

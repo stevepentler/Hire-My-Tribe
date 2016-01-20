@@ -1,11 +1,25 @@
-.background-wolf {
+.background-wolf-cover {
   background-image: url('backgrounds/wolf.jpg');
   background-size: cover;
+}
+
+.background-wolf-contain {
+  background-image: url('backgrounds/wolf.jpg');
+  background-repeat: repeat-y;
 }
 
 .background-fox {
   background-image: url('backgrounds/arctic_fox.jpg');
   background-size: contain;
+}
+
+#index-tags li{
+  display: inline;
+  margin-right: 40px;
+}
+
+#index-tags label{
+  font-size: 2em;
 }
 /*fonts and colors*/
 .amatic-font {
@@ -37,29 +51,30 @@
 }*/
 
 #navbar-font {
-  font-size: 1.8em;
+  font-size: 1.5em;
   text-shadow: 2px 2px #540018;
 }
 
 #dropdown-font {
   font-size: 2.5em;
   text-shadow: 2px 2px #540018;
+}
 
+#dropdown1 li a{
+  color: #540018 ;
+  font-size: 1.5em;
+  font-weight: 900;
+  background-color: #669884;
 }
 
 /*navbars*/
  #brand-logo {
    text-decoration: underline #669884;
    font-weight: 900;
-   font-size: 150px;
+   font-size: 180px;
    margin-top: -20px;
-   color: #black;
-/*   -webkit-text-fill-color: #669884;  Will override color (regardless of order)
-   -webkit-text-stroke-width: 3px;
-   -webkit-text-stroke-color: black;*/
+   color: black;
    text-shadow: 3px 3px #669884;
-   /*margin-bottom: 200px;*/
-   /*#01DBF9*/
  }
 
 #normal-brand-logo{
@@ -82,22 +97,26 @@
 }
 
 #recruiters {
-  margin-top: 10px;
-  margin-bottom: 0px;
-  font-size: 4.0em;
+  margin-top: 220px;
+  font-size: 5.0em;
   font-weight: 900;
   color: black;
   text-shadow: 2px 2px #669884;
 }
 
-.background-image {
+.recommendation-form label {
+  font-size: 2.5em;
+
+}
+
+/*.background-image {
   background-image: url('HireMyTribeBlackOverlay.png');
   background-size: contain;
   max-width: 100%;
   background-repeat: no-repeat;
   background-position: center center;
   margin-bottom: -100px;
-}
+}*/
 /*reused*/
 .login-link {
   margin-right: 5%;
@@ -105,7 +124,6 @@
 }
 
 .login-link a {
-  /*text-shadow: 2px 2px #669884;*/
   color: black;
   text-decoration: underline;
 }
@@ -164,9 +182,9 @@ hr.gradient {
 }
 
 .card-totem img {
-  height: 180px;
+  height: 120px;
   width: auto;
-  margin-top: 0;
+  margin-top: 0%;
   margin-bottom: -10%;
 }
 
@@ -183,8 +201,8 @@ hr.gradient {
 }
 
 #developer-image {
-  height: 250px;
-  width: 250px;
+  height: 150px;
+  width: 150px;
   border-radius: 150px;
   margin-right: auto;
   margin-left: auto;
@@ -211,9 +229,9 @@ hr.gradient {
 }
 
 .brown.lighten-5 {
-    background-color: #efebe9 !important;
-    margin-left: auto;
-    margin-right: auto;
+  background-color: #efebe9 !important;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .card-content {
@@ -222,10 +240,11 @@ hr.gradient {
 
 #developer-bio {
   color: #540018;
-  font-size: 50px;
+  font-size: 40px;
   text-align: center;
   background-color: #669884;
   width: 100%;
+  margin-bottom: -5px;
 }
 
 #contractor-bio {
@@ -251,13 +270,7 @@ form input {
 #form-value {
   font-size: 2.5em;
   font-family: monospace;
-}
-
-/*#form-button {
-  border-radius: 10px;
-  font-size: 2.5em;
-  color: #540018;
-}*/
+} 
 
 #filter {
     font-size: 1.0em;

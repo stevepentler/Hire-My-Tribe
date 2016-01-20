@@ -1,12 +1,12 @@
 <div class="row" id="specialty-<%= specialty.url_name %>">
   <div class="col s3">
-    <%= image_tag specialty.image, id:"#{specialty.name}-image", class: "specialty-image" %>
+    <%= image_tag specialty.image, id:"#{specialty.name}-image", class: "specialty-image mint-shadow" %>
   </div>
   <div class="col s3">
-    <%= content_tag :h2, specialty.name %>
+    <%= content_tag :h1, specialty.name %>
   </div>
   <div class="col s3">
-    <%= content_tag :h2, specialty.description %>
+    <%= content_tag :h1, specialty.description %>
   </div>
   <div class="col s3">
     <%= button_to "Edit Specialty", edit_admin_specialty_path(specialty), class:"brown-button", method: :get %>
