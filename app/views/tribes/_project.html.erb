@@ -1,19 +1,27 @@
-  <% current_pending_tribe.developers.each do |developer| %>
-    <div class="col l8 s12 m6">
-      <div class="card-small tribe-row">
-        <span class="card-image left">
-          <img src="https://robohash.org/<%= developer.id %>">
-        </span>
-        <span class="card-content right" id="developer_<%=developer.name%>">
-          <h3><%= developer.name %></h3>
-          <h3>Specialty: <%= developer.specialty.name %></h3>
-          <h3>Rate: <%= developer.rate %>$/h</h3>
-          <%= link_to "#{developer.name} Bio", developer_path(developer) %>
-          <%= link_to "Remove Developer",
-                      tribe_path(developer_id: developer.id),
-                      method: :delete %>
-        </span>
-        <br>
-      </div>
-    </div>
-  <% end %>
+  <table class="striped responsive-table" id="checkout-table">
+    <thead>
+      <tr>
+          <th data-field="developer_picture">Picture</th>
+          <th data-field="developer_name">Name</th>
+          <th data-field="developer_specialty">Specialty</th>
+          <th data-field="developer_rate">Rate</th>
+          <th data-field="developer_tags">Tags</th>
+          <th data-field="developer_remove">Remove from Current Tribe</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% current_pending_tribe.developers.each do |developer| %>
+        <tr>
+          <td><%= image_tag developer.picture, class: "tribe-cart-picture"%></td>
+          <td class="tribe-cart-text"><%= link_to developer.name, developer_path(developer) %></td>
+          <td class="tribe-cart-text"><%= developer.specialty.name%></td>
+          <td class="tribe-cart-text"><%= developer.rate%></td>
+          <td class="tribe-cart-text"><%= developer.tag_name_list.join(", ")%></td>
+          <td class="tribe-cart-text" id=<%="developer_#{developer.name}"%>><%= link_to "Remove Developer",
+                                tribe_path(developer_id: developer.id),
+                                method: :delete%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>

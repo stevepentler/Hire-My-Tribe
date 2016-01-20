@@ -15,7 +15,7 @@ class ContractorCanEditProfileTest < ActionDispatch::IntegrationTest
     click_on "Create Contractor Account"
 
 
-    click_on "Edit Account Information"
+    click_on "Edit Account"
     assert_equal edit_contractor_path, current_path
     within "#edit-contractor-form" do
       fill_in "Company Name", with: "NotMac"

@@ -1,13 +1,35 @@
 <div class="container">
   <div class="center">
     <h1 class="mint-shadow" style="font-size: 120px;">Current Tribe</h1>
-    <hr class="gradient">    
+    <hr class="gradient">
     <h2>Review your hires, <br>then complete the form below to start the project!</h2>
     <%= render "/small_totems_row" %>
   </div>
     <%= render "/tribes/project"  %>
-    
-<div class='background-fox' style="background-size: cover;">
+
+  <div class="row">
+    <%= form_for(:auto_suggest, url: auto_suggest_tribe_path) do |f| %>
+    <div class="row">
+      <span class="col s2">
+        <%= f.label :total_devs, "Total Developers" %>
+        <%= f.number_field :total_devs%>
+      </span>
+      <span class="col s2">
+        <%= f.label :total_cost, "Total Cost per Hour" %>
+        <%= f.number_field :total_cost %>
+      </span>
+    <% all_specialties.each do |specialty| %>
+      <span class="col s4"><%= f.label specialty.url_name, "#{specialty.name} developers: " %></span>
+      <span class="col s2"><%= "Total Devs:" %><%= f.number_field specialty.url_name %></span>
+      <span class="col s2"> <%= "Preferred Language:" %><%= f.select("#{specialty.url_name}_lang", options_for_select(all_tags.map{|x| x.name})) %></span>
+    <% end %>
+    </div>
+
+    <%= f.submit "Suggest Developer Team" %>
+    <% end %>
+  </div>
+
+  <div class='background-fox' style="background-size: cover;">
     <%= form_for([current_contractor, @project], url: contractor_projects_path) do |f| %>
       <br>
       <%= f.label :title, "Project Title" %>
@@ -16,15 +38,12 @@
       <%= f.label :description, "Project Description" %>
       <%= f.text_field :description, id: "form-value" %>
       <br>
-
       <%= f.label :dev_hours, "Project Hours per Developer" %>
       <%= f.number_field :dev_hours, id: "form-value" %>
       <br>
-
       <h3><%= "Total: $#{current_pending_tribe.total}" %></h3>
-
-      <%= f.submit "Start Project", id: "form-button"%> 
-
+      <%= f.submit "Start Project", id: "form-button"%>
     <%end%>
+
   </div>
 </div>

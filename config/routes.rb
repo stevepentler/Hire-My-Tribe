@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resources :developers, only: [:index, :show]
   resource :developer, only: [:show, :create, :edit, :update]
 
-  resource :tribe, only: [:create, :show, :destroy]
+  resource :tribe, only: [:create, :show, :destroy] do
+    post '/auto_suggest', to: "tribes#auto_suggest"
+  end
   resources :specialties, only:[:show]
 
   resource :contractor, only: [:create, :show, :edit, :update] do
@@ -21,11 +23,12 @@ Rails.application.routes.draw do
   resources :projects, only: [:show]
 
   namespace :admin do
-    resources :specialties, only: [:new, :create, :index]
+    resources :specialties, only: [:new, :create, :index, :edit, :update]
     resources :tags, except: [:show]
     get '/dashboard', to: "admins#show"
     patch '/rate_developer', to: 'developers#rate'
   end
+
 
   get '/login', to: "sessions#new"
   post '/login', to: "sessions#create"

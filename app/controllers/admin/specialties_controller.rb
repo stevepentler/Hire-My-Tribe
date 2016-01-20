@@ -17,6 +17,16 @@ class Admin::SpecialtiesController < Admin::BaseController
     @specialties = Specialty.all
   end
 
+  def edit
+    @specialty = Specialty.find_by(url_name: params[:id])
+  end
+
+  def update
+    @specialty = Specialty.find_by(url_name: params[:id])
+    @specialty.update(specialty_params)
+    redirect_to admin_specialties_path
+  end
+
   private
     def specialty_params
       params.require(:specialty).permit(:name, :description, :url_name, :image)

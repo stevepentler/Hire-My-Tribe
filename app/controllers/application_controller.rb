@@ -13,7 +13,8 @@ class ApplicationController < ActionController::Base
                 :current_specialty,
                 :developer_path,
                 :all_specialties,
-                :current_developer
+                :current_developer,
+                :all_tags
 
 
   def developer_path(dev = nil)
@@ -40,6 +41,11 @@ class ApplicationController < ActionController::Base
   def all_specialties
     @specialties ||= Specialty.all
   end
+
+  def all_tags
+    @tags ||= Tag.all
+  end
+
 
   def current_user?
     (current_developer || current_contractor) || current_admin

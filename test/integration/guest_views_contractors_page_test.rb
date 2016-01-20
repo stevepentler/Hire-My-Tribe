@@ -27,7 +27,5 @@ class GuestViewsContractorsPageTest < ActionDispatch::IntegrationTest
     assert page.has_content? contractor_1.first_name
     assert page.has_content? contractor_1.last_name
     assert page.has_content? contractor_1.bio
-    assert page.has_css? "#contractor-#{contractor_1.id}-logo"
-
   end
 end

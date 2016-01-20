@@ -1,28 +1,33 @@
-<div class="container center amatic-font" style="font-size: 4em;">
-  <%= image_tag( @contractor.logo , height: "100px", id: "contractor-#{@contractor.id}-logo") %>
-
-  <%= "Company Name: " + @contractor.company_name unless @contractor.company_name.empty? %>
-  <br>
-
-  <%= "Name: " + @contractor.first_name + " " + @contractor.last_name %>
-  <br>
-
-
-  <% @contractor.projects.each do |project| %>
-    <%= link_to "#{project.title}", contractor_project_path(project )%>
-  <% end %>
-
-  <br>
-
-  <%= link_to "Logout", logout_path, method: :delete, class: "row waves-effect waves-light btn-large", id: "signup-button", style: "font-size: 60px;"%>
-  <br>
-
-  <%= "Description: " + @contractor.bio %>
-  <br>
-
-  <%= link_to "Edit Account Information", edit_contractor_path %>
-  <br>
-
-  <%= link_to "Deactivate Account", deactivate_account_path, style: "color: red" %>
-
+<div class="container center amatic-font" style="font-size: 4em; margin-top: 60px;">
+  <div class="col s5 card brown lighten-5 dev-show-card">
+    <div class="center" style="padding-top: 50px;">
+      <%= image_tag @contractor.logo, id:"contractor-image" %>
+      <h3 class=" mint-shadow dev-name" style="font-size: 2em;"><%= @contractor.full_name %></h3>
+    </div>
+    <div style="margin-top: -10px;">
+      <ul style="font-size: 1em;">
+        <li>Company: <%= @contractor.company_name %></li>
+        <li>Name:<%= @contractor.full_name %></li>
+        <li>Email: <%= @contractor.email %></li>
+        <li>Bio:</li>
+        <li style="font-size: .7em; margin-left: 30px;"><%= @contractor.bio %></li>
+        <li>Projects:</li>
+        <li><% @contractor.projects.each do |project| %>
+            <%= link_to "#{project.title}", contractor_project_path(project) %>,
+          <% end %>
+        </li>
+      </ul>
+    </div>
+    <div class="row" style="margin-bottom: 60px;">
+      <span style="margin-left: 20px; margin-right: 20px;">
+        <%= link_to "Logout", logout_path, method: :delete %>
+      </span>
+      <span style="margin-left: 20px; margin-right: 20px;">
+        <%= link_to "Edit Account", edit_contractor_path %>
+      </span>
+      <span style="margin-left: 20px; margin-right: 20px;">
+        <%= link_to "Deactivate Account", deactivate_account_path, style: "color: red" %>
+      </span>
+    </div>
+  </div>
 </div>
