@@ -1,5 +1,23 @@
-<div class="container">
+<div class="row" style="margin-top: 50px;">
   <% @contractors.each do |contractor| %>
-   <%= contractor_summary(contractor) %>
+    <div class="col s12 m4 contractor-wrapper">
+      <div class="contain">
+        <div class="card brown lighten-5 ">
+          <div class="contractor-card-image" id="contractor-card">
+            <span id: "contractor-image"><%= image_tag contractor.logo %></span>
+          </div>
+
+          <div class="card-content brown lighten-5 center">
+            <div class=" mint brown-text" >
+              
+              <%= link_to "#{contractor.full_name} Bio", contractor_path(contractor_id: contractor.id), id: "contractor-bio", class: "row waves-effect waves-light btn-lg" %>
+            
+            </div id="contractor-basics">
+            <h3>Company: <%= contractor.company_name %></h3>
+            <h3>Name: <%= contractor.full_name %></h3>
+          </div>
+        </div>
+      </div>
+    </div>
   <% end %>
 </div>

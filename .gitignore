@@ -15,3 +15,4 @@
 * Ignore auto-generated test images
 /public/system/specialties/*
 /public/system/developers/*
+/public/system/contractors/*

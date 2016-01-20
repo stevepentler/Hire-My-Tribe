@@ -1,24 +1,24 @@
-   <div class="col s12 m4 developer-wrapper">
-    <div class="contain">
-      <div class="card brown lighten-5 ">
-        <div class="card-image" id="developer-card">
-          <span>
-          <%= image_tag developer.picture, id:"developer-image" %>
-        </span>
+<div class="col s12 m4 developer-wrapper">
+  <div class="contain">
+    <div class="card brown lighten-5 ">
+      <div class="card-image" id="developer-card">
+        <span>
+        <%= image_tag developer.picture, id:"developer-image" %>
+      </span>
 
-        <span class="card-totem">
-          <%= image_tag(developer.specialty.image) %>
-        </span>
-        </div>
+      <span class="card-totem">
+        <%= image_tag(developer.specialty.image) %>
+      </span>
+      </div>
 
-        <div class="card-content brown lighten-5 center">
-          <div class=" mint brown-text" >
-            <%= link_to "#{developer.name} Bio", developer_path(developer), id: "developer-bio", class: "row waves-effect waves-light btn-lg" %>
-          </div id="developer-basics">
-          <h3>Specialty: <%= developer.specialty.name %></h3>
-          <h3>Skill rating: <%= developer.skills_rating %></h3>
-          <h3>Rate: $<%= developer.rate.to_i %>/h</h3>
-        </div>
+      <div class="card-content brown lighten-5 center">
+        <div class=" mint brown-text" >
+          <%= link_to "#{developer.name} Bio", developer_path(developer), id: "developer-bio", class: "row waves-effect waves-light btn-lg" %>
+        </div id="developer-basics">
+        <h3>Specialty: <%= developer.specialty.name %></h3>
+        <h3>Skill rating: <%= developer.skills_rating %></h3>
+        <h3>Rate: $<%= developer.rate.to_i %>/h</h3>
       </div>
     </div>
   </div>
+</div>
