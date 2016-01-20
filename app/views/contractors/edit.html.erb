@@ -1,4 +1,5 @@
-<span id='edit-contractor-form'>
+<div class="container">
+  <span id='edit-contractor-form'>
     <%= form_for(current_contractor, url: contractor_path) do |f| %>
 
     <%= f.label :company_name, "Company Name" %>
@@ -23,5 +24,6 @@
 
     <%= f.submit "Update Account" %>
 
-  <% end %>
-</span>
+    <% end %>
+  </span>
+</div>
