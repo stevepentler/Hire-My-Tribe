@@ -45,25 +45,6 @@ class DevelopersController < ApplicationController
 
 private
 
-  def sort
-    {
-      "Rate: Ascending" => lambda { |active| active.order(rate: :asc) },
-      "Rate: Descending" => lambda { |active| active.order(rate: :desc) }
-    }
-  end
-
-  def selection_filter(initial_developers)
-    preload = initial_developers.joins(:tags)
-    intersection_query = selected_tags.reduce(initial_developers) do |acc, tag_name|
-      acc.merge(preload.where(tags: {name: tag_name}))
-    end
-  end
-
-  def selected_tags
-    params["filter"] ||= {}
-    params["filter"].select{ |key, val| val == "1" }.keys
-  end
-
   def developer_params
     params.require(:developer).permit(:name,:last_name, :email, :password, :bio, :rate, :picture)
   end

@@ -12,13 +12,18 @@
 
     <div class="col s5">
       <%= form_for(:filter, url: filter_path) do |f| %>
-      <%= select_tag "Sort By", options_for_select(["Rate: Ascending", "Rate: Descending"]), id: "sort-by"%>
+      <%= f.select "sort",
+          options_for_select("Hourly Rate: Ascending"  => "rate asc",
+                             "Hourly Rate: Descending" => "rate desc",
+                             "Skill Rate: Ascending"   => "skills_rating asc",
+                             "Skill Rate: Descending"  => "skills_rating desc"
+                                                        ), id: "sort-by"%>
       <ul id="index-tags">
         <% if @tags %>
           <% @tags.each do |tag| %>
               <li>
-                <%= f.check_box(tag.name) %>
-                <%= f.label(tag.name, tag.name) %>
+                <%= check_box_tag("filter_tag_id[#{tag.id}]") %>
+                <%= f.label("tag_id_#{tag.id}", "#{tag.name}" )%>
               </li>
           <% end %>
         <% end %>
@@ -28,10 +33,12 @@
       <% end %>
   </div>
 
-<div class="row">
-  <% @developers.each do |developer| %>
-    <div class="developer" data-name="<%= developer.name.upcase + " " + developer.last_name.upcase %>" >
+<div class="row developer-listing">
+  <% @developers.each_with_index do |developer, i| %>
+    <div class="developer"
+     data-name="<%= developer.name.upcase + " " + developer.last_name.upcase %>"
+            id="<%= "#{i}-#{developer.id}" %>" >
       <%= render developer, locals: {developer => developer} %>
     </div>
-  <% end %> 
+  <% end %>
 </div>
