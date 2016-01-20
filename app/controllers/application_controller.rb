@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_action :current_pending_tribe, :all_specialties
-
   after_action :stash_pending_tribe
 
   helper_method :current_user?,
@@ -46,7 +45,6 @@ class ApplicationController < ActionController::Base
     @tags ||= Tag.all
   end
 
-
   def current_user?
     (current_developer || current_contractor) || current_admin
   end
@@ -64,4 +62,5 @@ class ApplicationController < ActionController::Base
   def current_admin
     @current_admin ||= Admin.find(session[:admin_id]) if session[:admin_id]
   end
+
 end
