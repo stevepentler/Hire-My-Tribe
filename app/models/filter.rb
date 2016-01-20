@@ -1,6 +1,6 @@
 module Filter
   def self.sort_filter(params)
-    developers = sort_developers(params) if sort_params(params)
+    developers = sort_developers(params) || Developer.all
     tags = selected_tags(params)
 
     tags.inject(developers) do |acc, tag|
@@ -18,7 +18,7 @@ module Filter
   end
 
   def self.active_record_sort_options(params)
-    [sort_params(params).split.map(&:to_sym)].to_h
+    [sort_params(params).split.map(&:to_sym)].to_h if sort_params(params)
   end
 
   def self.selected_tags(params)
