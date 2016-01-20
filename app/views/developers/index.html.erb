@@ -3,6 +3,10 @@
 <div class="row">
   <div class="col s1"><br></div>
   <div class="col s3">
+
+    <label>Search By Name</label>
+    <%= text_field :developer, :filter_name %>
+    
     <%= form_for(:filter, url: filter_path) do |f| %>
     <%= select_tag "Sort By", options_for_select(["Rate: Ascending", "Rate: Descending"]), id: "sort-by"%>
 
@@ -23,5 +27,9 @@
 </div>
 
 <div class="row">
-  <%= render @developers %>
+  <% @developers.each do |developer| %>
+    <div class="developer" data-name="<%= developer.name.upcase + " " + developer.last_name.upcase %>" >
+      <%= render developer, locals: {developer => developer} %>
+    </div>
+  <% end %> 
 </div>
