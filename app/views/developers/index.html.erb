@@ -13,14 +13,17 @@
     <div class="col s5">
       <%= form_for(:filter, url: filter_path) do |f| %>
       <%= f.select "sort",
-          options_for_select("Rate: Ascending" => "rate asc",
-                             "Rate: Descending" => "rate desc"), id: "sort-by"%>
+          options_for_select("Hourly Rate: Ascending"  => "rate asc",
+                             "Hourly Rate: Descending" => "rate desc",
+                             "Skill Rate: Ascending"   => "skills_rating asc",
+                             "Skill Rate: Descending"  => "skills_rating desc"
+                                                        ), id: "sort-by"%>
       <ul id="index-tags">
         <% if @tags %>
           <% @tags.each do |tag| %>
               <li>
-                <%= f.check_box(tag.name) %>
-                <%= f.label(tag.name, tag.name) %>
+                <%= check_box_tag("filter_tag_id[#{tag.id}]") %>
+                <%= f.label("tag_id_#{tag.id}", "#{tag.name}" )%>
               </li>
           <% end %>
         <% end %>
