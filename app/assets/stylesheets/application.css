@@ -1,11 +1,25 @@
-.background-wolf {
+.background-wolf-cover {
   background-image: url('backgrounds/wolf.jpg');
   background-size: cover;
+}
+
+.background-wolf-contain {
+  background-image: url('backgrounds/wolf.jpg');
+  background-repeat: repeat-y;
 }
 
 .background-fox {
   background-image: url('backgrounds/arctic_fox.jpg');
   background-size: contain;
+}
+
+#index-tags li{
+  display: inline;
+  margin-right: 32px;
+}
+
+#index-tags label{
+  font-size: 2em;
 }
 /*fonts and colors*/
 .amatic-font {

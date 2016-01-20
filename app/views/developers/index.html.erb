@@ -1,35 +1,41 @@
-<%= render partial: "specialty_buttons" %>
+<div class="background-wolf-cover">
+  <%= render partial: "specialty_buttons" %>
+  <div class="row" style="margin-top: -15px; margin-bottom: -10px;">
+    <div class="col s1"><br></div>
+    <div class="col s5">
+      <label class="form-label" style="font-size: 2em; color: black;">Search By Name</label>
+      <%= text_field :developer, :filter_name, id: 
+      "form-value" %>
+    </div>
+    <div class="col s1">
+      <h1>Or</h1>
+    </div>
 
-<div class="row">
-  <div class="col s1"><br></div>
-  <div class="col s3">
-
-    <label>Search By Name</label>
-    <%= text_field :developer, :filter_name %>
-    
-    <%= form_for(:filter, url: filter_path) do |f| %>
-    <%= select_tag "Sort By", options_for_select(["Rate: Ascending", "Rate: Descending"]), id: "sort-by"%>
-
-    <ul>
-      <% if @tags %>
-        <% @tags.each do |tag| %>
-            <li>
-              <%= f.check_box(tag.name) %>
-              <%= f.label(tag.name, tag.name) %>
-            </li>
+    <div class="col s5">
+      <%= form_for(:filter, url: filter_path) do |f| %>
+      <%= select_tag "Sort By", options_for_select(["Rate: Ascending", "Rate: Descending"]), id: "sort-by"%>
+      <ul id="index-tags">
+        <% if @tags %>
+          <% @tags.each do |tag| %>
+              <li>
+                <%= f.check_box(tag.name) %>
+                <%= f.label(tag.name, tag.name) %>
+              </li>
+          <% end %>
         <% end %>
-      <% end %>
-    </ul>
-    <%= f.submit "Apply Sort", id: "filter" %>
+      </ul>
+      <%= f.submit "Apply Sort", id: "filter signup-button" %>
 
-    <% end %>
+      <% end %>
   </div>
 </div>
 
-<div class="row">
-  <% @developers.each do |developer| %>
-    <div class="developer" data-name="<%= developer.name.upcase + " " + developer.last_name.upcase %>" >
-      <%= render developer, locals: {developer => developer} %>
-    </div>
-  <% end %> 
+<div class="background-wolf-cover">
+  <div class="row">
+    <% @developers.each do |developer| %>
+      <div class="developer" data-name="<%= developer.name.upcase + " " + developer.last_name.upcase %>" >
+        <%= render developer, locals: {developer => developer} %>
+      </div>
+    <% end %> 
+  </div>
 </div>
