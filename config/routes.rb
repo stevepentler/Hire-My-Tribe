@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       post 'payment', to: "projects#pay"
       patch 'complete', to: "projects#complete"
       patch 'cancel', to: "projects#cancel"
+      resources :charges, only: [:new, :create]
     end
   end
 
@@ -29,7 +30,6 @@ Rails.application.routes.draw do
     patch '/rate_developer', to: 'developers#rate'
   end
 
-
   get '/login', to: "sessions#new"
   post '/login', to: "sessions#create"
   delete '/logout', to: "sessions#destroy"
@@ -37,4 +37,6 @@ Rails.application.routes.draw do
   get '/deactivate_account', to: "welcome#deactivate_account"
   post '/deactivate', to: "welcome#deactivate"
   post '/filter', to: "developers#filter"
+
+
 end
