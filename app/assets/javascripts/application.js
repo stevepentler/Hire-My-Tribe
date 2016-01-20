@@ -27,7 +27,7 @@ $(document).ready(function(){
   var $developers = $('.developer');
 
   $('#developer_filter_name').on('keyup', function () {
-    var currentName = this.value;
+    var currentName = this.value.toUpperCase();
     $developers.each(function (index, developer) {
       var $developer = $(developer);
       if ($developer.data('name').indexOf(currentName) >= 0) {
