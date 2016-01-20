@@ -41,4 +41,8 @@ module ApplicationHelper
       concat( link_to "Cancel Project", contractor_project_cancel_path(@project), id: "checkout-button", method: :patch)
     end
   end
+
+  def project_cost(project)
+    project.dev_hours * project.total
+  end
 end

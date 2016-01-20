@@ -25,7 +25,7 @@
           <td><%= link_to developer.name, developer_path(developer) %></td>
           <td><%= developer.specialty.name %></td>
           <td><%= developer.rate %></td>
-          <td><%= developer.tag_name_list.join(", ") %></td>
+          <td><%= developer.tag_list %></td>
           <td><%= link_to("Remove #{developer.name}", contractor_project_remove_dev_path(@project, dev: developer.id),
             method: :delete) if current_contractors_project?(@project) %> </td>
         </tr>
@@ -39,7 +39,7 @@
   <br>
 
   <h3>Total Developer Rate/Hour: $<%= @project.total %></h3>
-  <h3>Hours Per Developer: <%= @project[:dev_hours] %></h3>
-  <h1 id="final-cost"><strong>Final Project Cost: $<%= (@project[:dev_hours] * @project.total) %></strong></h1>
+  <h3>Hours Per Developer: <%= @project.dev_hours %></h3>
+  <h1 id="final-cost"><strong>Final Project Cost: $<%= project_cost(@project) %></strong></h1>
 <% end %>
 </div>
