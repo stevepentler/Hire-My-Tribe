@@ -1,14 +1,14 @@
-<div class="contain">
-  <h1><%= @project.title %></h1>
-  <h3>Company: <%= @project.contractor.company_name %>
-  <h3>Contractor: <%= link_to @project.contractor.full_name, contractor_path(contractor_id: @project.contractor.id) %>
-  <h3><%=("Status: " + @project.status) if current_contractors_project?(@project)%></h3>
-  <h3>Created At: <%= @project.created_at.to_formatted_s(:long)  %></h3>
-  <h3>Last Updated: <%= @project.updated_at.to_formatted_s(:long) %></h3>
-  <h3>Description: <%= @project.description %></h3>
+<div class="contain cantarell-font">
+  <h1 class="amatic-font"><%= @project.title %></h1>
+  <h6>Company: <%= @project.contractor.company_name %></h6>
+  <h6>Contractor: <%= link_to @project.contractor.full_name, contractor_path(contractor_id: @project.contractor.id) %></h6>
+  <h6><%=("Status: " + @project.status) if current_contractors_project?(@project)%></h6>
+  <h6>Created At: <%= @project.created_at.to_formatted_s(:long)  %></h6>
+  <h6>Last Updated: <%= @project.updated_at.to_formatted_s(:long) %></h6>
+  <h6>Description: <%= @project.description %></h6>
   <br>
 
-  <table class="striped responsive-table" id="checkout-table">
+  <table class="striped responsive-table amatic-font" id="checkout-table" style="font-size: 2em;">
     <thead>
       <tr>
           <th data-field="developer_name">Name</th>
