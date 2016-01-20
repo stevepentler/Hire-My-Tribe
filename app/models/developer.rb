@@ -27,6 +27,10 @@ class Developer < ActiveRecord::Base
   end
 
   def tag_name_list
-    self.tags.all.map { |tag| tag.name }
+    tags.all.map { |tag| tag.name }
+  end
+
+  def tag_list
+    tag_name_list.join(", ")
   end
 end

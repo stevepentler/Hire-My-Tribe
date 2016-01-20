@@ -12,10 +12,10 @@ Rails.application.routes.draw do
   resource :contractor, only: [:create, :show, :edit, :update] do
     resources :projects, only: [:create, :show, :index] do
       delete 'remove_dev', to: "projects#remove_dev"
-      get 'payment', to: "projects#submit_payment"
-      post 'payment', to: "projects#pay"
+      get 'payment', to: "projects#pay"
       patch 'complete', to: "projects#complete"
       patch 'cancel', to: "projects#cancel"
+      resources :charges, only: [:new, :create]
     end
   end
 
@@ -29,7 +29,6 @@ Rails.application.routes.draw do
     patch '/rate_developer', to: 'developers#rate'
   end
 
-
   get '/login', to: "sessions#new"
   post '/login', to: "sessions#create"
   delete '/logout', to: "sessions#destroy"
@@ -37,4 +36,6 @@ Rails.application.routes.draw do
   get '/deactivate_account', to: "welcome#deactivate_account"
   post '/deactivate', to: "welcome#deactivate"
   post '/filter', to: "developers#filter"
+
+
 end

@@ -3,6 +3,8 @@ ruby "2.2.1"
 
 ruby "2.2.1"
 
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
 gem "paperclip", "~> 4.3"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'

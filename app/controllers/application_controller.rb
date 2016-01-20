@@ -13,7 +13,8 @@ class ApplicationController < ActionController::Base
                 :developer_path,
                 :all_specialties,
                 :current_developer,
-                :all_tags
+                :all_tags,
+                :project_cost
 
 
   def developer_path(dev = nil)
@@ -61,6 +62,10 @@ class ApplicationController < ActionController::Base
 
   def current_admin
     @current_admin ||= Admin.find(session[:admin_id]) if session[:admin_id]
+  end
+
+  def project_cost(project)
+    project.dev_hours * project.total
   end
 
 end
