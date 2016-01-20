@@ -4,8 +4,7 @@
     <div class="col s1"><br></div>
     <div class="col s5">
       <label class="form-label" style="font-size: 2em; color: black;">Search By Name</label>
-      <%= text_field :developer, :filter_name, id: 
-      "form-value" %>
+      <h5><%= text_field :developer, :filter_name %></h5>
     </div>
     <div class="col s1">
       <h1>Or</h1>
@@ -28,9 +27,7 @@
 
       <% end %>
   </div>
-</div>
 
-<div class="background-wolf-cover">
   <div class="row">
     <% @developers.each do |developer| %>
       <div class="developer" data-name="<%= developer.name.upcase + " " + developer.last_name.upcase %>" >
