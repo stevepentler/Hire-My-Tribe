@@ -19,7 +19,7 @@ class GuestViewsContractorsPageTest < ActionDispatch::IntegrationTest
 
     visit contractors_path
 
-    click_on "#{contractor_1.full_name} Bio"
+    click_on "#{contractor_1.full_name}'s Bio"
 
     assert page.has_content? contractor_1.company_name
     assert page.has_content? contractor_1.first_name

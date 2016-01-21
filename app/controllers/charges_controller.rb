@@ -1,6 +1,11 @@
 class ChargesController < ApplicationController
   def new
     @project = Project.find(params[:project_id])
+    if @project.developers.any? {|dev| dev.status == 'unavailable'}
+      flash[:error] = "Some of your developers are unavailable"
+      redirect_to contractor_project_path(@project)
+    else
+    end
   end
 
   def create

@@ -9,7 +9,7 @@ module ApplicationHelper
 
   def add_or_already_in_tribe
     if @developer.in_pending_tribe?(current_pending_tribe)
-      "#{@developer.name} is already in a tribe"
+      content_tag :h3, "#{@developer.name} is already in a tribe"
     elsif current_developer
 
     else
