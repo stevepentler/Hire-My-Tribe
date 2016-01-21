@@ -206,6 +206,7 @@ hr.gradient {
 }
 
 #contractor-image {
+  height: 200px;
   width: auto;
   margin-right: auto;
   margin-left: auto;
