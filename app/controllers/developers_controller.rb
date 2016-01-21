@@ -1,7 +1,7 @@
 class DevelopersController < ApplicationController
   def index
     session[:specialty] = nil
-    @developers = Developer.all
+    @developers = Developer.order(updated_at: :desc)
     @tags = Tag.all
   end
 
