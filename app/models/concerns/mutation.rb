@@ -18,6 +18,6 @@ module Mutation
   end
 
   def self.all_developers
-    @developers ||= Developer.all
+    @developers ||= Developer.available
   end
 end
