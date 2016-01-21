@@ -23,9 +23,9 @@ module Fitness
 
   def self.developers_fitness(contractor_opts)
     Proc.new do |dna|
-      correct_language_bonus = total_with_named_language(contractor_opts, dna)*2.5
-      skill_bonus = total_skill_rate(dna)/3.0
-      cost_bonus = total_cost_difference(contractor_opts, dna)/6.5
+      correct_language_bonus = total_with_named_language(contractor_opts, dna)*3.0
+      skill_bonus = total_skill_rate(dna)/1.7
+      cost_bonus = lin_to_root(total_cost_difference(contractor_opts, dna))
       team_breakdown_penalty = team_breakdown_difference(contractor_opts, dna)
       repeating_member_bonus = 7 * Chromosome.new(dna: dna).no_repeats_bin?
 
@@ -35,6 +35,14 @@ module Fitness
   end
 
 private
+
+  def self.lin_to_root(x)
+    if x <= 3
+      x/5.0
+    else
+      (x/5.0 - 1/3)**(0.5)
+    end
+  end
 
   def self.total_with_named_language(contractor_opts, dna)
     dna.select do |dev|
