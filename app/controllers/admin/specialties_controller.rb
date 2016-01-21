@@ -29,7 +29,6 @@ class Admin::SpecialtiesController < Admin::BaseController
 
   private
     def specialty_params
-      binding.pry
       params.require(:specialty).permit(:name, :description, :url_name, :image)
     end
 end
