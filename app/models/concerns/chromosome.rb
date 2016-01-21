@@ -22,7 +22,7 @@ class Chromosome
   end
 
   def all_developers
-    @developers ||= Developer.all
+    @developers ||= Developer.available
   end
 
   def mutate

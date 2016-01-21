@@ -18,4 +18,13 @@ class DeveloperTest < ActiveSupport::TestCase
   should validate_inclusion_of(:skills_rating).in_range([0,1,2,3,4,5])
   should validate_presence_of(:specialty_id)
   should validate_presence_of(:password)
+
+
+  test "returns only available developers" do
+    dev1, dev2 = create_list(:developer,2)
+    dev2.status = "unavailable"
+    dev2.save
+
+    assert_equal [dev1], Developer.available
+  end
 end

@@ -17,6 +17,9 @@ class Developer < ActiveRecord::Base
   validates :status, presence: true
   validates :specialty_id, presence: true
 
+  def self.available
+    where(status: "available")
+  end
 
   def in_pending_tribe?(tribe)
     tribe.developer_ids.include?(id)
