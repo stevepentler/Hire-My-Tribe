@@ -38,7 +38,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 
   gem 'rails_12factor', group: :production
-  gem 'aws-sdk' #for paperclip
+  gem 'aws-sdk', '< 2.0' #for paperclip
   
 group :development, :test do
   gem 'pry'
