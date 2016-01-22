@@ -11,4 +11,25 @@ class Project < ActiveRecord::Base
   def remove(developer_id)
     self.developers -= [developers.find_by(id: developer_id)]
   end
+
+  def pay_project
+    update_attribute(:status, 1)
+    developers.each do |dev|
+      dev.update_attribute(:status,'unavailable')
+    end
+  end 
+
+  def complete_project
+    update_attribute(:status, 2)
+    developers.each do |dev|
+      dev.update_attribute(:status,'available')
+    end
+  end 
+
+  def cancel_project
+    update_attribute(:status, 3)
+    developers.each do |dev|
+      dev.update_attribute(:status,'available')
+    end
+  end
 end

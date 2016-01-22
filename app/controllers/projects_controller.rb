@@ -28,29 +28,20 @@ class ProjectsController < ApplicationController
 
   def pay
     @project = Project.find(params[:project_id])
-    @project.update_attribute(:status, 1)
-    @project.developers.each do |dev|
-      dev.update_attribute(:status,'unavailable')
-    end
+    @project.pay_project
     redirect_to contractor_project_path(@project)
   end
 
   def complete
     @project = Project.find(params[:project_id])
-    @project.update_attribute(:status, 2)
-    @project.developers.each do |dev|
-      dev.update_attribute(:status,'available')
-    end
+    @project.complete_project
     flash[:sucess] = "Project Complete - Congratulations!"
     redirect_to contractor_project_path(@project)
   end
 
   def cancel
     @project = Project.find(params[:project_id])
-    @project.update_attribute(:status, 3)
-    @project.developers.each do |dev|
-      dev.update_attribute(:status,'available')
-    end
+    @project.cancel_project
     flash[:sucess] = "The Project has been cancelled"
     redirect_to contractor_project_path(@project)
   end
