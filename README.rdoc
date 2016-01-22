@@ -1,9 +1,13 @@
+~~~~~~~~~~
+
 See it live at: https://safe-brushlands-7972.herokuapp.com/
+
 ~~~~~~~~~~
 
 Aaron Greenspan, Hector Huertas, Joseph "JP" Perry & Steve Pentler
 
 ~~~~~~~~~~
+
 Hire My Tribe was born to fuse "Tribes" of freelance devolopers and connect them to contractors.
 
 After interviewing for an IT recruitment position, I was astounded that up to 40% of developers paychecks are cashed in by recruitment firms. Afterwards I developed a concept to connect freelance developers into "Tribes" to balance strengths, minimize culture conflicts, and allow independent developers to collectively work on larger projects. 
@@ -18,8 +22,6 @@ Skills acquired:
 Rails 4.0, Shoulda Matchers Model Validations, ActiveRecord, Heroku Deployment, Agile Development, Waffle, Git Workflow, Materialize, CSS, HTML, MVC Best Practices, Stripe Payment Processing, Paperclip & AWS S3
 
 ~~~~~~~~~~
-
-* Ruby version (2.2.1)
 
 * Local Deployment
 To run locally, bundle and run rake db:reset. Next, you'll need to copy and paste the following code into your terminal. This is necessary to enable a test mode for Stripe Payment processing that will not link to or charge any account: 
