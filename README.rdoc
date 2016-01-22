@@ -1,28 +1,29 @@
-== README
+See it live at: https://safe-brushlands-7972.herokuapp.com/
+~~~~~~~~~~
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Aaron Greenspan, Hector Huertas, Joseph "JP" Perry & Steve Pentler
 
-Things you may want to cover:
+~~~~~~~~~~
+Hire My Tribe was born to fuse "Tribes" of freelance devolopers and connect them to contractors.
 
-* Ruby version
+After interviewing for an IT recruitment position, I was astounded that up to 40% of developers paychecks are cashed in by recruitment firms. Afterwards I developed a concept to connect freelance developers into "Tribes" to balance strengths, minimize culture conflicts, and allow independent developers to collectively work on larger projects. 
 
-* System dependencies
+The Hire My Tribe web application features a genetic algorithm developed by Aaron Greenspan that takes in parameters such as ideal number & type of developers, price points, language preferences, and skill ratings. It then outputs the maximal combination of developers based on this criteria.
 
-* Configuration
+Technically, this Rails application allows distinct access privledges as either a developer, contractor, or admin. Depending on authorization, users are allowed to view, sort, edit, update, and delete developers, projects, specializations, and tags.
 
-* Database creation
+I plan to continue working on this project through module three integrating API's that connect developers who have associations through LinkedIn, Facebook, and other social networks.
 
-* Database initialization
+Skills acquired: 
+Rails 4.0, Shoulda Matchers Model Validations, ActiveRecord, Heroku Deployment, Agile Development, Waffle, Git Workflow, Materialize, CSS, HTML, MVC Best Practices, Stripe Payment Processing, Paperclip & AWS S3
 
-* How to run the test suite
+~~~~~~~~~~
 
-* Services (job queues, cache servers, search engines, etc.)
+* Ruby version (2.2.1)
 
-* Deployment instructions
+* Local Deployment
+To run locally, bundle and run rake db:reset. Next, you'll need to copy and paste the following code into your terminal. This is necessary to enable a test mode for Stripe Payment processing that will not link to or charge any account: 
 
-* ...
+PUBLISHABLE_KEY=pk_test_6pRNASCoBOKtIshFeQd4XMUh SECRET_KEY=sk_test_BQokikJOvBiI2HlWgH4olfQ2 rails serve
 
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+~~~~~~~~~~
