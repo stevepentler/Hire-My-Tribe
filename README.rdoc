@@ -23,8 +23,8 @@ Rails 4.0, Shoulda Matchers Model Validations, ActiveRecord, Heroku Deployment, 
 
 ~~~~~~~~~~
 
-* Local Deployment
-To run locally, bundle and run rake db:reset. Next, you'll need to copy and paste the following code into your terminal. This is necessary to enable a test mode for Stripe Payment processing that will not link to or charge any account: 
+Local Deployment:
+To run locally, bundle and run rake db:reset. Next, you'll need to copy and paste the following code into your terminal. This is necessary to enable a test mode for Stripe Payment processing that will not link to or charge any account. Use the credit card number 4242 4242 4242 4242: 
 
 PUBLISHABLE_KEY=pk_test_6pRNASCoBOKtIshFeQd4XMUh SECRET_KEY=sk_test_BQokikJOvBiI2HlWgH4olfQ2 rails serve
 
