@@ -20,10 +20,10 @@ def create
   def show
     if params[:contractor_id]
       @contractor = Contractor.find(params[:contractor_id])
-      render :public
+      render :public #public facing contractor show page without edit capabilities
     else
-      render file: 'public/404.html' unless current_contractor
-      @contractor = current_contractor
+      render file: 'public/404.html' unless current_contractor #error page unless they are logged in as the current contractor, otherwise defaults to contractor's personal show/dashboard page
+      @contractor = current_contractor 
     end
   end
 

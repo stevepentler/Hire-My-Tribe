@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
       flash[:error] = "Already logged in!"
       redirect_to root_path
     end
+    #else it automatically renders the new view on the sessions controller AKA login form
   end
 
   def create
@@ -13,13 +14,13 @@ class SessionsController < ApplicationController
     if admin = Admin.find_by(email: params[:session][:email])
       if admin.authenticate(params[:session][:password])
         flash[:notice] = "Logged in as #{admin.username}"
-        session[:admin_id] = admin.id
+        session[:admin_id] = admin.id #defines session[:admin_id] to define current_admin method in application contoller
         redirect_to admin_dashboard_path
       else
         flash.now[:error] = 'Invalid login data'
         render :new
       end
-    elsif params[:commit] == "Developer Login"
+    elsif params[:commit] == "Developer Login" #params[:commit] is used to determine which button was pressed, necessary because there are both developer login and contractor login forms on the same page
       create_developer
     elsif  params[:commit] == "Contractor Login"
       create_contractor
@@ -33,7 +34,6 @@ class SessionsController < ApplicationController
     elsif contractor && contractor.authenticate(params[:session][:password])
       flash[:notice] = "Logged in as #{contractor.first_name}"
       session[:contractor_id] = contractor.id
-      #redirect_to contractor_path
       if session[:from_tribe] == true
         session[:from_tribe] = false
         redirect_to tribe_path
