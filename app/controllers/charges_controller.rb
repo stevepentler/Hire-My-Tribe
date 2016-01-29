@@ -5,7 +5,6 @@ class ChargesController < ApplicationController
       flash[:error] = "Some of your developers are unavailable"
       redirect_to contractor_project_path(@project)
     else
-      #defaults to render new
     end
   end
 
@@ -19,7 +18,7 @@ class ChargesController < ApplicationController
 
     charge = Stripe::Charge.create(
       :customer    => customer.id,
-      :amount      => (project_cost(@project) * 100), #x100 because Stripe calculates by cents
+      :amount      => (project_cost(@project) * 100),
       :description => 'Hire My Tribe',
       :currency    => 'usd'
     )
