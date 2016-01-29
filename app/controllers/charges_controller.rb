@@ -28,11 +28,4 @@ class ChargesController < ApplicationController
     flash[:error] = e.message
   end
 
-  private 
-
-  def has_unavailable_developer?
-    developer.any? {|dev| dev.status != 'available'}
-    flash[:error] = "Some of your developers are unavailable"
-    redirect_to contractor_project_path(@project)
-  end
 end

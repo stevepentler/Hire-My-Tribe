@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
     if admin = Admin.find_by(email: params[:session][:email])
       if admin.authenticate(params[:session][:password])
         flash[:notice] = "Logged in as #{admin.username}"
-        session[:admin_id] = admin.id
+        session[:admin_id] = admin.id 
         redirect_to admin_dashboard_path
       else
         flash.now[:error] = 'Invalid login data'
@@ -33,7 +33,6 @@ class SessionsController < ApplicationController
     elsif contractor && contractor.authenticate(params[:session][:password])
       flash[:notice] = "Logged in as #{contractor.first_name}"
       session[:contractor_id] = contractor.id
-      #redirect_to contractor_path
       if session[:from_tribe] == true
         session[:from_tribe] = false
         redirect_to tribe_path

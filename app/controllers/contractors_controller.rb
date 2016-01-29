@@ -20,10 +20,10 @@ def create
   def show
     if params[:contractor_id]
       @contractor = Contractor.find(params[:contractor_id])
-      render :public
+      render :public 
     else
       render file: 'public/404.html' unless current_contractor
-      @contractor = current_contractor
+      @contractor = current_contractor 
     end
   end
 

@@ -3,6 +3,8 @@ ruby "2.2.1"
 
 ruby "2.2.1"
 
+gem 'faker'
+
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 gem "paperclip", "~> 4.3"

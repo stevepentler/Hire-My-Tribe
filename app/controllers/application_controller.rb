@@ -6,13 +6,13 @@ class ApplicationController < ActionController::Base
   after_action :stash_pending_tribe
 
   helper_method :current_user?,
+                :current_developer,
                 :current_contractor,
                 :current_admin,
                 :current_pending_tribe,
                 :current_specialty,
                 :developer_path,
                 :all_specialties,
-                :current_developer,
                 :all_tags,
                 :project_cost
 

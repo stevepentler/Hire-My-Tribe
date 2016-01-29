@@ -29,3 +29,5 @@ To run locally, bundle and run rake db:reset. Next, you'll need to copy and past
 PUBLISHABLE_KEY=pk_test_6pRNASCoBOKtIshFeQd4XMUh SECRET_KEY=sk_test_BQokikJOvBiI2HlWgH4olfQ2 rails serve
 
 ~~~~~~~~~~
+
+-uses Ruby 2.2.1 & PostgreSQL

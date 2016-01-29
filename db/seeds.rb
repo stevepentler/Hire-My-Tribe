@@ -78,10 +78,14 @@ def generate_devs(n)
   specialties = Specialty.all
   n.times do |i|
     m = rand(0..3)
+    first_name = Faker::Name.first_name
+    last_name = Faker::Name.last_name
+    email = Faker::Internet.email(first_name)
     skilled_tags = [tags.shuffle[0..m]].flatten
-    Developer.create(name: "#{i}",
-                    last_name: "#{i}",
-                    email: "#{i}",
+    
+    Developer.create(name: first_name,
+                    last_name: last_name,
+                    email: email,
                     rate: rand(10..50),
                     specialty: specialties.sample,
                     tags: skilled_tags,
