@@ -1,6 +1,6 @@
 ~~~~~~~~~~
 
-See it live at: https://safe-brushlands-7972.herokuapp.com/
+See it live at: https://hiremytribe.herokuapp.com/
 
 ~~~~~~~~~~
 
