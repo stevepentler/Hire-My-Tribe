@@ -17,7 +17,7 @@ Technically, this Rails application allows distinct access privileges as either 
 
 ![Screenshot](/app/assets/images/hire_my_tribe_screenshot.png)
 
-## Skills acquired
+## Technologies and methodology
 Rails 4, ActiveRecord, Heroku Deployment, Shoulda Matchers Model Validations, Agile Development, Waffle, Git Workflow, Materialize, CSS, HTML, MVC Best Practices, Stripe Payment Processing, Paperclip & AWS S3
 
 ## Deployment
